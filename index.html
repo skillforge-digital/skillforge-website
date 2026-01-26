@@ -25,9 +25,23 @@
     .logo-frame { background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(234, 179, 8, 0.3); }
     .live-pulse { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 0 rgba(239, 68, 68, 0.4); animation: pulse 2s infinite; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    #gold-dust { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    body > * { position: relative; z-index: 2; }
+    html[data-theme="dark"] body { background-color: #0b0b0f; color: #e5e7eb; }
+    html[data-theme="dark"] .glass-nav { background: rgba(12, 12, 18, 0.85); backdrop-filter: blur(12px); }
+    html[data-theme="dark"] .bg-white { background-color: #0f172a; }
+    html[data-theme="dark"] .text-slate-900 { color: #e5e7eb; }
+    html[data-theme="dark"] .text-slate-500 { color: #94a3b8; }
+    html[data-theme="dark"] .text-slate-400 { color: #94a3b8; }
+    html[data-theme="dark"] .border-slate-100 { border-color: #1f2937; }
+    html[data-theme="dark"] .bg-amber-50 { background-color: rgba(234,179,8,0.08); }
+    html[data-theme="dark"] .bg-slate-50 { background-color: #0f172a; }
+    #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
   </style>
 </head>
 <body class="bg-[#fafafa] text-slate-900">
+  
+  <canvas id="gold-dust"></canvas>
   
   <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
@@ -46,6 +60,10 @@
           <button onclick="showSection('tracks')" class="hover:text-amber-600 transition">Tracks</button>
           <button onclick="showSection('services')" class="hover:text-amber-600 transition">Agency</button>
           <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
+          <button id="theme-toggle-nav" onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
+            <span id="theme-icon-nav">🌙</span>
+            <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+          </button>
         </div>
         <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
           <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,6 +98,11 @@
     <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="text-amber-600 border-b-4 border-amber-600 pb-2">Registration Portal</a>
     <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
   </div>
+
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
+    <span id="theme-icon">🌙</span>
+    <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+  </button>
 
   <section id="home" class="active-section">
     <div class="relative py-24 px-6 overflow-hidden">
@@ -489,6 +512,7 @@
         target.classList.add('active-section');
       }
       window.scrollTo(0, 0);
+      if (location.hash.replace('#','') !== sectionId) location.hash = sectionId;
     }
     function loadLesson(track) {
       const container = document.getElementById('lesson-content');
@@ -521,7 +545,89 @@
         }
       });
     }
-    document.addEventListener('DOMContentLoaded', initSchedule);
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      const next = saved ? saved : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+      });
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+      });
+    }
+    function initHashRouting() {
+      const hash = location.hash.replace('#', '');
+      if (hash && ['home','academy','tracks','services'].includes(hash)) {
+        showSection(hash);
+      } else {
+        showSection('home');
+      }
+      window.addEventListener('hashchange', function() {
+        const h = location.hash.replace('#', '');
+        if (h) showSection(h);
+      });
+    }
+    function initGoldDust() {
+      const canvas = document.getElementById('gold-dust');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      const particles = [];
+      const count = Math.min(240, Math.floor((w*h)/30000));
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          vx: (Math.random()-0.5)*0.9,
+          vy: (Math.random()-0.5)*0.9,
+          r: Math.random()*1.2 + 0.8,
+          a: Math.random()*2*Math.PI,
+          t: Math.random()*1000
+        });
+      }
+      function draw() {
+        ctx.clearRect(0,0,w,h);
+        for (let p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < -10) p.x = w+10;
+          if (p.x > w+10) p.x = -10;
+          if (p.y < -10) p.y = h+10;
+          if (p.y > h+10) p.y = -10;
+          p.a += 0.02;
+          const twinkle = 0.8 + 0.2*Math.sin(p.a);
+          ctx.fillStyle = 'rgba(212,175,55,' + twinkle + ')';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fill();
+          ctx.fillStyle = 'rgba(255,255,255,' + (twinkle*0.4) + ')';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r*0.45, 0, Math.PI*2);
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      draw();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      initSchedule();
+      initTheme();
+      initHashRouting();
+      initGoldDust();
+    });
   </script>
 </body>
 </html>
