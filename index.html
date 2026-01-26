@@ -10,6 +10,7 @@
   <title>Skillforge Digital & Co. LTD | Elite Ecosystem</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
@@ -38,6 +39,7 @@
     html[data-theme="dark"] .bg-slate-50 { background-color: #0f172a; }
     #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
   </style>
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body class="bg-[#fafafa] text-slate-900">
   
@@ -76,7 +78,7 @@
 
   <div class="bg-amber-50 border-t border-amber-100">
     <div class="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] font-black uppercase tracking-widest text-amber-700">
-      <div>Email: contact@skillforge.example</div>
+      <div>Email: <a href="mailto:info@skillforgedigital.com.ng" class="hover:underline">info@skillforgedigital.com.ng</a></div>
       <div class="flex items-center gap-4">
         <a href="#" class="hover:underline">Twitter</a>
         <a href="#" class="hover:underline">LinkedIn</a>
@@ -452,20 +454,24 @@
             <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
           </div>
           <h3 class="text-3xl font-black mb-8 tracking-tighter">Acquire Professional Services</h3>
-          <form class="space-y-4">
+          <form id="agency-form" class="space-y-4">
             <div class="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="Contact Name" class="p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all">
-              <input type="email" placeholder="Business Email" class="p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all">
+              <input name="contact_name" required type="text" placeholder="Contact Name" class="p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all" aria-label="Contact Name">
+              <input name="business_email" required type="email" placeholder="Business Email" class="p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all" aria-label="Business Email">
             </div>
-            <select class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all">
+            <select name="category" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all" aria-label="Project Category">
               <option>Select Project Category</option>
               <option>Graphics Design / Visual Identity</option>
               <option>Web Development / Engineering</option>
               <option>Discord Community Architecture</option>
               <option>Social Media Traffic Sourcing</option>
             </select>
-            <textarea placeholder="Briefly describe the project scope..." class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all h-32 resize-none"></textarea>
-            <button type="button" class="w-full py-6 gold-gradient text-white font-black uppercase text-xs tracking-[0.3em] rounded-2xl shadow-xl shadow-amber-600/30 hover:scale-[1.02] transition-all">Submit Brief for Execution</button>
+            <textarea name="scope_description" required placeholder="Briefly describe the project scope..." class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all h-32 resize-none" aria-label="Project Scope"></textarea>
+            <input type="text" name="website" class="hidden" tabindex="-1" aria-hidden="true">
+            <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Security verification</div>
+            <div id="captcha-anchor" class="hidden"></div>
+            <button id="agency-submit" type="button" class="w-full py-6 gold-gradient text-white font-black uppercase text-xs tracking-[0.3em] rounded-2xl shadow-xl shadow-amber-600/30 hover:scale-[1.02] transition-all">Submit Brief for Execution</button>
+            <div id="agency-status" class="mt-2 text-xs font-black uppercase tracking-widest text-slate-500"></div>
           </form>
         </div>
       </div>
@@ -487,6 +493,9 @@
         <div class="text-center md:text-right">
           <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Official Organization Portal</p>
           <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="text-amber-600 font-black uppercase text-xs tracking-widest hover:underline decoration-2 underline-offset-4">Registry & Intake Portal</a>
+          <div class="mt-3">
+            <button onclick="openConsent()" class="text-slate-400 hover:text-amber-600 text-[10px] uppercase tracking-[0.3em] font-bold">Manage Cookies</button>
+          </div>
         </div>
       </div>
       <div class="pt-10 border-t border-slate-50 text-center">
@@ -494,6 +503,38 @@
       </div>
     </div>
   </footer>
+
+  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[28rem] bg-white border border-slate-100 rounded-2xl shadow-2xl p-6 z-[80] hidden">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 logo-frame rounded-xl flex-shrink-0">
+        <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+      </div>
+      <div class="flex-1">
+        <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Cookies</div>
+        <div class="text-slate-600 text-sm mt-1">We use essential cookies to operate this site. You can allow analytics and marketing for improvements.</div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button onclick="acceptAllCookies()" class="px-5 py-3 gold-gradient text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Accept All</button>
+          <button onclick="rejectNonEssentialCookies()" class="px-5 py-3 bg-slate-900 text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Essential Only</button>
+          <button onclick="openCookieModal()" class="px-5 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Customize</button>
+        </div>
+      </div>
+      <button onclick="closeCookieBanner()" class="text-slate-400 hover:text-slate-900 text-2xl leading-none">×</button>
+    </div>
+  </div>
+
+  <div id="cookie-modal" class="fixed inset-0 bg-black/40 z-[90] hidden">
+    <div class="absolute right-4 top-4 md:right-1/2 md:translate-x-1/2 bg-white rounded-2xl border border-slate-100 shadow-2xl w-[28rem] p-6">
+      <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Customize Cookies</div>
+      <div class="space-y-3 text-sm text-slate-600">
+        <label class="flex items-center gap-3"><input id="consent-analytics" type="checkbox" class="w-4 h-4"> <span>Analytics</span></label>
+        <label class="flex items-center gap-3"><input id="consent-marketing" type="checkbox" class="w-4 h-4"> <span>Marketing</span></label>
+      </div>
+      <div class="mt-4 flex gap-3">
+        <button onclick="saveCookiePreferences()" class="px-5 py-3 gold-gradient text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Save</button>
+        <button onclick="closeCookieModal()" class="px-5 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     function toggleMenu() { document.body.classList.toggle('menu-open'); }
@@ -563,15 +604,19 @@
       });
     }
     function initHashRouting() {
-      const hash = location.hash.replace('#', '');
-      if (hash && ['home','academy','tracks','services'].includes(hash)) {
-        showSection(hash);
+      const hashRaw = location.hash.replace('#', '');
+      const hash = (hashRaw || '').toLowerCase();
+      const map = { 'home': 'home', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
+      if (hash && map[hash]) {
+        showSection(map[hash]);
       } else {
         showSection('home');
       }
       window.addEventListener('hashchange', function() {
-        const h = location.hash.replace('#', '');
-        if (h) showSection(h);
+        const hRaw = location.hash.replace('#', '');
+        const h = (hRaw || '').toLowerCase();
+        const m = { 'home': 'home', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
+        if (m[h]) showSection(m[h]);
       });
     }
     function initGoldDust() {
@@ -622,11 +667,133 @@
       window.addEventListener('resize', resize);
       draw();
     }
+    const APP_CONFIG = {
+      agencyEndpoint: 'https://api.web3forms.com/submit',
+      socialLinks: { twitter: null, linkedin: null, youtube: null, instagram: null, discord: null }
+    };
+    function setSocialLinks(cfg) {
+      const map = {
+        Twitter: cfg.twitter,
+        LinkedIn: cfg.linkedin,
+        YouTube: cfg.youtube,
+        Instagram: cfg.instagram,
+        Discord: cfg.discord
+      };
+      document.querySelectorAll('a').forEach(a => {
+        const label = a.textContent && a.textContent.trim();
+        if (label && map[label]) a.setAttribute('href', map[label]);
+      });
+    }
+    let captchaWidgetId = null;
+    let pendingSubmission = null;
+    function onCaptchaVerified(token) {
+      if (!pendingSubmission) return;
+      const form = document.getElementById('agency-form');
+      const status = document.getElementById('agency-status');
+      const fd = new FormData();
+      fd.append('access_key', '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97');
+      fd.append('name', pendingSubmission.contact_name);
+      fd.append('email', pendingSubmission.business_email);
+      fd.append('message', pendingSubmission.scope_description);
+      fd.append('category', pendingSubmission.category);
+      fd.append('subject', 'Agency Submission');
+      fd.append('h-captcha-response', token);
+      if (APP_CONFIG.agencyEndpoint) {
+        fetch(APP_CONFIG.agencyEndpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd
+        }).then(async r => {
+          const data = await r.json().catch(() => ({}));
+          if (r.ok && data.success !== false) { status.textContent = 'Received. We will contact you.'; form.reset(); }
+          else { status.textContent = 'Submission failed. Please try again.'; }
+        }).catch(() => { status.textContent = 'Network error. Please try again.'; });
+      } else {
+        const drafts = JSON.parse(localStorage.getItem('agency_drafts') || '[]');
+        drafts.push({ ...pendingSubmission, ts: Date.now() });
+        localStorage.setItem('agency_drafts', JSON.stringify(drafts));
+        status.textContent = 'Received locally. Backend pending.';
+        form.reset();
+      }
+      pendingSubmission = null;
+    }
+    function initCaptcha() {
+      const anchor = document.getElementById('captcha-anchor');
+      if (!anchor) return;
+      function render() {
+        if (!window.hcaptcha) { setTimeout(render, 300); return; }
+        const theme = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark' ? 'dark' : 'light';
+        captchaWidgetId = hcaptcha.render(anchor, {
+          sitekey: '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97',
+          size: 'invisible',
+          callback: onCaptchaVerified,
+          theme
+        });
+      }
+      render();
+    }
+    function executeCaptcha() {
+      if (window.hcaptcha && captchaWidgetId !== null) { hcaptcha.execute(captchaWidgetId); return true; }
+      return false;
+    }
+    function handleAgencySubmit() {
+      const form = document.getElementById('agency-form');
+      if (!form) return;
+      const status = document.getElementById('agency-status');
+      const data = {
+        contact_name: form.contact_name?.value?.trim() || '',
+        business_email: form.business_email?.value?.trim() || '',
+        category: form.category?.value || '',
+        scope_description: form.scope_description?.value?.trim() || '',
+        website: form.website?.value || ''
+      };
+      if (data.website) { status.textContent = 'Blocked by security filter.'; return; }
+      if (!data.contact_name || !data.business_email || !data.category || !data.scope_description || data.category === 'Select Project Category') {
+        status.textContent = 'Please complete all required fields.'; return;
+      }
+      status.textContent = 'Verifying...';
+      pendingSubmission = data;
+      if (!executeCaptcha()) {
+        status.textContent = 'Security check unavailable. Please try again shortly.';
+        pendingSubmission = null;
+      }
+    }
+    const CONSENT_KEY = 'consent_v1';
+    function getConsent() {
+      try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || '{}'); } catch { return {}; }
+    }
+    function setConsent(c) { localStorage.setItem(CONSENT_KEY, JSON.stringify(c)); }
+    function hasConsent(cat) { const c = getConsent(); return !!c[cat]; }
+    function openConsent() { document.getElementById('cookie-modal').classList.remove('hidden'); }
+    function openCookieModal() {
+      const c = getConsent();
+      document.getElementById('consent-analytics').checked = !!c.analytics;
+      document.getElementById('consent-marketing').checked = !!c.marketing;
+      document.getElementById('cookie-modal').classList.remove('hidden');
+    }
+    function closeCookieModal() { document.getElementById('cookie-modal').classList.add('hidden'); }
+    function closeCookieBanner() { document.getElementById('cookie-banner').classList.add('hidden'); }
+    function acceptAllCookies() { setConsent({ essential: true, analytics: true, marketing: true }); closeCookieBanner(); }
+    function rejectNonEssentialCookies() { setConsent({ essential: true, analytics: false, marketing: false }); closeCookieBanner(); }
+    function saveCookiePreferences() {
+      const analytics = document.getElementById('consent-analytics').checked;
+      const marketing = document.getElementById('consent-marketing').checked;
+      setConsent({ essential: true, analytics, marketing });
+      closeCookieModal(); closeCookieBanner();
+    }
+    function initConsent() {
+      const c = getConsent();
+      if (!('essential' in c)) { document.getElementById('cookie-banner').classList.remove('hidden'); }
+    }
     document.addEventListener('DOMContentLoaded', function() {
       initSchedule();
       initTheme();
       initHashRouting();
       initGoldDust();
+      initConsent();
+      initCaptcha();
+      const agencyBtn = document.getElementById('agency-submit');
+      if (agencyBtn) agencyBtn.addEventListener('click', handleAgencySubmit);
     });
   </script>
 </body>
