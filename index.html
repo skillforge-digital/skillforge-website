@@ -9,6 +9,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skillforge Digital & Co. LTD | Elite Ecosystem</title>
   
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SkillForge Digital & Co. Ltd",
+    "description": "SkillForge is a visual synthesis of traditional craftsmanship and modern digital innovation, conveying authority, precision, and the transformative power of technology.",
+    "brand": {
+      "@type": "Brand",
+      "name": "SkillForge",
+      "slogan": "Forging Digital Legacy Out of Vision",
+      "description": "Our brand identity is built on the Digital Hammer (creation), the Shield & Laurel (security and excellence), and the Lightning Bolt (innovation)."
+    },
+    "knowsAbout": ["Forex Trading", "Cybersecurity", "Web Development", "Graphics Design", "Digital Strategy"]
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
@@ -56,7 +72,7 @@
         </div>
         <div class="hidden lg:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest text-slate-500">
           <button onclick="showSection('home')" class="hover:text-amber-600 transition">Ecosystem</button>
-          <button onclick="showSection('academy')" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</button>
+          <button onclick="showSection('about')" class="hover:text-amber-600 transition">About Us</button> <button onclick="showSection('academy')" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</button>
           <button onclick="showSection('tracks')" class="hover:text-amber-600 transition">Tracks</button>
           <button onclick="showSection('services')" class="hover:text-amber-600 transition">Agency</button>
           <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
@@ -95,7 +111,7 @@
       <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
     </div>
     <button onclick="toggleMenu(); showSection('home')" class="hover:text-amber-600">Ecosystem</button>
-    <button onclick="toggleMenu(); showSection('academy')" class="hover:text-amber-600">The Academy</button>
+    <button onclick="toggleMenu(); showSection('about')" class="hover:text-amber-600">About Us</button> <button onclick="toggleMenu(); showSection('academy')" class="hover:text-amber-600">The Academy</button>
     <button onclick="toggleMenu(); showSection('tracks')" class="hover:text-amber-600">Skill Tracks</button>
     <button onclick="toggleMenu(); showSection('services')" class="hover:text-amber-600">The Agency</button>
     <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="text-amber-600 border-b-4 border-amber-600 pb-2">Registration Portal</a>
@@ -197,6 +213,53 @@
             <p class="text-slate-500 text-sm">Central registry portal for intake and certification tracking.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section-hidden py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16 text-center">
+        <h2 class="text-5xl font-black tracking-tighter mb-4">About <span class="text-amber-600">SkillForge.</span></h2>
+        <p class="text-slate-500 text-xl font-light italic max-w-3xl mx-auto">
+          "The SkillForge brand is a visual synthesis of traditional craftsmanship and modern digital innovation."
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">The Digital Hammer</h3>
+            <p class="text-slate-500 leading-relaxed">
+                At the center of our crest sits a hammer, the universal symbol of the "forge." It is reimagined with integrated circuitry and motherboard pathways. We don't just use tools; we build them.
+            </p>
+        </div>
+
+        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">Heritage & Excellence</h3>
+            <p class="text-slate-500 leading-relaxed">
+                Housed within a classic shield and laurel wreath, we act as a protector of client interests and a builder of robust, fortified systems. The laurel signals industry leadership and high achievement.
+            </p>
+        </div>
+
+        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">Energy & Speed</h3>
+            <p class="text-slate-500 leading-relaxed">
+                The lightning bolt signifies innovation and rapid execution. It represents the "spark" of an idea and the high-voltage energy required to power digital transformation.
+            </p>
+        </div>
+
+        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">Stability & Sophistication</h3>
+            <p class="text-slate-500 leading-relaxed">
+                Our heavy, high-contrast serif typography provides a foundation of strength. It balances high-tech imagery with a corporate structure that implies scale and accountability.
+            </p>
+        </div>
+      </div>
+
+      <div class="mt-16 p-10 bg-slate-900 text-white rounded-[3rem] text-center overflow-hidden relative">
+        <div class="absolute inset-0 gold-gradient opacity-10"></div>
+        <h3 class="text-xl font-bold uppercase tracking-widest text-amber-500 mb-2">Our Color Palette</h3>
+        <p class="text-slate-300">"Deep Forge" Navy & White ensures clarity, trust, and intelligence across all mediums.</p>
       </div>
     </div>
   </section>
@@ -579,7 +642,7 @@
     function toggleMenu() { document.body.classList.toggle('menu-open'); }
 
     function showSection(sectionId) {
-      const sections = ['home', 'academy', 'tracks', 'services'];
+      const sections = ['home', 'about', 'academy', 'tracks', 'services']; // UPDATED LIST
       sections.forEach(s => {
         const el = document.getElementById(s);
         if (el) {
@@ -651,7 +714,7 @@
     function initHashRouting() {
       const hashRaw = location.hash.replace('#', '');
       const hash = (hashRaw || '').toLowerCase();
-      const map = { 'home': 'home', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
+      const map = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' }; // UPDATED
       if (hash && map[hash]) {
         showSection(map[hash]);
       } else {
@@ -660,7 +723,7 @@
       window.addEventListener('hashchange', function() {
         const hRaw = location.hash.replace('#', '');
         const h = (hRaw || '').toLowerCase();
-        const m = { 'home': 'home', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
+        const m = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' }; // UPDATED
         if (m[h]) showSection(m[h]);
       });
     }
