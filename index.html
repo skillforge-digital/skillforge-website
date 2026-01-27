@@ -10,7 +10,6 @@
   <title>Skillforge Digital & Co. LTD | Elite Ecosystem</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://hcaptcha.com/1/api.js" async defer></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
@@ -26,7 +25,7 @@
     .logo-frame { background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(234, 179, 8, 0.3); }
     .live-pulse { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 0 rgba(239, 68, 68, 0.4); animation: pulse 2s infinite; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
-    #gold-dust { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    #gold-dust { position: fixed; inset: 0; z-index: 40; pointer-events: none; mix-blend-mode: normal; }
     body > * { position: relative; z-index: 2; }
     html[data-theme="dark"] body { background-color: #0b0b0f; color: #e5e7eb; }
     html[data-theme="dark"] .glass-nav { background: rgba(12, 12, 18, 0.85); backdrop-filter: blur(12px); }
@@ -39,7 +38,6 @@
     html[data-theme="dark"] .bg-slate-50 { background-color: #0f172a; }
     #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
   </style>
-  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body class="bg-[#fafafa] text-slate-900">
   
@@ -79,12 +77,15 @@
   <div class="bg-amber-50 border-t border-amber-100">
     <div class="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] font-black uppercase tracking-widest text-amber-700">
       <div>Email: <a href="mailto:info@skillforgedigital.com.ng" class="hover:underline">info@skillforgedigital.com.ng</a></div>
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 flex-wrap justify-end">
         <a href="#" class="hover:underline">Twitter</a>
         <a href="#" class="hover:underline">LinkedIn</a>
         <a href="#" class="hover:underline">YouTube</a>
         <a href="#" class="hover:underline">Instagram</a>
         <a href="#" class="hover:underline">Discord</a>
+        <a href="#" class="hover:underline">Telegram</a>
+        <a href="#" class="hover:underline">Facebook</a>
+        <a href="#" class="hover:underline">TikTok</a>
       </div>
     </div>
   </div>
@@ -376,6 +377,9 @@
             <a href="#" class="text-amber-600 hover:underline">YouTube</a>
             <a href="#" class="text-amber-600 hover:underline">Instagram</a>
             <a href="#" class="text-amber-600 hover:underline">Discord</a>
+            <a href="#" class="text-amber-600 hover:underline">Telegram</a>
+            <a href="#" class="text-amber-600 hover:underline">Facebook</a>
+            <a href="#" class="text-amber-600 hover:underline">TikTok</a>
           </div>
         </div>
       </div>
@@ -478,6 +482,21 @@
     </div>
   </section>
 
+  <section class="py-12 px-6 bg-slate-50 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto text-center">
+      <h3 class="text-xl font-black uppercase tracking-tight mb-4 text-slate-900">Feedback & Suggestions</h3>
+      <p class="text-slate-500 text-sm mb-6 max-w-2xl mx-auto">Help us improve the Skillforge ecosystem. Your insights are valuable to us.</p>
+      <form id="feedback-form" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
+        <input name="message" required type="text" placeholder="Share your thoughts..." class="flex-grow p-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-sm">
+        <input type="text" name="website_feedback" class="hidden" tabindex="-1" aria-hidden="true">
+        <button type="submit" class="px-8 py-4 bg-white border border-amber-200 text-amber-600 font-black uppercase text-[10px] tracking-[0.2em] rounded-xl hover:bg-amber-50 transition-all shadow-lg shadow-amber-600/5 flex-shrink-0">
+          Send
+        </button>
+      </form>
+      <div id="feedback-status" class="mt-4 text-xs font-black uppercase tracking-widest text-slate-500 h-4"></div>
+    </div>
+  </section>
+
   <footer class="bg-white border-t border-slate-100 py-20 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
@@ -537,7 +556,22 @@
   </div>
 
   <script>
+    const APP_CONFIG = {
+      agencyEndpoint: 'https://api.web3forms.com/submit',
+      socialLinks: {
+        twitter: 'https://x.com/Skillforgeorg',
+        linkedin: 'https://www.linkedin.com/in/skillforge-organization-551310398?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+        youtube: 'https://youtube.com/@skillforgeorg?si=3aJGC-h4qOeNuMOW',
+        instagram: 'https://www.instagram.com/skillforge.co.ltd?igsh=MW1kY3RhMmlzNzJ1NA%3D%3D&utm_source=qr',
+        discord: 'https://discord.gg/M8Ng7jh4K',
+        telegram: 'https://t.me/skillforgeorg',
+        facebook: 'https://www.facebook.com/share/1GQhM9aYTd/?mibextid=wwXIfr',
+        tiktok: 'https://www.tiktok.com/@skillforge.co.ltd?_r=1&_d=emad6hfhahkjgf&sec_uid=MS4wLjABAAAAjZaFeWp0p-R2bFlp4atK1knvnIvrMWxE175mOphVNg31QTA0RlrNFUeGpZWs8Hl9&share_author_id=7587431884104533047&sharer_language=en&source=h5_m&u_code=f155086fm345jh&item_author_type=1&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=9F838A09-A6A2-40B2-90C2-7A66A5D30506&user_id=7587431884104533047&sec_user_id=MS4wLjABAAAAjZaFeWp0p-R2bFlp4atK1knvnIvrMWxE175mOphVNg31QTA0RlrNFUeGpZWs8Hl9&social_share_type=4&ug_btm=b8727,b0&utm_campaign=client_share&share_app_id=1233'
+      }
+    };
+
     function toggleMenu() { document.body.classList.toggle('menu-open'); }
+
     function showSection(sectionId) {
       const sections = ['home', 'academy', 'tracks', 'services'];
       sections.forEach(s => {
@@ -555,6 +589,7 @@
       window.scrollTo(0, 0);
       if (location.hash.replace('#','') !== sectionId) location.hash = sectionId;
     }
+
     function loadLesson(track) {
       const container = document.getElementById('lesson-content');
       container.classList.remove('hidden');
@@ -563,6 +598,7 @@
       }
       container.scrollIntoView({ behavior: 'smooth' });
     }
+
     function initSchedule() {
       const current = new Date().toLocaleString('en-US', { month: 'long' }).toUpperCase();
       document.querySelectorAll('[data-month]').forEach(card => {
@@ -586,6 +622,7 @@
         }
       });
     }
+
     function initTheme() {
       const saved = localStorage.getItem('theme');
       const next = saved ? saved : 'light';
@@ -594,6 +631,7 @@
         if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
       });
     }
+
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
@@ -603,6 +641,7 @@
         if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
       });
     }
+
     function initHashRouting() {
       const hashRaw = location.hash.replace('#', '');
       const hash = (hashRaw || '').toLowerCase();
@@ -619,6 +658,7 @@
         if (m[h]) showSection(m[h]);
       });
     }
+
     function initGoldDust() {
       const canvas = document.getElementById('gold-dust');
       if (!canvas) return;
@@ -626,20 +666,27 @@
       let w = canvas.width = window.innerWidth;
       let h = canvas.height = window.innerHeight;
       const particles = [];
-      const count = Math.min(240, Math.floor((w*h)/30000));
+      const count = Math.min(450, Math.floor((w*h)/8000));
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random()*w,
           y: Math.random()*h,
-          vx: (Math.random()-0.5)*0.9,
-          vy: (Math.random()-0.5)*0.9,
-          r: Math.random()*1.2 + 0.8,
-          a: Math.random()*2*Math.PI,
-          t: Math.random()*1000
+          vx: (Math.random()-0.5)*0.3,
+          vy: (Math.random()-0.5)*0.3,
+          r: Math.random()*1.4 + 0.6,
+          a: Math.random()*2*Math.PI
         });
       }
       function draw() {
         ctx.clearRect(0,0,w,h);
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        
+        // Dark theme: Bright Gold (255,215,0)
+        // Light theme: Darker Gold/Bronze (184,134,11) for contrast against white
+        const rC = isDark ? 255 : 184;
+        const gC = isDark ? 215 : 134;
+        const bC = isDark ? 0 : 11;
+
         for (let p of particles) {
           p.x += p.vx;
           p.y += p.vy;
@@ -647,15 +694,21 @@
           if (p.x > w+10) p.x = -10;
           if (p.y < -10) p.y = h+10;
           if (p.y > h+10) p.y = -10;
-          p.a += 0.02;
-          const twinkle = 0.8 + 0.2*Math.sin(p.a);
-          ctx.fillStyle = 'rgba(212,175,55,' + twinkle + ')';
+          p.a += 0.015;
+          
+          // Sine wave for opacity (0.4 to 0.9) - distinct shine
+          const opacity = 0.65 + 0.25*Math.sin(p.a);
+          
+          // Outer glow/body
+          ctx.fillStyle = `rgba(${rC},${gC},${bC},${opacity})`;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
           ctx.fill();
-          ctx.fillStyle = 'rgba(255,255,255,' + (twinkle*0.4) + ')';
+          
+          // Inner bright core (white shine)
+          ctx.fillStyle = `rgba(255,255,255,${opacity + 0.1})`;
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r*0.45, 0, Math.PI*2);
+          ctx.arc(p.x, p.y, p.r*0.35, 0, Math.PI*2);
           ctx.fill();
         }
         requestAnimationFrame(draw);
@@ -663,30 +716,44 @@
       function resize() {
         w = canvas.width = window.innerWidth;
         h = canvas.height = window.innerHeight;
+        // Re-init particles on resize to maintain density
+        particles.length = 0;
+        const newCount = Math.min(450, Math.floor((w*h)/8000));
+        for (let i = 0; i < newCount; i++) {
+          particles.push({
+            x: Math.random()*w,
+            y: Math.random()*h,
+            vx: (Math.random()-0.5)*0.3,
+            vy: (Math.random()-0.5)*0.3,
+            r: Math.random()*1.4 + 0.6,
+            a: Math.random()*2*Math.PI
+          });
+        }
       }
       window.addEventListener('resize', resize);
       draw();
     }
-    const APP_CONFIG = {
-      agencyEndpoint: 'https://api.web3forms.com/submit',
-      socialLinks: { twitter: null, linkedin: null, youtube: null, instagram: null, discord: null }
-    };
+
     function setSocialLinks(cfg) {
       const map = {
-        Twitter: cfg.twitter,
-        LinkedIn: cfg.linkedin,
-        YouTube: cfg.youtube,
-        Instagram: cfg.instagram,
-        Discord: cfg.discord
+        'Twitter': cfg.twitter,
+        'LinkedIn': cfg.linkedin,
+        'YouTube': cfg.youtube,
+        'Instagram': cfg.instagram,
+        'Discord': cfg.discord,
+        'Telegram': cfg.telegram,
+        'Facebook': cfg.facebook,
+        'TikTok': cfg.tiktok
       };
       document.querySelectorAll('a').forEach(a => {
         const label = a.textContent && a.textContent.trim();
         if (label && map[label]) a.setAttribute('href', map[label]);
       });
     }
-    let captchaWidgetId = null;
+
     let pendingSubmission = null;
-    function onCaptchaVerified(token) {
+
+    function submitAgencyForm() {
       if (!pendingSubmission) return;
       const form = document.getElementById('agency-form');
       const status = document.getElementById('agency-status');
@@ -697,7 +764,7 @@
       fd.append('message', pendingSubmission.scope_description);
       fd.append('category', pendingSubmission.category);
       fd.append('subject', 'Agency Submission');
-      fd.append('h-captcha-response', token);
+      
       if (APP_CONFIG.agencyEndpoint) {
         fetch(APP_CONFIG.agencyEndpoint, {
           method: 'POST',
@@ -705,41 +772,39 @@
           body: fd
         }).then(async r => {
           const data = await r.json().catch(() => ({}));
-          if (r.ok && data.success !== false) { status.textContent = 'Received. We will contact you.'; form.reset(); }
-          else { status.textContent = 'Submission failed. Please try again.'; }
-        }).catch(() => { status.textContent = 'Network error. Please try again.'; });
-      } else {
-        const drafts = JSON.parse(localStorage.getItem('agency_drafts') || '[]');
-        drafts.push({ ...pendingSubmission, ts: Date.now() });
-        localStorage.setItem('agency_drafts', JSON.stringify(drafts));
-        status.textContent = 'Received locally. Backend pending.';
-        form.reset();
+          if (r.ok && data.success !== false) { 
+            status.textContent = 'Submission Successful! We will contact you shortly.';
+            status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-green-600';
+            form.reset(); 
+            
+            // Reset custom captcha
+            const humanCheck = document.getElementById('human-check');
+            if (humanCheck) humanCheck.checked = false;
+
+            const successBanner = document.createElement('div');
+            successBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 animate-bounce';
+            successBanner.innerHTML = '<span>✓</span> <span class="font-bold uppercase tracking-widest text-xs">Submission Received Successfully</span>';
+            document.body.appendChild(successBanner);
+            setTimeout(() => successBanner.remove(), 5000);
+
+          } else { 
+            status.textContent = 'Submission failed. Please try again.'; 
+            status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
+          }
+        }).catch(() => { 
+          status.textContent = 'Network error. Please try again.'; 
+          status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
+        });
       }
       pendingSubmission = null;
     }
-    function initCaptcha() {
-      const anchor = document.getElementById('captcha-anchor');
-      if (!anchor) return;
-      function render() {
-        if (!window.hcaptcha) { setTimeout(render, 300); return; }
-        const theme = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark' ? 'dark' : 'light';
-        captchaWidgetId = hcaptcha.render(anchor, {
-          sitekey: '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97',
-          size: 'invisible',
-          callback: onCaptchaVerified,
-          theme
-        });
-      }
-      render();
-    }
-    function executeCaptcha() {
-      if (window.hcaptcha && captchaWidgetId !== null) { hcaptcha.execute(captchaWidgetId); return true; }
-      return false;
-    }
+
     function handleAgencySubmit() {
       const form = document.getElementById('agency-form');
       if (!form) return;
       const status = document.getElementById('agency-status');
+      const humanCheck = document.getElementById('human-check');
+      
       const data = {
         contact_name: form.contact_name?.value?.trim() || '',
         business_email: form.business_email?.value?.trim() || '',
@@ -747,17 +812,27 @@
         scope_description: form.scope_description?.value?.trim() || '',
         website: form.website?.value || ''
       };
+      
       if (data.website) { status.textContent = 'Blocked by security filter.'; return; }
+      
       if (!data.contact_name || !data.business_email || !data.category || !data.scope_description || data.category === 'Select Project Category') {
-        status.textContent = 'Please complete all required fields.'; return;
+        status.textContent = 'Please complete all required fields.'; 
+        status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
+        return;
       }
-      status.textContent = 'Verifying...';
+
+      if (!humanCheck || !humanCheck.checked) {
+        status.textContent = 'Please verify you are human by checking the box.';
+        status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
+        return;
+      }
+
+      status.textContent = 'Sending...';
+      status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-amber-600';
       pendingSubmission = data;
-      if (!executeCaptcha()) {
-        status.textContent = 'Security check unavailable. Please try again shortly.';
-        pendingSubmission = null;
-      }
+      submitAgencyForm();
     }
+
     const CONSENT_KEY = 'consent_v1';
     function getConsent() {
       try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || '{}'); } catch { return {}; }
@@ -785,15 +860,20 @@
       const c = getConsent();
       if (!('essential' in c)) { document.getElementById('cookie-banner').classList.remove('hidden'); }
     }
+
     document.addEventListener('DOMContentLoaded', function() {
       initSchedule();
       initTheme();
       initHashRouting();
       initGoldDust();
       initConsent();
-      initCaptcha();
+      setSocialLinks(APP_CONFIG.socialLinks);
+      
       const agencyBtn = document.getElementById('agency-submit');
       if (agencyBtn) agencyBtn.addEventListener('click', handleAgencySubmit);
+
+      const feedbackForm = document.getElementById('feedback-form');
+      if (feedbackForm) feedbackForm.addEventListener('submit', handleFeedbackSubmit);
     });
   </script>
 </body>
