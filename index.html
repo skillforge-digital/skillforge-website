@@ -274,6 +274,17 @@
         <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="bg-amber-600 text-white px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center gap-4 hover:bg-amber-700 transition-all shadow-lg shadow-amber-600/20">Join Accelerated Cohort</a>
       </div>
       
+      <div id="academy-subcats" class="mt-6 flex flex-wrap gap-3">
+        <a id="subcat-synthetics" href="#academy/synthetics" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Synthetics</a>
+        <a id="subcat-currency" href="#academy/currency" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Currency Pairs</a>
+        <a id="subcat-stocks" href="#academy/stocks" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Stock Market</a>
+        <a id="subcat-graphics" href="#academy/graphics" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Graphics Design</a>
+        <a id="subcat-cybersecurity" href="#academy/cybersecurity" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Cybersecurity</a>
+        <a id="subcat-photo" href="#academy/photo" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Photography</a>
+        <a id="subcat-webdev" href="#academy/webdev" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Web Dev</a>
+        <a id="subcat-discord" href="#academy/discord" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] rounded-full border border-slate-200 text-slate-600 hover:bg-amber-50 hover:border-amber-200">Discord Dev</a>
+      </div>
+      
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         <div class="group h-full relative">
           <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
@@ -675,13 +686,118 @@
       if (location.hash.replace('#','') !== sectionId) location.hash = sectionId;
     }
 
+    function highlightSubcategory(slug) {
+      document.querySelectorAll('#academy-subcats a').forEach(a => {
+        a.classList.remove('gold-gradient','text-white');
+      });
+      const active = document.getElementById('subcat-' + slug);
+      if (active) active.classList.add('gold-gradient','text-white');
+    }
+    
     function loadLesson(track) {
       const container = document.getElementById('lesson-content');
       container.classList.remove('hidden');
-      if (track === 'synthetics') {
-        container.innerHTML = '<div class="bg-slate-900 p-10 md:p-24 rounded-[4rem] text-white shadow-2xl max-w-5xl mx-auto relative overflow-hidden"><div class="absolute top-0 right-0 w-64 h-64 gold-gradient opacity-10 blur-[100px]"></div><button onclick="document.getElementById(\'lesson-content\').classList.add(\'hidden\')" class="absolute top-12 right-12 text-slate-500 hover:text-white transition text-5xl font-light">×</button><div class="w-20 h-20 logo-frame rounded-3xl mb-12"><img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover"></div><h2 class="text-4xl md:text-6xl font-black mb-10 tracking-tighter leading-none">Academy Track 1.1: <br><span class="text-amber-500 underline uppercase text-2xl md:text-4xl">Forex Synthetics Indices Landscape.</span></h2><div class="grid md:grid-cols-2 gap-12 mt-12"><div class="p-8 border border-white/10 rounded-3xl bg-white/5"><h4 class="font-black uppercase tracking-widest text-xs mb-4 text-amber-500">Logistical Checklist</h4><ul class="text-sm text-slate-400 space-y-3"><li>• Verify Broker: Deriv Implementation</li><li>• App Access: MetaTrader 5 (MT5)</li><li>• Identity Verification Complete</li></ul></div><div class="p-8 border border-white/10 rounded-3xl bg-white/5"><h4 class="font-black uppercase tracking-widest text-xs mb-4 text-amber-500">Registration Status</h4><p class="text-sm text-white font-bold mb-4">Official Registry Link Required for Certification</p><a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="text-amber-500 font-black text-xs uppercase underline">Access Registration Here</a></div></div></div>';
-      }
+      const titles = {
+        synthetics: 'Forex Synthetics Indices',
+        graphics: 'Graphics Design',
+        currency: 'Forex Currency Pairs',
+        stocks: 'Stock Market Trading',
+        cybersecurity: 'Cybersecurity',
+        photo: 'Photography & Editing',
+        webdev: 'Web Design & Development',
+        discord: 'Discord Design & Development'
+      };
+      
+      const title = titles[track] || 'Academy Track';
+      
+      // Default to showing Week 1 content immediately or a dashboard
+      container.innerHTML = `
+        <div class="bg-slate-900 p-8 md:p-12 rounded-[3rem] text-white shadow-2xl max-w-6xl mx-auto relative overflow-hidden min-h-[80vh]">
+          <div class="absolute top-0 right-0 w-96 h-96 gold-gradient opacity-10 blur-[120px]"></div>
+          
+          <div class="flex flex-col md:flex-row gap-8 relative z-10 h-full">
+            <!-- Sidebar / Week Selector -->
+            <div class="md:w-1/4 flex flex-col gap-4 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-6">
+              <div class="flex justify-between items-center mb-4">
+                <div class="w-12 h-12 logo-frame rounded-xl">
+                  <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                </div>
+                <button onclick="document.getElementById('lesson-content').classList.add('hidden')" class="text-slate-500 hover:text-white transition text-3xl">×</button>
+              </div>
+              
+              <h3 class="text-xl font-black leading-tight mb-2">${title}</h3>
+              <p class="text-[10px] text-amber-500 font-bold uppercase tracking-widest mb-6">Course Modules</p>
+              
+              <div class="space-y-2">
+                <button onclick="loadNote('${track}', 'week-1')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
+                  <span>Week 1</span>
+                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                </button>
+                <button onclick="loadNote('${track}', 'week-2')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
+                  <span>Week 2</span>
+                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                </button>
+                <button onclick="loadNote('${track}', 'week-3')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
+                  <span>Week 3</span>
+                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                </button>
+                <button onclick="loadNote('${track}', 'week-4')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
+                  <span>Week 4</span>
+                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                </button>
+                 <div class="pt-4 mt-4 border-t border-white/10">
+                    <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="block w-full text-center px-4 py-3 rounded-xl bg-amber-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-slate-900 transition">Register for Cert</a>
+                 </div>
+              </div>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="md:w-3/4 flex flex-col h-full" id="note-display-area">
+              <div class="flex-grow flex flex-col justify-center items-center text-center p-12 border border-white/5 rounded-3xl bg-white/5">
+                 <div class="text-6xl mb-6">📚</div>
+                 <h2 class="text-2xl font-bold mb-2">Select a Week</h2>
+                 <p class="text-slate-400 text-sm max-w-md">Choose a week from the sidebar to load the lesson notes. If a week's content is not yet uploaded, check back later.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      highlightSubcategory(track);
       container.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function navigateToTrack(slug) {
+      showSection('academy');
+      loadLesson(slug);
+      location.hash = 'academy/' + slug;
+    }
+    
+    function loadNote(slug, noteId) {
+      const display = document.getElementById('note-display-area');
+      if (!display) {
+        // If loaded directly from hash without full UI, load full UI first then inject note
+        loadLesson(slug);
+        // Small delay to ensure DOM is ready if sync (though innerHTML is sync)
+      }
+      
+      const targetDisplay = document.getElementById('note-display-area');
+      if (!targetDisplay) return;
+
+      const src = 'notes/' + slug + '/' + noteId + '.html';
+      
+      targetDisplay.innerHTML = `
+        <div class="w-full h-full flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-[10px] font-black uppercase tracking-widest text-amber-500">${slug} / ${noteId}</span>
+                <a href="${src}" target="_blank" class="text-[10px] text-slate-400 hover:text-white transition">Open in New Tab ↗</a>
+            </div>
+            <iframe src="${src}" class="w-full flex-grow rounded-2xl bg-white border border-slate-200" onload="this.contentWindow.document.body.style.margin='0';"></iframe>
+        </div>
+      `;
+      
+      highlightSubcategory(slug);
+      location.hash = 'academy/' + slug + '/' + noteId;
     }
 
     function initSchedule() {
@@ -724,19 +840,41 @@
     }
 
     function initHashRouting() {
-      const hashRaw = location.hash.replace('#', '');
-      const hash = (hashRaw || '').toLowerCase();
-      const map = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' }; // UPDATED
-      if (hash && map[hash]) {
-        showSection(map[hash]);
+      const raw = location.hash.replace('#', '');
+      const parts = (raw || '').toLowerCase().split('/');
+      const top = parts[0] || '';
+      const sub = parts[1] || '';
+      const note = parts[2] || '';
+      const simple = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
+      if (top === 'academy') {
+        showSection('academy');
+        if (note && sub) {
+          loadNote(sub, note);
+        } else if (sub) {
+          loadLesson(sub);
+        }
+      } else if (simple[top]) {
+        showSection(simple[top]);
       } else {
         showSection('home');
       }
       window.addEventListener('hashchange', function() {
-        const hRaw = location.hash.replace('#', '');
-        const h = (hRaw || '').toLowerCase();
-        const m = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' }; // UPDATED
-        if (m[h]) showSection(m[h]);
+        const r = location.hash.replace('#', '');
+        const p = (r || '').toLowerCase().split('/');
+        const t = p[0] || '';
+        const s = p[1] || '';
+        const n = p[2] || '';
+        const m = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
+        if (t === 'academy') {
+          showSection('academy');
+          if (n && s) {
+            loadNote(s, n);
+          } else if (s) {
+            loadLesson(s);
+          }
+        } else if (m[t]) {
+          showSection(m[t]);
+        }
       });
     }
 
