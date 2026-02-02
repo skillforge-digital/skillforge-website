@@ -566,6 +566,19 @@
     </div>
   </section>
 
+  <section class="py-12 px-6 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto text-center">
+      <h3 class="text-xl font-black uppercase tracking-tight mb-4 text-slate-900">Newsletter</h3>
+      <p class="text-slate-500 text-sm mb-6 max-w-2xl mx-auto">Subscribe for cohort updates, events, and new releases.</p>
+      <form id="newsletter-form" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
+        <input name="email" required type="email" placeholder="Your email address" class="flex-grow p-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-sm" aria-label="Email Address">
+        <input type="text" name="website_newsletter" class="hidden" tabindex="-1" aria-hidden="true">
+        <button type="submit" class="px-8 py-4 bg-amber-600 text-white font-black uppercase text-[10px] tracking-[0.2em] rounded-xl hover:bg-amber-700 transition-all shadow-lg shadow-amber-600/10 flex-shrink-0">Subscribe</button>
+      </form>
+      <div id="newsletter-status" class="mt-4 text-xs font-black uppercase tracking-widest text-slate-500 h-4"></div>
+    </div>
+  </section>
+
   <footer class="bg-white border-t border-slate-100 py-20 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
@@ -902,6 +915,59 @@
       submitAgencyForm();
     }
 
+    function submitNewsletterForm(email) {
+      const status = document.getElementById('newsletter-status');
+      const fd = new FormData();
+      fd.append('access_key', '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97');
+      fd.append('name', 'Newsletter Subscriber');
+      fd.append('email', email);
+      fd.append('subject', 'Newsletter Subscription');
+      fd.append('message', 'Please add me to your mailing list.');
+      fetch(APP_CONFIG.agencyEndpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: fd
+      }).then(async r => {
+        const data = await r.json().catch(() => ({}));
+        if (r.ok && data.success !== false) {
+          status.textContent = 'Subscription successful.';
+          status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-green-600 h-4';
+          const form = document.getElementById('newsletter-form');
+          if (form) form.reset();
+          const successBanner = document.createElement('div');
+          successBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 animate-bounce';
+          successBanner.innerHTML = '<span>✓</span> <span class="font-bold uppercase tracking-widest text-xs">Subscribed Successfully</span>';
+          document.body.appendChild(successBanner);
+          setTimeout(() => successBanner.remove(), 5000);
+        } else {
+          status.textContent = 'Subscription failed. Try again.';
+          status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-red-500 h-4';
+        }
+      }).catch(() => {
+        status.textContent = 'Network error. Try again.';
+        status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-red-500 h-4';
+      });
+    }
+
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('newsletter-form');
+      if (!form) return;
+      const status = document.getElementById('newsletter-status');
+      const honeypot = form.website_newsletter?.value || '';
+      const email = form.email?.value?.trim() || '';
+      if (honeypot) { status.textContent = 'Blocked by security filter.'; return; }
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!ok) {
+        status.textContent = 'Enter a valid email address.';
+        status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-red-500 h-4';
+        return;
+      }
+      status.textContent = 'Subscribing...';
+      status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-amber-600 h-4';
+      submitNewsletterForm(email);
+    }
+
     const CONSENT_KEY = 'consent_v1';
     function getConsent() {
       try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || '{}'); } catch { return {}; }
@@ -943,6 +1009,9 @@
 
       const feedbackForm = document.getElementById('feedback-form');
       if (feedbackForm) feedbackForm.addEventListener('submit', handleFeedbackSubmit);
+
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) newsletterForm.addEventListener('submit', handleNewsletterSubmit);
     });
   </script>
 </body>
