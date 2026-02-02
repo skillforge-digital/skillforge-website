@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Market Trading - Notes</title>
+    <title>Stock Market Trading - Student Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -35,12 +35,11 @@
     </nav>
 
     <div class="flex pt-16 min-h-screen">
-        <!-- Sidebar (Desktop) / Bottom Nav (Mobile) -->
+        <!-- Sidebar -->
         <aside class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 md:static md:w-64 md:border-t-0 md:border-r md:h-[calc(100vh-4rem)] md:sticky md:top-16 md:bg-white flex md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:shadow-none">
             <div class="p-6 hidden md:block">
                 <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Modules</p>
             </div>
-            <!-- Week Buttons -->
             <button onclick="location.hash='week-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-1">
                 <span class="block md:inline">Week</span> 1
             </button>
@@ -61,14 +60,14 @@
                 <!-- Content injected here -->
              </div>
              
-             <!-- Footer for content area -->
+             <!-- Footer -->
              <div class="mt-12 pt-8 border-t border-slate-100 text-center md:text-left">
                 <p class="text-slate-400 text-xs">© 2026 Skillforge Academy. All rights reserved.</p>
              </div>
         </main>
     </div>
 
-    <!-- CONFIGURATION SECTION -->
+    <!-- CONFIGURATION -->
     <script>
         const COHORT_START_DATE = new Date('2026-02-02T00:00:00'); 
         
@@ -83,98 +82,213 @@
         const RELEASED_WEEKS = getReleasedWeeks();
     </script>
 
-    <!-- ========================================== -->
-    <!-- CONTENT TEMPLATES                          -->
-    <!-- ========================================== -->
+    <!-- TEMPLATES -->
 
-    <!-- WEEK 1 -->
+    <!-- WEEK 1: Intro & Securities -->
     <template id="week-1">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 01</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Stock Market Basics</h1>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Market Foundations & Securities</h1>
             
-            <div class="prose prose-slate max-w-none">
-                <p class="text-lg leading-relaxed mb-6">Welcome to the Stock Market Trading track. We begin by understanding how the stock market functions and how to evaluate companies.</p>
-                
-                <h3 class="text-xl font-bold mb-4">Core Concepts</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-8 text-slate-600">
-                    <li>What is a Stock?</li>
-                    <li>IPOs and Exchanges (NYSE, NASDAQ)</li>
-                    <li>Reading Stock Quotes</li>
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <div class="bg-slate-50 p-4 border-l-4 border-amber-500 mb-8 rounded-r-lg">
+                    <p class="font-bold text-slate-900">Instructor Message</p>
+                    <p class="text-sm italic">"Hello everyone, my name is Dimeji. This outline is designed for a beginner-level class. We will cover theoretical explanations and practical examples."</p>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Module 1: Introduction to the Stock Market</h3>
+                <p>We begin by defining the stock market, how it functions, and why institutions and individuals trade stocks.</p>
+                <ul class="list-disc pl-5 space-y-2 mb-8">
+                    <li><strong>Core Terms:</strong> Stocks, Bull Markets (Rising), Bear Markets (Falling).</li>
+                    <li><strong>Risk vs Reward:</strong> Understanding the potential benefits against the inherent risks of equity trading.</li>
                 </ul>
 
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
-                    <h4 class="font-bold text-slate-900 mb-2">Required Tools</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                        <a href="#" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group">
-                            <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">📊</span>
-                            <span>TradingView</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group">
-                            <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">📰</span>
-                            <span>Financial News (Bloomberg/CNBC)</span>
-                        </a>
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Module 2: Understanding Securities</h3>
+                <p>The market is not just "stocks." We will analyze the different vehicles available for investment:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg">
+                        <span class="block text-xs uppercase text-slate-400 font-bold mb-1">Vehicle</span>
+                        <span class="block font-bold text-slate-800 mb-2">Equities (Stocks)</span>
+                        <p class="text-xs text-slate-500">Ownership in a company. Includes concepts like Dividends and Stock Splits.</p>
                     </div>
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg">
+                        <span class="block text-xs uppercase text-slate-400 font-bold mb-1">Vehicle</span>
+                        <span class="block font-bold text-slate-800 mb-2">ETFs & Mutual Funds</span>
+                        <p class="text-xs text-slate-500">Diversified baskets of assets managed for stability or growth.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mt-8">
+                    <h4 class="font-bold text-slate-900 mb-2">Prerequisites Checklist</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">✓</span> Basic Math Skills
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">✓</span> Computer/Internet Access
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </template>
 
-    <!-- WEEK 2 -->
+    <!-- WEEK 2: Mechanics & Fundamentals -->
     <template id="week-2">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 02</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Fundamental Analysis</h1>
-            <p>Content for week 2.</p>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Market Mechanics & Fundamental Analysis</h1>
+            
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Module 3: How the Market Works</h3>
+                <p>Before analyzing companies, you must understand the engine of execution.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                    <div class="bg-slate-100 p-4 rounded-lg text-center">
+                        <span class="block font-bold text-slate-900">Execution</span>
+                        <span class="text-xs">Order Types & Platforms</span>
+                    </div>
+                    <div class="bg-slate-100 p-4 rounded-lg text-center">
+                        <span class="block font-bold text-slate-900">Context</span>
+                        <span class="text-xs">Trading Hours & Taxes</span>
+                    </div>
+                    <div class="bg-slate-100 p-4 rounded-lg text-center">
+                        <span class="block font-bold text-slate-900">Catalysts</span>
+                        <span class="text-xs">News & Economics</span>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">Module 4: Fundamental Analysis</h3>
+                <p>This is the art of evaluating a company's true financial health. We focus on long-term value by analyzing:</p>
+                
+                <ul class="space-y-4 mb-6">
+                    <li class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 font-bold">1</div>
+                        <div>
+                            <strong class="text-slate-900">Financial Statements</strong>
+                            <p class="text-sm">Reading the Balance Sheet, Income Statement, and Cash Flow.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 font-bold">2</div>
+                        <div>
+                            <strong class="text-slate-900">Key Ratios</strong>
+                            <p class="text-sm">Analyzing Earnings, Debt, Growth, and Economic Indicators to determine fair value.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </template>
     
-    <!-- WEEK 3 -->
+    <!-- WEEK 3: Technicals & Strategies -->
     <template id="week-3">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 03</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Technical Analysis</h1>
-            <p>Content for week 3.</p>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Technical Analysis & Strategies</h1>
+            
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Module 5: Technical Analysis</h3>
+                <p>While fundamental analysis tells you <em>what</em> to buy, technical analysis tells you <em>when</em> to buy.</p>
+                
+                <div class="bg-slate-900 text-white p-6 rounded-xl my-6">
+                    <h4 class="font-bold border-b border-slate-700 pb-2 mb-4">The Toolkit</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <span class="text-amber-400 font-bold text-sm block">Chart Reading</span>
+                            <span class="text-slate-400 text-xs">Identifying Price Patterns</span>
+                        </div>
+                        <div>
+                            <span class="text-amber-400 font-bold text-sm block">Indicators</span>
+                            <span class="text-slate-400 text-xs">Moving Averages (MA) & RSI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">Module 6: Trading Strategies</h3>
+                <p>We will explore simple, effective strategies for beginners:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Buy-and-Hold:</strong> Long-term wealth generation.</li>
+                    <li><strong>Index Investing:</strong> Betting on the broader economy.</li>
+                    <li><strong>Portfolio Diversification:</strong> Spreading risk across sectors.</li>
+                    <li><strong>Entry/Exit Rules:</strong> Defining exactly when to pull the trigger.</li>
+                </ul>
+            </div>
         </div>
     </template>
 
-    <!-- WEEK 4 -->
+    <!-- WEEK 4: Risk & Psychology (Transition) -->
     <template id="week-4">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 04</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Portfolio Management</h1>
-            <p>Content for week 4.</p>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Risk, Psychology & The Next Level</h1>
+            
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Module 7: Risk Management</h3>
+                <p class="font-medium text-lg mb-6">This is the most critical module. Amateurs focus on how much they can make. Professionals focus on how much they could lose.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-red-50 p-4 border-l-4 border-red-500 rounded-r-lg">
+                        <h4 class="font-bold text-red-900">Capital Protection</h4>
+                        <p class="text-sm text-red-800">Using Stop-Losses and proper Position Sizing to survive market volatility.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 border-l-4 border-blue-500 rounded-r-lg">
+                        <h4 class="font-bold text-blue-900">Psychology</h4>
+                        <p class="text-sm text-blue-800">Emotional discipline. Avoiding scams. Controlling fear and greed.</p>
+                    </div>
+                </div>
+
+                <!-- The "Hunger" Transition -->
+                <div class="bg-slate-900 rounded-2xl p-8 text-center relative overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300 mt-12">
+                    <div class="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-10 group-hover:opacity-20 transition"></div>
+                    
+                    <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-4 relative z-10">Beyond the Basics</h3>
+                    <p class="text-slate-300 mb-6 max-w-lg mx-auto relative z-10 text-sm">
+                        You now understand the mechanics, the analysis, and the risk. But do you know how <strong>Hedge Funds</strong> and <strong>Institutions</strong> structure their portfolios to hedge against global collapse?
+                    </p>
+                    
+                    <div class="text-left max-w-md mx-auto mb-8 relative z-10">
+                        <p class="text-amber-400 font-bold text-xs uppercase tracking-widest mb-2">The Masterclass Advantage</p>
+                        <ul class="text-slate-300 text-sm space-y-2">
+                            <li class="flex items-center gap-2"><span>🚀</span> Advanced Derivatives (Options & Futures)</li>
+                            <li class="flex items-center gap-2"><span>🚀</span> Macro-Economic Forecasting</li>
+                            <li class="flex items-center gap-2"><span>🚀</span> Algorithmic Trading Logic</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="bg-white text-slate-900 px-8 py-3 rounded-full font-black uppercase tracking-widest text-sm hover:bg-amber-500 hover:text-white transition transform group-hover:scale-105 relative z-10">
+                        Apply for Masterclass
+                    </button>
+                    <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Secure your future in finance.</p>
+                </div>
+            </div>
         </div>
     </template>
 
-    <!-- COMING SOON STATE -->
+    <!-- LOCKED STATES -->
     <template id="coming-soon">
         <div class="flex flex-col items-center justify-center h-[60vh] text-center animate-fade-in">
             <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner">🔒</div>
             <h2 class="text-2xl font-bold mb-2 text-slate-900">Content Locked</h2>
-            <p class="text-slate-500 max-w-xs mx-auto mb-8">This week's content has not been released yet. Please complete previous modules first.</p>
+            <p class="text-slate-500 max-w-xs mx-auto mb-8">This module unlocks according to the cohort schedule.</p>
             <div class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-mono text-slate-500">
                 Status: Pending Release
             </div>
         </div>
     </template>
 
-    <!-- 404 STATE -->
     <template id="not-found">
         <div class="flex flex-col items-center justify-center h-[60vh] text-center animate-fade-in">
             <div class="text-4xl mb-4">❓</div>
             <h2 class="text-xl font-bold mb-2 text-slate-900">Note Not Found</h2>
-            <p class="text-slate-500">The requested note does not exist.</p>
         </div>
     </template>
 
     <script>
         function renderContent() {
             const hash = window.location.hash.replace('#', '') || 'week-1';
-            const container = document.getElementById('content-container');
             const weekNum = parseInt(hash.replace('week-', ''));
             
-            // Update Navigation State
             document.querySelectorAll('aside button').forEach(btn => {
                 btn.classList.remove('text-amber-600', 'bg-amber-50', 'border-amber-600');
                 btn.classList.add('text-slate-500', 'border-transparent');
@@ -182,30 +296,20 @@
             const activeBtn = document.getElementById('nav-' + hash);
             if (activeBtn) {
                 activeBtn.classList.remove('text-slate-500', 'border-transparent');
-                activeBtn.classList.add('text-amber-600', 'bg-amber-50', 'border-amber-600'); // Top border on mobile, right on desktop via classes
-                // Note: The border classes in HTML handle the direction (border-t-2 md:border-r-2)
-                // We just need to ensure the color class 'border-amber-600' is applied.
-            }
-
-            if (!hash.startsWith('week-') || isNaN(weekNum)) {
-                showTemplate('not-found');
-                return;
+                activeBtn.classList.add('text-amber-600', 'bg-amber-50', 'border-amber-600'); 
             }
 
             if (weekNum > RELEASED_WEEKS) {
                 showTemplate('coming-soon');
                 return;
             }
-
             showTemplate(hash);
         }
 
         function showTemplate(id) {
             const container = document.getElementById('content-container');
             const template = document.getElementById(id);
-            
             container.innerHTML = '';
-            
             if (template) {
                 container.appendChild(template.content.cloneNode(true));
                 window.scrollTo(0, 0);
