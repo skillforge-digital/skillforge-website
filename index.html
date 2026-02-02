@@ -784,7 +784,9 @@
       const targetDisplay = document.getElementById('note-display-area');
       if (!targetDisplay) return;
 
-      const src = 'notes/' + slug + '/' + noteId + '.html';
+      // New logic: Single file per track with hash navigation
+      // e.g. notes/synthetics.html#week-1
+      const src = 'notes/' + slug + '.html#' + noteId;
       
       targetDisplay.innerHTML = `
         <div class="w-full h-full flex flex-col">
@@ -792,7 +794,7 @@
                 <span class="text-[10px] font-black uppercase tracking-widest text-amber-500">${slug} / ${noteId}</span>
                 <a href="${src}" target="_blank" class="text-[10px] text-slate-400 hover:text-white transition">Open in New Tab ↗</a>
             </div>
-            <iframe src="${src}" class="w-full flex-grow rounded-2xl bg-white border border-slate-200" onload="this.contentWindow.document.body.style.margin='0';"></iframe>
+            <iframe src="${src}" class="w-full flex-grow rounded-2xl bg-white border border-slate-200" onload="this.contentWindow.location.reload();"></iframe>
         </div>
       `;
       
