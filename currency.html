@@ -20,38 +20,71 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans p-6 md:p-12">
+<body class="bg-slate-50 text-slate-900 font-sans pb-20 md:pb-0">
+
+    <!-- Fixed Header -->
+    <nav class="fixed top-0 left-0 right-0 bg-white border-b border-slate-200 z-50 px-4 md:px-6 h-16 flex items-center justify-between shadow-sm">
+        <a href="../index.html#academy" class="flex items-center gap-2 text-slate-500 hover:text-amber-600 transition group">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+            <span class="text-xs font-black uppercase tracking-widest hidden md:inline">Back to Academy</span>
+        </a>
+        <div class="flex items-center gap-3">
+             <div class="text-sm font-black uppercase tracking-widest text-slate-900">Forex Currency Pairs</div>
+        </div>
+        <div class="w-8"></div>
+    </nav>
+
+    <div class="flex pt-16 min-h-screen">
+        <!-- Sidebar (Desktop) / Bottom Nav (Mobile) -->
+        <aside class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 md:static md:w-64 md:border-t-0 md:border-r md:h-[calc(100vh-4rem)] md:sticky md:top-16 md:bg-white flex md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:shadow-none">
+            <div class="p-6 hidden md:block">
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Modules</p>
+            </div>
+            <!-- Week Buttons -->
+            <button onclick="location.hash='week-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-1">
+                <span class="block md:inline">Week</span> 1
+            </button>
+            <button onclick="location.hash='week-2'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-2">
+                <span class="block md:inline">Week</span> 2
+            </button>
+            <button onclick="location.hash='week-3'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-3">
+                <span class="block md:inline">Week</span> 3
+            </button>
+            <button onclick="location.hash='week-4'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-4">
+                <span class="block md:inline">Week</span> 4
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-12 w-full max-w-5xl mx-auto overflow-y-auto">
+             <div id="content-container" class="min-h-[50vh]">
+                <!-- Content injected here -->
+             </div>
+             
+             <!-- Footer for content area -->
+             <div class="mt-12 pt-8 border-t border-slate-100 text-center md:text-left">
+                <p class="text-slate-400 text-xs">© 2026 Skillforge Academy. All rights reserved.</p>
+             </div>
+        </main>
+    </div>
 
     <!-- CONFIGURATION SECTION -->
     <script>
-        // ==========================================
-        // AUTO-UPDATING SCHEDULE
-        // Set the date when the cohort begins
-        // Format: YYYY-MM-DD
-        // ==========================================
         const COHORT_START_DATE = new Date('2026-02-02T00:00:00'); 
         
         function getReleasedWeeks() {
             const now = new Date();
-            if (now < COHORT_START_DATE) return 1; // Default to Week 1 visible if early
-            
+            if (now < COHORT_START_DATE) return 1; 
             const msPerWeek = 1000 * 60 * 60 * 24 * 7;
             const msPassed = now - COHORT_START_DATE;
-            
-            // Week 1 (0-7 days) -> returns 1
-            // Week 2 (7-14 days) -> returns 2
             return Math.floor(msPassed / msPerWeek) + 1;
         }
 
         const RELEASED_WEEKS = getReleasedWeeks();
     </script>
 
-    <div id="content-container" class="max-w-4xl mx-auto min-h-[50vh]">
-        <!-- Content will be injected here by JavaScript -->
-    </div>
-
     <!-- ========================================== -->
-    <!-- CONTENT TEMPLATES (Edit these sections)    -->
+    <!-- CONTENT TEMPLATES                          -->
     <!-- ========================================== -->
 
     <!-- WEEK 1 -->
@@ -137,26 +170,31 @@
 
     <script>
         function renderContent() {
-            // Get the hash (e.g., #week-1) or default to week-1
             const hash = window.location.hash.replace('#', '') || 'week-1';
             const container = document.getElementById('content-container');
-            
-            // Extract week number
             const weekNum = parseInt(hash.replace('week-', ''));
             
-            // Validation
+            // Update Navigation State
+            document.querySelectorAll('aside button').forEach(btn => {
+                btn.classList.remove('text-amber-600', 'bg-amber-50', 'border-amber-600');
+                btn.classList.add('text-slate-500', 'border-transparent');
+            });
+            const activeBtn = document.getElementById('nav-' + hash);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-500', 'border-transparent');
+                activeBtn.classList.add('text-amber-600', 'bg-amber-50', 'border-amber-600'); 
+            }
+
             if (!hash.startsWith('week-') || isNaN(weekNum)) {
                 showTemplate('not-found');
                 return;
             }
 
-            // Check Release Status
             if (weekNum > RELEASED_WEEKS) {
                 showTemplate('coming-soon');
                 return;
             }
 
-            // Show Content
             showTemplate(hash);
         }
 
@@ -168,19 +206,14 @@
             
             if (template) {
                 container.appendChild(template.content.cloneNode(true));
-                // Scroll to top
                 window.scrollTo(0, 0);
             } else {
-                // Fallback if template ID doesn't exist but check passed (shouldn't happen for valid weeks)
                 const notFound = document.getElementById('not-found');
                 container.appendChild(notFound.content.cloneNode(true));
             }
         }
 
-        // Listen for hash changes (when user clicks sidebar buttons)
         window.addEventListener('hashchange', renderContent);
-        
-        // Initial render on load
         document.addEventListener('DOMContentLoaded', renderContent);
     </script>
 </body>
