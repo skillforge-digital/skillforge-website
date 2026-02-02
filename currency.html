@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forex Currency Pairs - Notes</title>
+    <title>Forex Currency Pairs - Student Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -70,6 +70,7 @@
 
     <!-- CONFIGURATION SECTION -->
     <script>
+        // Set to current date to simulate Week 1 start
         const COHORT_START_DATE = new Date('2026-02-02T00:00:00'); 
         
         function getReleasedWeeks() {
@@ -93,27 +94,71 @@
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 01</div>
             <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Introduction to Forex Market</h1>
             
-            <div class="prose prose-slate max-w-none">
-                <p class="text-lg leading-relaxed mb-6">Welcome to the Forex Currency Pairs track. This week introduces the largest financial market in the world.</p>
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <p class="text-lg leading-relaxed mb-6 font-medium text-slate-800">
+                    This module provides a comprehensive introduction to the Foreign Exchange market, covering basic definitions, essential terms, and how the market operates.
+                </p>
                 
-                <h3 class="text-xl font-bold mb-4">Core Concepts</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-8 text-slate-600">
-                    <li>Major, Minor, and Exotic Pairs</li>
-                    <li>Pips, Lots, and Leverage</li>
-                    <li>Market Sessions (London, NY, Tokyo)</li>
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">1.1 Introduction to Forex & Essentials</h3>
+                <p><strong>What is Forex?</strong> The global, decentralized market for the trading of currencies. It is the largest financial market in the world by trading volume.</p>
+                
+                <ul class="list-disc pl-5 space-y-2 mb-6">
+                    <li><strong>Forex Basics:</strong> Understanding why people trade (commerce, tourism, speculation) and mechanics of currency valuation.</li>
+                    <li><strong>Terminologies:</strong> You must master terms such as <em>Bid/Ask Price</em>, <em>Spread</em>, <em>Broker</em>, <em>Leverage</em>, and <em>Margin</em> before execution.</li>
                 </ul>
 
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
-                    <h4 class="font-bold text-slate-900 mb-2">Required Tools</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                        <a href="#" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group">
-                            <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">📉</span>
-                            <span>MetaTrader 4/5</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group">
-                            <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">📅</span>
-                            <span>Economic Calendar</span>
-                        </a>
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">1.2 Market Structure & Pairs</h3>
+                <p>The market is "Over-the-Counter" (OTC) and driven by Central Banks, Commercial Banks, and Institutions. Trading involves buying one currency (Base) while selling another (Quote).</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg text-center">
+                        <span class="block text-xs uppercase text-slate-400 font-bold">Session</span>
+                        <span class="block font-bold text-slate-800">Sydney</span>
+                    </div>
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg text-center">
+                        <span class="block text-xs uppercase text-slate-400 font-bold">Session</span>
+                        <span class="block font-bold text-slate-800">Tokyo</span>
+                    </div>
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg text-center">
+                        <span class="block text-xs uppercase text-slate-400 font-bold">Session</span>
+                        <span class="block font-bold text-slate-800">London & NY</span>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">1.3 Economic News & Volatility</h3>
+                <p class="mb-4">Unlike Synthetics, Forex prices are heavily influenced by economic news. Technical analysis can fail during high-impact events.</p>
+                
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 my-6">
+                    <p class="text-red-700 font-bold text-sm uppercase tracking-wide mb-1">Critical Mandate</p>
+                    <p class="text-red-800">Avoid trading 30 minutes BEFORE and AFTER high-impact news (e.g., NFP, Interest Rate Decisions).</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mt-8">
+                    <h4 class="font-bold text-slate-900 mb-4 text-lg">1.4 Logistical Checklist for Success</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 font-bold">1</div>
+                            <div>
+                                <h5 class="font-bold text-slate-800">Regulated Broker Account</h5>
+                                <p class="text-sm">Create and verify a demo account with a reputable broker (e.g., Pepperstone, IC Markets).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 font-bold">2</div>
+                            <div>
+                                <h5 class="font-bold text-slate-800">The Trading Journal</h5>
+                                <p class="text-sm">Acquire a physical or digital journal. Every trade must include Entry, SL, TP, and Reason.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 font-bold">!</div>
+                            <div>
+                                <h5 class="font-bold text-red-700">STRICT MANDATE</h5>
+                                <p class="text-sm text-red-700 font-medium">Live trading is absolutely forbidden until the completion of this free academy. Use DEMO funds only.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,8 +169,52 @@
     <template id="week-2">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 02</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Technical Analysis</h1>
-            <p>Content for week 2.</p>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Measuring Movement & Core Tools</h1>
+            
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <p class="text-lg leading-relaxed mb-6 font-medium text-slate-800">
+                    This module introduces profit measurement, risk sizing, and the fundamental technical tools for reading price.
+                </p>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">2.1 Pips & Risk Sizing</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 border border-slate-200 rounded-xl">
+                        <h4 class="font-bold text-slate-900">The Pip</h4>
+                        <p class="text-sm mt-2">The fundamental unit of measure. Typically the 4th decimal place (or 2nd for JPY pairs).</p>
+                    </div>
+                    <div class="p-4 border border-slate-200 rounded-xl">
+                        <h4 class="font-bold text-slate-900">Lot Size</h4>
+                        <p class="text-sm mt-2">Determines volume traded. The relationship between pip movement and capital risk is critical.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">2.2 Candlesticks & Market Structure</h3>
+                <p>We analyze price via <strong>Candlesticks</strong> (Open, Close, High, Low) to determine the market state.</p>
+                
+                <div class="my-6 space-y-2">
+                    <div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-100">
+                        <span class="font-bold text-green-800">Uptrend (Bullish)</span>
+                        <span class="text-sm text-green-700">Sequence of Higher Highs (HH) and Higher Lows (HL).</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-red-50 rounded-lg border border-red-100">
+                        <span class="font-bold text-red-800">Downtrend (Bearish)</span>
+                        <span class="text-sm text-red-700">Sequence of Lower Highs (LH) and Lower Lows (LL).</span>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">2.3 Core Technical Tools</h3>
+                <ul class="list-disc pl-5 space-y-4 mb-6">
+                    <li>
+                        <strong>Support & Resistance (S/R):</strong> Horizontal zones where the market has historically reversed. Support is a "floor" (buying pressure), Resistance is a "ceiling" (selling pressure).
+                    </li>
+                    <li>
+                        <strong>Trendlines:</strong> Diagonal lines connecting a series of Highs or Lows to visually define slope and strength.
+                    </li>
+                    <li>
+                        <strong>Moving Averages (MA):</strong> Used to smooth price action and confirm trend direction (dynamic support).
+                    </li>
+                </ul>
+            </div>
         </div>
     </template>
     
@@ -133,8 +222,40 @@
     <template id="week-3">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 03</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Fundamental Analysis</h1>
-            <p>Content for week 3.</p>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Timing, Execution & Discipline</h1>
+            
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <p class="text-lg leading-relaxed mb-6 font-medium text-slate-800">
+                    The final foundational module focuses on when to trade, execution on industry platforms, and professional habits.
+                </p>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">3.1 Trading Sessions & Timing</h3>
+                <p>We focus on the Asian, London, and New York sessions.</p>
+                <div class="my-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                    <strong class="text-amber-900 block mb-1">The Volatility Window</strong>
+                    <p class="text-sm text-amber-800">Identify high-volume overlaps (e.g., London/NY overlap) for momentum trades. Avoid low volume periods in the late Asian session.</p>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">3.2 Platform Setup</h3>
+                <p>You must install <strong>MetaTrader 4 (MT4)</strong> or <strong>MT5</strong>. Learn to navigate the Market Watch, Navigator, and Terminal. Connect your mandatory demo account to the platform.</p>
+
+                <div class="bg-slate-900 text-white p-6 rounded-2xl mt-8">
+                    <h4 class="font-bold text-white mb-4 text-lg border-b border-slate-700 pb-2">3.3 Professional Discipline (Mandatory)</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-amber-400 font-bold uppercase text-xs tracking-widest mb-2">Rule #1</h5>
+                            <p class="font-bold text-lg mb-2">The 1% Rule</p>
+                            <p class="text-sm text-slate-300">You must risk no more than 1% of your total account balance on a single trade. This is the bedrock of professional preservation.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-amber-400 font-bold uppercase text-xs tracking-widest mb-2">Rule #2</h5>
+                            <p class="font-bold text-lg mb-2">Win Rate Tracking</p>
+                            <p class="text-sm text-slate-300">Every trade must be logged to assess the profitability of your strategy. Track your R:R (Risk-to-Reward) Ratio religiously.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </template>
 
@@ -142,8 +263,50 @@
     <template id="week-4">
         <div class="animate-fade-in">
             <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 04</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Trading Psychology</h1>
-            <p>Content for week 4.</p>
+            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">The Unseen Gap: Transition to Pro</h1>
+            
+            <div class="prose prose-slate max-w-none text-slate-600">
+                <p class="text-lg leading-relaxed mb-6 font-medium text-slate-800">
+                    You have learned the tools (The WHAT). Now you face the gap between initial gains and a professional career.
+                </p>
+
+                <div class="bg-white border-l-4 border-amber-500 shadow-sm p-6 my-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Why the Masterclass is Essential</h3>
+                    <p>Small, occasional profits are not a career. The Masterclass Intensive provides the <strong>WHY, WHEN, and HOW</strong>—the systematic execution model.</p>
+                </div>
+
+                <h4 class="font-bold text-slate-900 mt-8 mb-2">Critical Omissions in Basic Training</h4>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex gap-3">
+                        <span class="text-red-500 font-bold">✕</span>
+                        <span>
+                            <strong class="text-slate-900 block">Institutional Analysis & Liquidity Traps</strong>
+                            <span class="text-sm">You know where price *might* turn, but not the institutional WHY. Large banks manipulate retail liquidity. The Masterclass teaches <strong>Order Blocks</strong> and <strong>Supply/Demand</strong>.</span>
+                        </span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-red-500 font-bold">✕</span>
+                        <span>
+                            <strong class="text-slate-900 block">Predictive Fundamental Analysis</strong>
+                            <span class="text-sm">You know to avoid news. The Masterclass teaches you how to <strong>forecast</strong> it using Intermarket Analysis (e.g., Gold/USD correlation) for a directional edge.</span>
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="bg-slate-900 rounded-2xl p-8 text-center relative overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-10 group-hover:opacity-20 transition"></div>
+                    
+                    <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-4 relative z-10">The Career Gap</h3>
+                    <p class="text-slate-300 mb-8 max-w-lg mx-auto relative z-10">
+                        Knowing how to trade does not generate client contracts. The Masterclass is the <strong>only source</strong> for exclusive job sourcing and the <strong>Project Outsourcing Talent Pipeline</strong> (55% revenue split).
+                    </p>
+                    
+                    <button class="bg-white text-slate-900 px-8 py-3 rounded-full font-black uppercase tracking-widest text-sm hover:bg-amber-500 hover:text-white transition transform group-hover:scale-105 relative z-10">
+                        Take The Forge Challenge
+                    </button>
+                    <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Prove your skills. Unlock your discount.</p>
+                </div>
+            </div>
         </div>
     </template>
 
