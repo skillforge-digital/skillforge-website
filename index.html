@@ -776,8 +776,8 @@
       if (!targetDisplay) return;
 
       // New logic: Single file per track with hash navigation
-      // e.g. notes/synthetics.html#week-1
-      const src = 'notes/' + slug + '.html#' + noteId;
+      // e.g. synthetics.html#week-1
+      const src = slug + '.html#' + noteId;
       
       targetDisplay.innerHTML = `
         <div class="w-full h-full flex flex-col">
