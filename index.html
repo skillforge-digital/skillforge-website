@@ -5,7 +5,7 @@
      crossorigin="anonymous"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929"
      crossorigin="anonymous"></script>
-ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
+  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skillforge Digital & Co. LTD | Elite Ecosystem</title>
@@ -904,78 +904,168 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
       });
     }
 
-    function initGoldDust() {
+    function initDailyBackground() {
       const canvas = document.getElementById('gold-dust');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let w = canvas.width = window.innerWidth;
       let h = canvas.height = window.innerHeight;
+      const day = new Date().getDay(); // 0 (Sun) to 6 (Sat)
+      
       const particles = [];
-      const count = Math.min(450, Math.floor((w*h)/8000));
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random()*w,
-          y: Math.random()*h,
-          vx: (Math.random()-0.5)*0.3,
-          vy: (Math.random()-0.5)*0.3,
-          r: Math.random()*1.4 + 0.6,
-          a: Math.random()*2*Math.PI
-        });
-      }
-      function draw() {
-        ctx.clearRect(0,0,w,h);
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        
-        // Dark theme: Bright Gold (255,215,0)
-        // Light theme: Darker Gold/Bronze (184,134,11) for contrast against white
-        const rC = isDark ? 255 : 184;
-        const gC = isDark ? 215 : 134;
-        const bC = isDark ? 0 : 11;
+      const config = {
+        0: { name: 'Stellar Vision', count: 300, speed: 0.15, size: 1.2 }, // Sun
+        1: { name: 'Gold Dust', count: 400, speed: 0.3, size: 1.5 },     // Mon
+        2: { name: 'Blueprint Grid', count: 50, speed: 0.2, size: 2 },   // Tue
+        3: { name: 'Aura Waves', count: 15, speed: 0.4, size: 150 },     // Wed
+        4: { name: 'Tech Nodes', count: 80, speed: 0.5, size: 2 },       // Thu
+        5: { name: 'Data Streams', count: 120, speed: 1.2, size: 1.5 },  // Fri
+        6: { name: 'Glass Bokeh', count: 25, speed: 0.3, size: 80 }      // Sat
+      };
 
-        for (let p of particles) {
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.x < -10) p.x = w+10;
-          if (p.x > w+10) p.x = -10;
-          if (p.y < -10) p.y = h+10;
-          if (p.y > h+10) p.y = -10;
-          p.a += 0.015;
-          
-          // Sine wave for opacity (0.4 to 0.9) - distinct shine
-          const opacity = 0.65 + 0.25*Math.sin(p.a);
-          
-          // Outer glow/body
-          ctx.fillStyle = `rgba(${rC},${gC},${bC},${opacity})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-          ctx.fill();
-          
-          // Inner bright core (white shine)
-          ctx.fillStyle = `rgba(255,255,255,${opacity + 0.1})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r*0.35, 0, Math.PI*2);
-          ctx.fill();
-        }
-        requestAnimationFrame(draw);
-      }
-      function resize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-        // Re-init particles on resize to maintain density
+      const current = config[day];
+      
+      function initParticles() {
         particles.length = 0;
-        const newCount = Math.min(450, Math.floor((w*h)/8000));
-        for (let i = 0; i < newCount; i++) {
+        const count = Math.min(current.count, Math.floor((w * h) / (day === 3 || day === 6 ? 15000 : 8000)));
+        
+        for (let i = 0; i < count; i++) {
           particles.push({
-            x: Math.random()*w,
-            y: Math.random()*h,
-            vx: (Math.random()-0.5)*0.3,
-            vy: (Math.random()-0.5)*0.3,
-            r: Math.random()*1.4 + 0.6,
-            a: Math.random()*2*Math.PI
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * current.speed,
+            vy: (Math.random() - 0.5) * current.speed,
+            r: Math.random() * current.size + (day === 3 || day === 6 ? 40 : 0.5),
+            a: Math.random() * Math.PI * 2,
+            pulse: Math.random() * 0.02,
+            phase: Math.random() * Math.PI * 2
           });
         }
       }
-      window.addEventListener('resize', resize);
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
+        
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 0.5;
+
+        switch(day) {
+          case 0: // Sunday: Stellar Vision
+            for (let p of particles) {
+              p.phase += 0.01;
+              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
+              ctx.fill();
+              p.y -= p.vy * 0.2;
+              if (p.y < 0) p.y = h;
+            }
+            break;
+
+          case 1: // Monday: Gold Dust (Current)
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+              if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+              p.phase += 0.015;
+              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+
+          case 2: // Tuesday: Blueprint Grid
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+            const step = 60;
+            for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+            for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+            for (let p of particles) {
+              p.phase += 0.02;
+              const opacity = 0.1 + 0.4 * Math.abs(Math.sin(p.phase));
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x - (p.x % step), p.y - (p.y % step), 2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+
+          case 3: // Wednesday: Aura Waves
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
+              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
+              const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+              grad.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, 0.08)`);
+              grad.addColorStop(1, 'rgba(234, 179, 8, 0)');
+              ctx.fillStyle = grad;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+
+          case 4: // Thursday: Tech Nodes
+            for (let i = 0; i < particles.length; i++) {
+              let p = particles[i];
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.4)`;
+              ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2); ctx.fill();
+              for (let j = i + 1; j < particles.length; j++) {
+                let p2 = particles[j];
+                let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                if (dist < 120) {
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.15 * (1 - dist / 120)})`;
+                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                }
+              }
+            }
+            break;
+
+          case 5: // Friday: Data Streams
+            ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.15)`;
+            for (let p of particles) {
+              p.y += p.vy;
+              if (p.y > h) { p.y = -20; p.x = Math.random() * w; }
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p.x, p.y + 15);
+              ctx.stroke();
+            }
+            break;
+
+          case 6: // Saturday: Glass Bokeh
+            ctx.globalCompositeOperation = isDark ? 'screen' : 'multiply';
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
+              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.04)`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.08)`;
+              ctx.stroke();
+            }
+            ctx.globalCompositeOperation = 'source-over';
+            break;
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        initParticles();
+      });
+
+      initParticles();
       draw();
     }
 
@@ -1163,7 +1253,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
       initSchedule();
       initTheme();
       initHashRouting();
-      initGoldDust();
+      initDailyBackground();
       initConsent();
       setSocialLinks(APP_CONFIG.socialLinks);
       
