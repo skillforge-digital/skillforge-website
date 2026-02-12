@@ -56,6 +56,13 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
     .gold-gradient { background: linear-gradient(135deg, #eab308 0%, #b45309 100%); }
+    .gradient-text {
+      background: linear-gradient(135deg, #eab308 0%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
     .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); }
     .section-hidden { display: none; }
     .active-section { display: block; animation: fadeIn 0.6s ease-in-out; }
@@ -90,7 +97,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
       <div class="flex justify-between h-24 items-center">
         <div class="flex items-center gap-4 cursor-pointer" onclick="showSection('home')">
           <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3 transition-transform hover:rotate-0">
-            <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-amber-500 font-black\'>SF</span>'">
+            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-amber-500 font-black\'>SF</span>'">
           </div>
           <span class="font-extrabold text-xl md:text-2xl tracking-tighter uppercase leading-none">
             SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span>
@@ -134,13 +141,13 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
 
   <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest text-center px-6">
     <div class="w-24 h-24 logo-frame rounded-3xl mb-8">
-      <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+      <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
     </div>
     <button onclick="toggleMenu(); showSection('home')" class="hover:text-amber-600">Ecosystem</button>
     <button onclick="toggleMenu(); showSection('about')" class="hover:text-amber-600">About Us</button> <button onclick="toggleMenu(); showSection('academy')" class="hover:text-amber-600">The Academy</button>
     <button onclick="toggleMenu(); showSection('tracks')" class="hover:text-amber-600">Skill Tracks</button>
     <button onclick="toggleMenu(); showSection('services')" class="hover:text-amber-600">The Agency</button>
-    <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="text-amber-600 border-b-4 border-amber-600 pb-2">Registration Portal</a>
+    <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="text-amber-600 border-b-4 border-amber-600 pb-2">Registration Portal</a>
     <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
   </div>
 
@@ -156,10 +163,10 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
           <span class="live-pulse"></span>
           <span class="text-amber-700 font-black tracking-widest uppercase text-[10px]">Official Launch: Jan 5, 2026</span>
         </div>
-        <h1 class="text-5xl md:text-8xl font-black mb-10 leading-[1.05] text-slate-900 tracking-tighter">Forging <span class="text-transparent bg-clip-text gold-gradient px-1">Digital Legacy</span> Out of Vision.</h1>
+        <h1 class="text-5xl md:text-8xl font-black mb-10 leading-[1.05] text-slate-900 tracking-tighter">Forging <span class="gradient-text px-1">Digital Legacy</span> Out of Vision.</h1>
         <p class="max-w-2xl text-slate-500 text-lg md:text-xl font-light mb-14 leading-relaxed">Skillforge Digital & Co. LTD is a global ecosystem where elite training meets high-tier corporate execution. Our January Cohort is officially in session.</p>
         <div class="flex flex-wrap justify-center gap-6">
-          <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="gold-gradient text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl shadow-amber-600/30 hover:translate-y-[-2px] transition-all">Register for Academy</a>
+          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="gold-gradient text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl shadow-amber-600/30 hover:translate-y-[-2px] transition-all">Register for Academy</a>
           <button onclick="showSection('services')" class="bg-slate-900 text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-slate-800 transition-all">Contact Our Agency</button>
         </div>
       </div>
@@ -170,7 +177,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
         <div class="absolute inset-0 gold-gradient opacity-5"></div>
         <h2 class="text-3xl font-black mb-6 uppercase tracking-tight relative z-10">Academy Registration is Open</h2>
         <p class="text-slate-400 mb-10 max-w-xl mx-auto relative z-10">Secure your spot in the January Accelerated Cohort. Join thousands of students mastering the digital landscape.</p>
-        <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="inline-block px-10 py-5 bg-white text-slate-900 font-black rounded-2xl uppercase text-[10px] tracking-[0.3em] hover:bg-amber-500 hover:text-white transition-all relative z-10">Access Registration Portal</a>
+        <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="inline-block px-10 py-5 bg-white text-slate-900 font-black rounded-2xl uppercase text-[10px] tracking-[0.3em] hover:bg-amber-500 hover:text-white transition-all relative z-10">Access Registration Portal</a>
       </div>
     </div>
 
@@ -297,7 +304,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
           <h2 class="text-5xl font-black tracking-tighter mb-4">The <span class="text-amber-600">Academy.</span></h2>
           <p class="text-slate-400 text-xl font-light">Current Status: <span class="text-slate-900 font-bold tracking-tight">January Cohort Live</span></p>
         </div>
-        <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="bg-amber-600 text-white px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center gap-4 hover:bg-amber-700 transition-all shadow-lg shadow-amber-600/20">Join Accelerated Cohort</a>
+        <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="bg-amber-600 text-white px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center gap-4 hover:bg-amber-700 transition-all shadow-lg shadow-amber-600/20">Join Accelerated Cohort</a>
       </div>
       
 
@@ -309,7 +316,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Forex Synthetics Indices</h3>
@@ -325,7 +332,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Graphics Design</h3>
@@ -341,7 +348,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Forex Currency Pairs</h3>
@@ -357,7 +364,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Stock Market Trading</h3>
@@ -373,7 +380,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Cybersecurity</h3>
@@ -389,7 +396,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Photography & Editing</h3>
@@ -405,7 +412,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Discord Design & Development (NEW)</h3>
@@ -421,7 +428,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="flex justify-between items-start mb-6">
               <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
               <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
               </div>
             </div>
             <h3 class="text-2xl font-black mb-2 uppercase">Web Design & Development</h3>
@@ -549,7 +556,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
         <div class="bg-white text-slate-900 p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
           <div class="absolute top-0 right-0 p-8 gold-gradient text-white font-black text-[10px] uppercase tracking-widest rounded-bl-[2.5rem]">Submit Contract</div>
           <div class="w-16 h-16 logo-frame rounded-2xl mb-8">
-            <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
           </div>
           <h3 class="text-3xl font-black mb-8 tracking-tighter">Acquire Professional Services</h3>
           <form id="agency-form" class="space-y-4">
@@ -639,7 +646,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
   <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[28rem] bg-white border border-slate-100 rounded-2xl shadow-2xl p-6 z-[80] hidden">
     <div class="flex items-start gap-4">
       <div class="w-10 h-10 logo-frame rounded-xl flex-shrink-0">
-        <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+        <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
       </div>
       <div class="flex-1">
         <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Cookies</div>
@@ -737,7 +744,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
             <div class="md:w-1/4 flex flex-col gap-4 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-6">
               <div class="flex justify-between items-center mb-4">
                 <div class="w-12 h-12 logo-frame rounded-xl">
-                  <img src="https://i.postimg.cc/fRYD4HSw/Whats-App-Image-2026-01-16-at-1-20-06-PM.jpg" alt="SF" class="w-full h-full object-cover">
+                  <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
                 </div>
                 <button onclick="document.getElementById('lesson-content').classList.add('hidden')" class="text-slate-500 hover:text-white transition text-3xl">×</button>
               </div>
@@ -763,7 +770,7 @@ ooo  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
                   <span class="opacity-0 group-hover:opacity-100 transition">→</span>
                 </button>
                  <div class="pt-4 mt-4 border-t border-white/10">
-                    <a href="https://infoskillforgeorg-dot.github.io/skillforge-registry/" target="_blank" class="block w-full text-center px-4 py-3 rounded-xl bg-amber-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-slate-900 transition">Register for Cert</a>
+                    <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="block w-full text-center px-4 py-3 rounded-xl bg-amber-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-slate-900 transition">Register for Cert</a>
                  </div>
               </div>
             </div>
