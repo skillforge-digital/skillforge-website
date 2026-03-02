@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Design & Development - Notes</title>
+    <title>Discord Development - Student Portal</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9249731498223929">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { amber: { 500: '#f59e0b', 600: '#d97706' } } } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        amber: { 500: '#f59e0b', 600: '#d97706' }, 
+                        slate: { 850: '#1e293b', 950: '#0f172a' } 
+                    }
+                }
+            }
+        }
     </script>
     <style>
         .gold-gradient { background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%); }
         .animate-fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .prose h3 { margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 800; color: #0f172a; font-size: 1.25rem; letter-spacing: -0.025em; border-left: 4px solid #f59e0b; padding-left: 1rem; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #334155; }
+        .prose ul { margin-bottom: 1.5rem; list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; color: #334155; }
+        .prose li::before { content: "•"; color: #f59e0b; position: absolute; left: 0; font-weight: bold; font-size: 1.2em; }
+        .tab-active { background: #f59e0b; color: white; border-color: #f59e0b; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans pb-20 md:pb-0">
@@ -22,7 +40,7 @@
             <span class="text-xs font-black uppercase tracking-widest hidden md:inline">Back to Academy</span>
         </a>
         <div class="flex items-center gap-3">
-             <div class="text-sm font-black uppercase tracking-widest text-slate-900">Discord Design & Development</div>
+             <div class="text-sm font-black uppercase tracking-widest text-slate-900">Discord Development</div>
         </div>
         <div class="w-8"></div>
     </nav>
@@ -30,7 +48,7 @@
     <div class="flex pt-16 min-h-screen">
         <aside class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 md:static md:w-64 md:border-t-0 md:border-r md:h-[calc(100vh-4rem)] md:sticky md:top-16 md:bg-white flex md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:shadow-none">
             <div class="p-6 hidden md:block">
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Modules</p>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Curriculum Modules</p>
             </div>
             <button onclick="location.hash='week-1/day-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-1">
                 <span class="block md:inline">Week</span> 1
@@ -46,7 +64,12 @@
             </button>
         </aside>
 
-        <main class="flex-1 p-6 md:p-12 w-full max-w-5xl mx-auto overflow-y-auto">
+        <main class="flex-1 p-6 md:p-12 w-full max-w-4xl mx-auto overflow-y-auto">
+             <div id="day-tabs" class="mb-8 flex items-center justify-center md:justify-start gap-3">
+                <button id="tab-day-1" class="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border border-slate-200 rounded-xl hover:border-amber-500 transition-colors">Day 1</button>
+                <button id="tab-day-3" class="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border border-slate-200 rounded-xl hover:border-amber-500 transition-colors">Day 3</button>
+                <button id="tab-day-5" class="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border border-slate-200 rounded-xl hover:border-amber-500 transition-colors">Day 5</button>
+             </div>
              <div id="content-container" class="min-h-[50vh]"></div>
              <div class="mt-12 pt-8 border-t border-slate-100 text-center md:text-left">
                 <p class="text-slate-400 text-xs">© 2026 Skillforge Academy. All rights reserved.</p>
@@ -54,98 +77,259 @@
         </main>
     </div>
 
-    <script>
-        const COHORT_START_DATE = new Date('2026-02-02T00:00:00'); 
-        function getReleasedWeeks() {
-            const now = new Date();
-            if (now < COHORT_START_DATE) return 1; 
-            const msPerWeek = 1000 * 60 * 60 * 24 * 7;
-            const msPassed = now - COHORT_START_DATE;
-            return Math.floor(msPassed / msPerWeek) + 1;
-        }
-        const RELEASED_WEEKS = getReleasedWeeks();
-    </script>
-
-    <template id="week-1">
+    <!-- Templates for Week 1 -->
+    <template id="w1-d1">
         <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 01</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Discord Community Building</h1>
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 1: Day 1</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Discord Ecosystem Foundations</h1>
+                <p class="text-slate-500 mt-4 text-lg">Understanding the power of communities and the architecture of a great server.</p>
+            </header>
             <div class="prose prose-slate max-w-none">
-                <p class="text-lg leading-relaxed mb-6">Welcome to the Discord Design & Development track. We start by understanding how to build and manage thriving communities.</p>
-                <h3 class="text-xl font-bold mb-4">Core Concepts</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-8 text-slate-600">
-                    <li>Server Architecture & Channels</li>
-                    <li>Roles & Permissions Hierarchy</li>
-                    <li>Onboarding Experience</li>
-                </ul>
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
-                    <h4 class="font-bold text-slate-900 mb-2">Required Tools</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                        <a href="https://discord.com/" target="_blank" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group"><span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">💬</span><span>Discord App</span></a>
-                    </div>
+                <h3>1.1 Why Discord?</h3>
+                <p>Discord has evolved from a gamer's chat app into the premier hub for creators, DAOs, and businesses. Learn why every modern brand needs a Discord presence to survive.</p>
+                <h3>1.2 Server Hierarchy & Architecture</h3>
+                <p>We'll explore how to structure categories, channels, and roles for maximum engagement. A well-organized server is the difference between a thriving community and a ghost town.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w1-d3">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 1: Day 3</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Role Management & Permissions</h1>
+                <p class="text-slate-500 mt-4 text-lg">Mastering the complex web of Discord's permission system.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>1.3 The Power of Roles</h3>
+                <p>Learn how to use roles for more than just colors. We'll explore "Role-Gating," "Access Control," and how to create a sense of progression within your community.</p>
+                <h3>1.4 Permission Scoping</h3>
+                <p>Understand the "Inheritance" model of Discord permissions. Learn how to prevent common security disasters by scoping permissions correctly from day one.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w1-d5">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 1: Day 5</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Bot Integration Basics</h1>
+                <p class="text-slate-500 mt-4 text-lg">Automating your community with industry-standard tools.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>1.5 Essential Bots: MEE6, Dyno & Carl</h3>
+                <p>We'll set up the "Big Three" bots for moderation, leveling, and utility. Automation is the only way to scale a community past 100 members without burning out.</p>
+                <h3>1.6 Security & Anti-Raid</h3>
+                <p>Learn how to protect your server from malicious actors. We'll set up verification gates and auto-moderation rules to keep your members safe.</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Templates for Week 2 -->
+    <template id="w2-d1">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 2: Day 1</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Advanced Community Mechanics</h1>
+                <p class="text-slate-500 mt-4 text-lg">Building engagement loops that keep members coming back.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>2.1 Engagement & Gamification</h3>
+                <p>Learn how to use XP systems, leaderboards, and "Server Economy" to reward active members. A community that plays together, stays together.</p>
+                <h3>2.2 Event Management</h3>
+                <p>Master Discord's "Scheduled Events," "Stages," and "Stage Channels." Learn how to run live AMAs and workshops that provide massive value to your community.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w2-d3">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 2: Day 3</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Intro to Custom Bot Dev</h1>
+                <p class="text-slate-500 mt-4 text-lg">Taking your first steps into coding your own Discord logic.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>2.3 JavaScript & Discord.js</h3>
+                <p>Introduction to the most popular library for building Discord bots. We'll write our first "Hello World" bot and respond to basic commands.</p>
+                <h3>2.4 Bot Token Security</h3>
+                <p>Learn the #1 rule of bot development: NEVER share your token. We'll set up environment variables to keep your bot safe from hackers.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w2-d5">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 2: Day 5</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Slash Commands & Interactions</h1>
+                <p class="text-slate-500 mt-4 text-lg">Building a modern, professional bot interface.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>2.5 The Modern API</h3>
+                <p>Move beyond prefix commands (!help) to modern Slash Commands (/). Learn how to build buttons, select menus, and modals for a truly interactive experience.</p>
+                <div class="bg-slate-900 p-6 rounded-2xl text-white my-8">
+                    <p class="text-amber-400 font-bold mb-2">Masterclass Preview:</p>
+                    <p class="text-sm">In the Masterclass, we build "Enterprise-Grade" bots that integrate with External APIs, Stripe for payments, and Web3 wallets. You're building the core JS logic for that now.</p>
                 </div>
             </div>
         </div>
     </template>
 
-    <template id="week-2">
+    <!-- Templates for Week 3 -->
+    <template id="w3-d1">
         <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 02</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Bots & Integrations</h1>
-            <p>Content for week 2.</p>
-        </div>
-    </template>
-    
-    <template id="week-3">
-        <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 03</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Governance & Moderation</h1>
-            <p>Content for week 3.</p>
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 3: Day 1</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Monetization & Growth</h1>
+                <p class="text-slate-500 mt-4 text-lg">Turning your community into a sustainable business.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>3.1 Server Subscriptions & Boosting</h3>
+                <p>Learn how to use Discord's native monetization tools. We'll explore the perks that actually drive members to boost or subscribe to your server.</p>
+                <h3>3.2 Growth Hacking for Discord</h3>
+                <p>Learn how to use "Invite Tracking," "Partner Programs," and "Discord Discovery" to attract thousands of new members without spending a dime on ads.</p>
+            </div>
         </div>
     </template>
 
-    <template id="week-4">
+    <template id="w3-d3">
         <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 04</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Monetization & Growth</h1>
-            <p>Content for week 4.</p>
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 3: Day 3</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Governance & Moderation</h1>
+                <p class="text-slate-500 mt-4 text-lg">Managing human behavior at scale.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>3.3 Building a Mod Team</h3>
+                <p>Learn how to recruit, train, and manage a team of moderators. A great mod team is the backbone of every successful large-scale server.</p>
+                <h3>3.4 Conflict Resolution & Crisis Management</h3>
+                <p>How to handle drama, raids, and toxic members professionally. We'll give you the "De-escalation Framework" used by the world's largest communities.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w3-d5">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 3: Day 5</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">The Discord Business Model</h1>
+                <p class="text-slate-500 mt-4 text-lg">Structuring your services as a Discord Consultant.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>3.5 Curation & Sequencing</h3>
+                <p>Learn how to sell "Server Setup" and "Bot Development" packages. We'll show you how to price your work so you're making $500 - $2,000 per server build.</p>
+                <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 my-8">
+                    <p class="font-bold text-amber-900">Ready for High-Ticket Clients?</p>
+                    <p class="text-sm text-amber-800">The Masterclass covers "White-Label Community Management"—where we show you how to land $3k - $5k/month retainers with major brands and NFT projects. You're building the setup-skills for that now.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Templates for Week 4 -->
+    <template id="w4-d1">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Final Phase: Week 4</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Integrations & Webhooks</h1>
+                <p class="text-slate-500 mt-4 text-lg">Connecting Discord to the rest of your digital ecosystem.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>4.1 Webhook Mastery</h3>
+                <p>Learn how to send automated alerts from your website, GitHub, or Shopify directly into Discord. Webhooks are the "glue" of the modern web.</p>
+                <h3>4.2 Zapier & Make for Discord</h3>
+                <p>Introduction to no-code automation. Build complex workflows that trigger actions in Discord based on thousands of external events.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w4-d3">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Final Phase: Week 4</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">The "Master" Server Build</h1>
+                <p class="text-slate-500 mt-4 text-lg">Building your flagship community project.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>4.3 Final Capstone Project</h3>
+                <p>We'll guide you through building a complete, production-ready server from scratch. This will include custom roles, security, bots, and engagement loops.</p>
+                <h3>4.4 Portfolio & Presentation</h3>
+                <p>Learn how to showcase your server builds to potential clients. We'll show you how to use screen-recordings and "Case Study" docs to prove your expertise.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w4-d5">
+        <div class="animate-fade-in text-center py-10">
+            <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">👾</div>
+            <h1 class="text-4xl font-black text-slate-900 uppercase mb-4">Academy Completed</h1>
+            <p class="text-slate-500 text-xl max-w-2xl mx-auto mb-10">You have completed the Discord Development Academy. You are now a Community Architect.</p>
+            <div class="bg-slate-900 rounded-3xl p-10 text-white max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-4">Ready for the Next Level?</h2>
+                <p class="text-slate-400 mb-8 leading-relaxed">The Academy gave you the tools. The <strong>Masterclass</strong> gives you the mastery. Join us to learn advanced database-linked bots, custom web dashboards, and the "Agency Scaling System" to build a global community-as-a-service business.</p>
+                <a href="../index.html#masterclass" class="inline-block px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-black uppercase tracking-widest rounded-xl transition-all transform hover:scale-105">Apply for Masterclass</a>
+            </div>
         </div>
     </template>
 
     <template id="coming-soon">
         <div class="flex flex-col items-center justify-center h-[60vh] text-center animate-fade-in">
             <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner">🔒</div>
-            <h2 class="text-2xl font-bold mb-2 text-slate-900">Content Locked</h2>
-            <p class="text-slate-500 max-w-xs mx-auto mb-8">This week's content has not been released yet. Please complete previous modules first.</p>
-            <div class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-mono text-slate-500">Status: Pending Release</div>
+            <h2 class="text-2xl font-bold mb-2 text-slate-900">Module Locked</h2>
+            <p class="text-slate-500 max-w-xs mx-auto mb-8">This content will be released according to your cohort's schedule.</p>
+            <div class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-mono text-slate-500">Status: Scheduled</div>
         </div>
     </template>
 
     <template id="not-found">
-        <div class="flex flex-col items-center justify-center h-[60vh] text-center animate-fade-in">
-            <div class="text-4xl mb-4">❓</div>
-            <h2 class="text-xl font-bold mb-2 text-slate-900">Note Not Found</h2>
-            <p class="text-slate-500">The requested note does not exist.</p>
+        <div class="flex flex-col items-center justify-center h-[60vh] text-center">
+            <h2 class="text-xl font-bold mb-2 text-slate-900">Page Not Found</h2>
+            <p class="text-slate-500">Please select a week and day from the navigation.</p>
         </div>
     </template>
 
     <script>
+        const RELEASED_WEEKS = 4;
+
         function renderContent() {
-            const hash = window.location.hash.replace('#', '') || 'week-1';
-            const weekNum = parseInt(hash.replace('week-', ''));
+            const raw = window.location.hash.replace('#', '') || 'week-1/day-1';
+            const parts = raw.split('/');
+            const weekPart = parts[0] || 'week-1';
+            const dayPart = parts[1] || 'day-1';
+            const weekNum = parseInt(weekPart.replace('week-', ''));
+            const dayId = dayPart.replace('day-', '') || '1';
+
             document.querySelectorAll('aside button').forEach(btn => {
                 btn.classList.remove('text-amber-600', 'bg-amber-50', 'border-amber-600');
                 btn.classList.add('text-slate-500', 'border-transparent');
             });
-            const activeBtn = document.getElementById('nav-' + hash);
+            const activeBtn = document.getElementById('nav-' + weekPart);
             if (activeBtn) {
                 activeBtn.classList.remove('text-slate-500', 'border-transparent');
                 activeBtn.classList.add('text-amber-600', 'bg-amber-50', 'border-amber-600'); 
             }
-            if (!hash.startsWith('week-') || isNaN(weekNum)) { showTemplate('not-found'); return; }
-            if (weekNum > RELEASED_WEEKS) { showTemplate('coming-soon'); return; }
-            showTemplate(hash);
+
+            document.querySelectorAll('#day-tabs button').forEach(btn => {
+                btn.classList.remove('tab-active');
+            });
+            const activeTab = document.getElementById('tab-day-' + dayId);
+            if (activeTab) activeTab.classList.add('tab-active');
+
+            if (!weekPart.startsWith('week-') || isNaN(weekNum)) {
+                showTemplate('not-found');
+                return;
+            }
+            if (weekNum > RELEASED_WEEKS) {
+                showTemplate('coming-soon');
+                return;
+            }
+
+            const tplId = `w${weekNum}-d${dayId}`;
+            showTemplate(tplId);
         }
+
         function showTemplate(id) {
             const container = document.getElementById('content-container');
             const template = document.getElementById(id);
@@ -158,8 +342,19 @@
                 container.appendChild(notFound.content.cloneNode(true));
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            ['1', '3', '5'].forEach(day => {
+                document.getElementById('tab-day-' + day).addEventListener('click', () => {
+                    const raw = window.location.hash.replace('#', '') || 'week-1/day-1';
+                    const wk = (raw.split('/')[0] || 'week-1');
+                    location.hash = `${wk}/day-${day}`;
+                });
+            });
+            renderContent();
+        });
+
         window.addEventListener('hashchange', renderContent);
-        document.addEventListener('DOMContentLoaded', renderContent);
     </script>
 </body>
 </html>
