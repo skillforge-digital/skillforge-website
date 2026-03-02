@@ -1086,6 +1086,25 @@
       });
     }
 
+    function fixLegacyTrackLinks() {
+      const slugs = ['synthetics','graphics','currency','stocks','cybersecurity','photo','webdev','discord'];
+      document.querySelectorAll('a[href]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href) return;
+        const m = href.match(/^(\.?\/)?(synthetics|graphics|currency|stocks|cybersecurity|photo|webdev|discord)\.html(\#.*)?$/i);
+        if (m) {
+          const slug = m[2].toLowerCase();
+          const hash = m[3] || '';
+          a.setAttribute('href', slug + '/' + (hash || ''));
+        }
+        // ensure folder links have trailing slash for static hosts
+        const n = href.match(/^(\.?\/)?(synthetics|graphics|currency|stocks|cybersecurity|photo|webdev|discord)(\/)?(\#.*)?$/i);
+        if (n && !href.endsWith('/') && !(n[4] && n[4].startsWith('#'))) {
+          a.setAttribute('href', n[2].toLowerCase() + '/');
+        }
+      });
+    }
+
     let pendingSubmission = null;
 
     function submitAgencyForm() {
@@ -1256,6 +1275,7 @@
       initDailyBackground();
       initConsent();
       setSocialLinks(APP_CONFIG.socialLinks);
+      fixLegacyTrackLinks();
       
       const agencyBtn = document.getElementById('agency-submit');
       if (agencyBtn) agencyBtn.addEventListener('click', handleAgencySubmit);
