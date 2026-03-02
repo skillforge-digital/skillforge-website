@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphics Design - Notes</title>
+    <title>Graphics Design - Student Portal</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9249731498223929">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { amber: { 500: '#f59e0b', 600: '#d97706' } } } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        amber: { 500: '#f59e0b', 600: '#d97706' }, 
+                        slate: { 850: '#1e293b', 950: '#0f172a' } 
+                    }
+                }
+            }
+        }
     </script>
     <style>
         .gold-gradient { background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%); }
         .animate-fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .prose h3 { margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 800; color: #0f172a; font-size: 1.25rem; letter-spacing: -0.025em; border-left: 4px solid #f59e0b; padding-left: 1rem; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #334155; }
+        .prose ul { margin-bottom: 1.5rem; list-style: none; padding-left: 0; }
+        .prose li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; color: #334155; }
+        .prose li::before { content: "•"; color: #f59e0b; position: absolute; left: 0; font-weight: bold; font-size: 1.2em; }
+        .tab-active { background: #f59e0b; color: white; border-color: #f59e0b; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans pb-20 md:pb-0">
@@ -30,20 +48,28 @@
     <div class="flex pt-16 min-h-screen">
         <aside class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 md:static md:w-64 md:border-t-0 md:border-r md:h-[calc(100vh-4rem)] md:sticky md:top-16 md:bg-white flex md:flex-col justify-around md:justify-start overflow-x-auto md:overflow-visible shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:shadow-none">
             <div class="p-6 hidden md:block">
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Modules</p>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Curriculum Modules</p>
             </div>
-            <button onclick="location.hash='week-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-1">
-                <span class="block md:inline">Day</span> 1
+            <button onclick="location.hash='week-1/day-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-1">
+                <span class="block md:inline">Week</span> 1
             </button>
-            <button onclick="location.hash='week-2'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-2">
-                <span class="block md:inline">Day</span> 3
+            <button onclick="location.hash='week-2/day-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-2">
+                <span class="block md:inline">Week</span> 2
             </button>
-            <button onclick="location.hash='week-3'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-3">
-                <span class="block md:inline">Day</span> 5
+            <button onclick="location.hash='week-3/day-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-3">
+                <span class="block md:inline">Week</span> 3
+            </button>
+            <button onclick="location.hash='week-4/day-1'" class="flex-1 md:flex-none p-4 md:px-6 md:py-3 text-center md:text-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-amber-600 hover:bg-amber-50 transition border-t-2 md:border-t-0 md:border-r-2 border-transparent focus:outline-none" id="nav-week-4">
+                <span class="block md:inline">Week</span> 4
             </button>
         </aside>
 
-        <main class="flex-1 p-6 md:p-12 w-full max-w-5xl mx-auto overflow-y-auto">
+        <main class="flex-1 p-6 md:p-12 w-full max-w-4xl mx-auto overflow-y-auto">
+             <div id="day-tabs" class="mb-8 flex items-center justify-center md:justify-start gap-3">
+                <button id="tab-day-1" class="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border border-slate-200 rounded-xl hover:border-amber-500 transition-colors">Day 1</button>
+                <button id="tab-day-3" class="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border border-slate-200 rounded-xl hover:border-amber-500 transition-colors">Day 3</button>
+                <button id="tab-day-5" class="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border border-slate-200 rounded-xl hover:border-amber-500 transition-colors">Day 5</button>
+             </div>
              <div id="content-container" class="min-h-[50vh]"></div>
              <div class="mt-12 pt-8 border-t border-slate-100 text-center md:text-left">
                 <p class="text-slate-400 text-xs">© 2026 Skillforge Academy. All rights reserved.</p>
@@ -51,99 +77,259 @@
         </main>
     </div>
 
-    <script>
-        const COHORT_START_DATE = new Date('2026-02-02T00:00:00'); 
-        function getReleasedWeeks() {
-            const now = new Date();
-            if (now < COHORT_START_DATE) return 1; 
-            const msPerWeek = 1000 * 60 * 60 * 24 * 7;
-            const msPassed = now - COHORT_START_DATE;
-            return Math.floor(msPassed / msPerWeek) + 1;
-        }
-        const RELEASED_WEEKS = getReleasedWeeks();
-    </script>
-
-    <template id="week-1">
+    <!-- Templates for Week 1 -->
+    <template id="w1-d1">
         <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 01</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Fundamentals of Design</h1>
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 1: Day 1</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Visual Communication Foundations</h1>
+                <p class="text-slate-500 mt-4 text-lg">Understanding how to speak through visuals and the psychology of design.</p>
+            </header>
             <div class="prose prose-slate max-w-none">
-                <p class="text-lg leading-relaxed mb-6">Welcome to the Graphics Design track. This week focuses on the core principles that make a design effective and visually appealing.</p>
-                <h3 class="text-xl font-bold mb-4">Core Concepts</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-8 text-slate-600">
-                    <li>Color Theory & Typography</li>
-                    <li>Layout & Composition</li>
-                    <li>Visual Hierarchy</li>
-                </ul>
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
-                    <h4 class="font-bold text-slate-900 mb-2">Required Tools</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                        <a href="https://www.adobe.com/products/photoshop.html" target="_blank" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group"><span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">🎨</span><span>Adobe Photoshop</span></a>
-                        <a href="https://www.adobe.com/products/illustrator.html" target="_blank" class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-amber-400 transition group"><span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition">✏️</span><span>Adobe Illustrator</span></a>
-                    </div>
+                <h3>1.1 What is Design?</h3>
+                <p>Design is not just about making things look "pretty"—it's about problem-solving and communication. Learn the core purpose of visual design in the modern business world.</p>
+                <h3>1.2 The Creative Mindset</h3>
+                <p>We'll explore how to find inspiration, overcome creative blocks, and develop a critical eye for analyzing existing designs. This is where your journey as a creator begins.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w1-d3">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 1: Day 3</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Elements of Design</h1>
+                <p class="text-slate-500 mt-4 text-lg">The building blocks of every visual masterpiece.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>1.3 Line, Shape & Texture</h3>
+                <p>Learn how to use these basic elements to create depth, movement, and emotion. Even the most complex designs are built from these simple components.</p>
+                <h3>1.4 Color Theory Basics</h3>
+                <p>Introduction to the color wheel, harmonies, and the psychological impact of different hues. Learn how to choose colors that resonate with your target audience.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w1-d5">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 1: Day 5</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Principles of Composition</h1>
+                <p class="text-slate-500 mt-4 text-lg">Arranging elements for maximum impact and clarity.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>1.5 Balance, Contrast & Hierarchy</h3>
+                <p>Learn how to guide the viewer's eye through a design. Master these principles to ensure your message is seen and understood instantly.</p>
+                <h3>1.6 The Industry Tools</h3>
+                <p>Overview of Adobe Creative Cloud (Photoshop, Illustrator, InDesign) and Figma. We'll help you choose the right tool for the right project.</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Templates for Week 2 -->
+    <template id="w2-d1">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 2: Day 1</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Typography Mastery</h1>
+                <p class="text-slate-500 mt-4 text-lg">The art and technique of arranging type to make written language legible and appealing.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>2.1 Anatomy of Type</h3>
+                <p>Learn about serifs, sans-serifs, kerning, leading, and tracking. Typography is the soul of design—master it, and you're halfway to professional results.</p>
+                <h3>2.2 Pairing Fonts</h3>
+                <p>We'll show you the secrets to combining different typefaces to create hierarchy and personality in your layouts. No more guessing—just proven frameworks.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w2-d3">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 2: Day 3</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Vector Illustration Intro</h1>
+                <p class="text-slate-500 mt-4 text-lg">Creating scalable, precise artwork with Adobe Illustrator.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>2.3 The Pen Tool Mastery</h3>
+                <p>Master the most powerful (and feared) tool in the designer's kit. We'll break it down so you can create any shape with perfect curves and precision.</p>
+                <h3>2.4 Logo Design Basics</h3>
+                <p>Learn the principles of creating iconic, memorable logos. We'll explore the process from sketching to final vector delivery.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w2-d5">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 2: Day 5</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Image Manipulation Intro</h1>
+                <p class="text-slate-500 mt-4 text-lg">Editing and enhancing photos with Adobe Photoshop.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>2.5 Layers & Masks</h3>
+                <p>Understand the non-destructive workflow. Learn how to combine images and apply effects without ever damaging your original files.</p>
+                <div class="bg-slate-900 p-6 rounded-2xl text-white my-8">
+                    <p class="text-amber-400 font-bold mb-2">Masterclass Preview:</p>
+                    <p class="text-sm">In the Masterclass, we delve into "High-End Retouching" and "Digital Compositing"—the techniques used for movie posters and luxury fashion ads. You're building the layer-logic for that now.</p>
                 </div>
             </div>
         </div>
     </template>
 
-    <template id="week-2">
+    <!-- Templates for Week 3 -->
+    <template id="w3-d1">
         <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 02</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Branding & Identity</h1>
-            <p>Content for week 2.</p>
-        </div>
-    </template>
-    
-    <template id="week-3">
-        <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 03</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">UI/UX Basics</h1>
-            <p>Content for week 3.</p>
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 3: Day 1</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Branding & Identity</h1>
+                <p class="text-slate-500 mt-4 text-lg">Building a cohesive visual language for a business.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>3.1 Brand Guidelines</h3>
+                <p>Learn how to create a "Brand Bible" that ensures consistency across all platforms. This is what high-paying clients actually pay for.</p>
+                <h3>3.2 Moodboards & Visual Research</h3>
+                <p>Master the pre-design phase. Learn how to present concepts to clients before you even open a design app, saving you dozens of hours in revisions.</p>
+            </div>
         </div>
     </template>
 
-    <template id="week-4">
+    <template id="w3-d3">
         <div class="animate-fade-in">
-            <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Week 04</div>
-            <h1 class="text-3xl md:text-4xl font-black uppercase mb-8 leading-tight">Portfolio Building</h1>
-            <p>Content for week 4.</p>
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 3: Day 3</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">UI/UX Design Intro</h1>
+                <p class="text-slate-500 mt-4 text-lg">Designing for digital products and user experiences.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>3.3 Wireframing & Prototyping</h3>
+                <p>Learn to map out the user's journey. We'll use Figma to build low-fidelity layouts that focus on function before form.</p>
+                <h3>3.4 Design Systems Basics</h3>
+                <p>Introduction to reusable components and styles. This is how modern apps like Spotify and Airbnb maintain a perfect look across thousands of pages.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w3-d5">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Week 3: Day 5</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">The Design Workflow</h1>
+                <p class="text-slate-500 mt-4 text-lg">From initial brief to final delivery.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>3.5 Client Management & Feedback</h3>
+                <p>Learn how to present your work professionally and handle criticism like a pro. Design is 50% creation and 50% presentation.</p>
+                <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 my-8">
+                    <p class="font-bold text-amber-900">Hungry for the Big Leagues?</p>
+                    <p class="text-sm text-amber-800">The Masterclass covers "Strategic Brand Consulting"—where we show you how to charge $5k - $10k per project by solving business problems, not just designing logos.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Templates for Week 4 -->
+    <template id="w4-d1">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Final Phase: Week 4</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Advanced Layout & Production</h1>
+                <p class="text-slate-500 mt-4 text-lg">Preparing your work for the real world—print and digital.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>4.1 Print vs Web Workflows</h3>
+                <p>Understand the technical differences between CMYK and RGB, PPI and DPI. Ensure your work looks perfect whether it's on a billboard or a smartphone screen.</p>
+                <h3>4.2 Exporting & Handoff</h3>
+                <p>Learn the professional standards for file organization and developer handoff. Make yourself the favorite designer of every developer and printer you work with.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w4-d3">
+        <div class="animate-fade-in">
+            <header class="mb-10 border-b border-slate-100 pb-10">
+                <div class="inline-block px-3 py-1 bg-amber-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Final Phase: Week 4</div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">Portfolio Building</h1>
+                <p class="text-slate-500 mt-4 text-lg">Showcasing your skills to land your first client or job.</p>
+            </header>
+            <div class="prose prose-slate max-w-none">
+                <h3>4.3 The "Master" Portfolio</h3>
+                <p>We'll guide you through selecting your best work and presenting it in a way that tells a story of your skills and process. Quality over quantity, always.</p>
+                <h3>4.4 Personal Branding for Designers</h3>
+                <p>Apply your branding skills to yourself. Learn how to create a personal visual identity that attracts the kind of work you want to do.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="w4-d5">
+        <div class="animate-fade-in text-center py-10">
+            <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">🎨</div>
+            <h1 class="text-4xl font-black text-slate-900 uppercase mb-4">Academy Completed</h1>
+            <p class="text-slate-500 text-xl max-w-2xl mx-auto mb-10">You have completed the Graphics Design Academy. You are now ready to create.</p>
+            <div class="bg-slate-900 rounded-3xl p-10 text-white max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-4">Are you ready for the Masterclass?</h2>
+                <p class="text-slate-400 mb-8 leading-relaxed">The Academy gave you the foundation. The <strong>Masterclass</strong> gives you the mastery. Join us to learn advanced 3D design, motion graphics, and the "High-Ticket Freelance Framework" to build a six-figure creative agency.</p>
+                <a href="../index.html#masterclass" class="inline-block px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-black uppercase tracking-widest rounded-xl transition-all transform hover:scale-105">Apply for Masterclass</a>
+            </div>
         </div>
     </template>
 
     <template id="coming-soon">
         <div class="flex flex-col items-center justify-center h-[60vh] text-center animate-fade-in">
             <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner">🔒</div>
-            <h2 class="text-2xl font-bold mb-2 text-slate-900">Content Locked</h2>
-            <p class="text-slate-500 max-w-xs mx-auto mb-8">This week's content has not been released yet. Please complete previous modules first.</p>
-            <div class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-mono text-slate-500">Status: Pending Release</div>
+            <h2 class="text-2xl font-bold mb-2 text-slate-900">Module Locked</h2>
+            <p class="text-slate-500 max-w-xs mx-auto mb-8">This content will be released according to your cohort's schedule.</p>
+            <div class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-mono text-slate-500">Status: Scheduled</div>
         </div>
     </template>
 
     <template id="not-found">
-        <div class="flex flex-col items-center justify-center h-[60vh] text-center animate-fade-in">
-            <div class="text-4xl mb-4">❓</div>
-            <h2 class="text-xl font-bold mb-2 text-slate-900">Note Not Found</h2>
-            <p class="text-slate-500">The requested note does not exist.</p>
+        <div class="flex flex-col items-center justify-center h-[60vh] text-center">
+            <h2 class="text-xl font-bold mb-2 text-slate-900">Page Not Found</h2>
+            <p class="text-slate-500">Please select a week and day from the navigation.</p>
         </div>
     </template>
 
     <script>
+        const RELEASED_WEEKS = 4;
+
         function renderContent() {
-            const hash = window.location.hash.replace('#', '') || 'week-1';
-            const weekNum = parseInt(hash.replace('week-', ''));
+            const raw = window.location.hash.replace('#', '') || 'week-1/day-1';
+            const parts = raw.split('/');
+            const weekPart = parts[0] || 'week-1';
+            const dayPart = parts[1] || 'day-1';
+            const weekNum = parseInt(weekPart.replace('week-', ''));
+            const dayId = dayPart.replace('day-', '') || '1';
+
             document.querySelectorAll('aside button').forEach(btn => {
                 btn.classList.remove('text-amber-600', 'bg-amber-50', 'border-amber-600');
                 btn.classList.add('text-slate-500', 'border-transparent');
             });
-            const activeBtn = document.getElementById('nav-' + hash);
+            const activeBtn = document.getElementById('nav-' + weekPart);
             if (activeBtn) {
                 activeBtn.classList.remove('text-slate-500', 'border-transparent');
                 activeBtn.classList.add('text-amber-600', 'bg-amber-50', 'border-amber-600'); 
             }
-            if (!hash.startsWith('week-') || isNaN(weekNum)) { showTemplate('not-found'); return; }
-            if (weekNum > RELEASED_WEEKS) { showTemplate('coming-soon'); return; }
-            showTemplate(hash);
+
+            document.querySelectorAll('#day-tabs button').forEach(btn => {
+                btn.classList.remove('tab-active');
+            });
+            const activeTab = document.getElementById('tab-day-' + dayId);
+            if (activeTab) activeTab.classList.add('tab-active');
+
+            if (!weekPart.startsWith('week-') || isNaN(weekNum)) {
+                showTemplate('not-found');
+                return;
+            }
+            if (weekNum > RELEASED_WEEKS) {
+                showTemplate('coming-soon');
+                return;
+            }
+
+            const tplId = `w${weekNum}-d${dayId}`;
+            showTemplate(tplId);
         }
+
         function showTemplate(id) {
             const container = document.getElementById('content-container');
             const template = document.getElementById(id);
@@ -156,8 +342,19 @@
                 container.appendChild(notFound.content.cloneNode(true));
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            ['1', '3', '5'].forEach(day => {
+                document.getElementById('tab-day-' + day).addEventListener('click', () => {
+                    const raw = window.location.hash.replace('#', '') || 'week-1/day-1';
+                    const wk = (raw.split('/')[0] || 'week-1');
+                    location.hash = `${wk}/day-${day}`;
+                });
+            });
+            renderContent();
+        });
+
         window.addEventListener('hashchange', renderContent);
-        document.addEventListener('DOMContentLoaded', renderContent);
     </script>
 </body>
 </html>
