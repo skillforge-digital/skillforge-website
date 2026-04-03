@@ -1,0 +1,478 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://skillforgedigital.com.ng/academic/forex-currency/week-1/day-5/" />
+  <title>Execution Physics: Pips, Lots & Institutional Order Flow | Skillforge Academy</title>
+  <meta name="description" content="Master the mechanical axioms of forex execution. Explore Pip physics, Lot stratification, and the orchestration of institutional order types for high-velocity capital management.">
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; transition: background-color 0.5s ease; }
+    .gold-gradient { background: linear-gradient(135deg, #eab308 0%, #b45309 100%); }
+    .gradient-text {
+      background: linear-gradient(135deg, #eab308 0%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); }
+    .menu-open #mobile-menu { transform: translateX(0); }
+    #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+    .logo-frame { background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .live-pulse { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 0 rgba(239, 68, 68, 0.4); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    #gold-dust { position: fixed; inset: 0; z-index: 40; pointer-events: none; mix-blend-mode: normal; }
+    body > * { position: relative; z-index: 2; }
+    
+    /* Theme Engine */
+    html[data-theme="dark"] body { background-color: #0f172a; color: #e5e7eb; }
+    html[data-theme="dark"] .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); }
+    html[data-theme="dark"] .bg-white { background-color: #0f172a; }
+    html[data-theme="dark"] .bg-slate-50 { background-color: #1e293b; }
+    html[data-theme="dark"] .text-slate-900 { color: #e5e7eb; }
+    html[data-theme="dark"] .text-slate-600 { color: #cbd5e1; }
+    html[data-theme="dark"] .text-slate-500 { color: #94a3b8; }
+    html[data-theme="dark"] .border-slate-100 { border-color: #1e293b; }
+    #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
+
+    /* Prose styles for educational content */
+    .prose h2 { margin: 3rem 0 1.5rem; font-weight: 800; font-size: 1.875rem; letter-spacing: -0.025em; border-left: 4px solid #eab308; padding-left: 1.5rem; color: inherit; }
+    .prose p { margin-bottom: 1.5rem; line-height: 1.8; opacity: 0.9; }
+    .prose ul { margin-bottom: 2rem; list-style: none; padding-left: 0; }
+    .prose li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; }
+    .prose li::before { content: "→"; color: #eab308; position: absolute; left: 0; font-weight: bold; }
+
+    /* Dark Mode Typography Enhancements */
+    html[data-theme="dark"] .prose h2 { color: #f8fafc; border-left-color: #fbbf24; }
+    html[data-theme="dark"] .prose h3 { color: #f1f5f9; }
+    html[data-theme="dark"] .prose p { color: #cbd5e1; }
+    html[data-theme="dark"] .prose li { color: #cbd5e1; }
+    html[data-theme="dark"] .prose strong { color: #f8fafc; }
+    html[data-theme="dark"] .prose li::before { color: #fbbf24; }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-slate-900">
+  <canvas id="gold-dust"></canvas>
+  
+  <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between h-24 items-center">
+        <a href="../../../../" class="flex items-center gap-4 cursor-pointer">
+          <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3 transition-transform hover:rotate-0">
+            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
+          </div>
+          <span class="font-extrabold text-xl md:text-2xl tracking-tighter uppercase leading-none">
+            SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span>
+          </span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest text-slate-500">
+          <a href="../../../../" class="hover:text-amber-600 transition">Ecosystem</a>
+          <a href="../../../../about-us/" class="hover:text-amber-600 transition">About Us</a>
+          <a href="../../../../academy/" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</a>
+          <a href="../../../../#tracks" class="hover:text-amber-600 transition">Tracks</a>
+          <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
+          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
+          <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
+            <span id="theme-icon">🌙</span>
+            <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+          </button>
+        </div>
+        <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest text-center px-6">
+    <a href="../../../../" onclick="toggleMenu()" class="hover:text-amber-600">Ecosystem</a>
+    <a href="../../../../about-us/" onclick="toggleMenu()" class="hover:text-amber-600">About Us</a>
+    <a href="../../../../academy/" onclick="toggleMenu()" class="hover:text-amber-600">The Academy</a>
+    <a href="../../../../#tracks" onclick="toggleMenu()" class="hover:text-amber-600">Skill Tracks</a>
+    <a href="../../../../agency/" onclick="toggleMenu()" class="hover:text-amber-600">The Agency</a>
+    <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
+  </div>
+
+  <main class="py-24 px-6 bg-white relative z-10">
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-12">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-4 py-1 bg-amber-600 text-white text-[10px] font-black uppercase rounded-full tracking-widest">Week 1 - Day 5</span>
+          <span class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Execution Physics</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 uppercase leading-tight">Execution <span class="text-amber-600">Physics.</span></h1>
+        <p class="text-slate-500 text-xl font-light leading-relaxed">
+          Trading is the art of precise execution. Beyond prediction lies the orchestration of **Pips**, **Lots**, and **Institutional Order Flow**â€”the mechanical foundation of capital preservation.
+        </p>
+      </div>
+
+      <div class="prose prose-slate max-w-none text-slate-600 space-y-8 text-lg leading-relaxed">
+        <section class="space-y-4">
+          <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">The Axioms of Pips</h2>
+          <p>A **Pip** (Price Interest Point) is the standardized unit of measurement for currency price movements. It represents the smallest significant price change in a given currency pair.</p>
+          <ul class="space-y-4">
+            <li><strong>The Standard Pip</strong>: For most pairs (EUR/USD, GBP/USD), a pip is the 4th decimal place (0.0001).</li>
+            <li><strong>The JPY Exception</strong>: In Japanese Yen pairs (USD/JPY, EUR/JPY), a pip is the 2nd decimal place (0.01) due to the relative value of the Yen.</li>
+            <li><strong>Fractional Pips (Pipettes)</strong>: Modern institutional feeds use a 5th decimal (or 3rd for JPY) to track sub-pip liquidity, allowing for more precise execution in high-frequency environments.</li>
+          </ul>
+        </section>
+
+        <!-- Ad Placement -->
+        <div class="my-12 py-8 border-y border-slate-50">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-9249731498223929"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <section class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 space-y-4">
+          <h2 class="text-2xl font-black text-slate-900 uppercase tracking-tight">Lot Stratification & Margin Orchestration</h2>
+          <p>In the institutional domain, capital is deployed in standardized "Lots." The lot size determines your **Contract Value** and the monetary value of every pip movement.</p>
+          <div class="grid md:grid-cols-3 gap-6 mt-8">
+            <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+              <div class="text-amber-600 font-black text-xl mb-2">1.00</div>
+              <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Standard Lot</div>
+              <p class="text-sm opacity-80">100,000 units. Typically ~$10 per pip. Used by professional risk-takers.</p>
+            </div>
+            <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+              <div class="text-amber-600 font-black text-xl mb-2">0.10</div>
+              <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Mini Lot</div>
+              <p class="text-sm opacity-80">10,000 units. Typically ~$1 per pip. The gateway to professional scaling.</p>
+            </div>
+            <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+              <div class="text-amber-600 font-black text-xl mb-2">0.01</div>
+              <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Micro Lot</div>
+              <p class="text-sm opacity-80">1,000 units. Typically ~$0.10 per pip. Ideal for psychological conditioning.</p>
+            </div>
+          </div>
+          <p class="mt-6 text-sm italic border-l-2 border-amber-600 pl-4">**Leverage Axiom**: Leverage is not free money; it is a capital multiplier that amplifies both the velocity of gains and the lethality of losses.</p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Institutional Order Physics</h2>
+          <p>The market moves based on the interaction between different order types. Understanding how to use them is the difference between a trader and a gambler.</p>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h3 class="font-bold text-amber-600 uppercase text-sm tracking-widest">1. Liquidity Consumption</h3>
+              <p><strong>Market Execution</strong>: Buying or selling instantly at the "best available" price. This consumes existing liquidity and is used when immediate entry is prioritized over price precision.</p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="font-bold text-amber-600 uppercase text-sm tracking-widest">2. Liquidity Provision</h3>
+              <p><strong>Limit Orders</strong>: Buy/Sell Limit orders are placed *below* or *above* current price. They provide liquidity to the market and ensure you enter only at your desired price point.</p>
+            </div>
+            <div class="space-y-4 border-t border-slate-50 pt-8">
+              <h3 class="font-bold text-amber-600 uppercase text-sm tracking-widest">3. Momentum Triggers</h3>
+              <p><strong>Stop Orders</strong>: Buy/Sell Stop orders trigger only *after* the price breaks a specific level. They are used to capture breakout momentum once a level is breached.</p>
+            </div>
+            <div class="space-y-4 border-t border-slate-50 pt-8">
+              <h3 class="font-bold text-amber-600 uppercase text-sm tracking-widest">4. Stop Loss Physics</h3>
+              <p>A Stop Loss is a protective Sell Stop (for buys) or Buy Stop (for sells). In the Skillforge methodology, we treat the SL as a **Hard Invalidation Level** of our thesis.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="p-10 bg-slate-900 text-white rounded-[3rem] relative overflow-hidden">
+          <div class="absolute inset-0 gold-gradient opacity-10"></div>
+          <div class="relative z-10">
+            <h3 class="text-xl font-bold uppercase tracking-widest text-amber-500 mb-4">Advanced Mastery Hook</h3>
+            <p class="text-slate-300 mb-6 text-lg">Retail traders often find their "Stop Loss" hunted by market makers. In the **Skillforge Master Class**, we teach the **Order Flow Orchestration** strategyâ€”learning to identify institutional "Stop Runs" and entering where the herd is being liquidated.</p>
+            <p class="text-amber-600 font-black mb-8 italic">Advanced Mastery is reserved for the Skillforge Master Class.</p>
+            <a href="../../../../agency/" class="inline-block px-8 py-4 bg-amber-600 text-white font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-amber-700 transition-all shadow-2xl shadow-amber-600/20">Apply for Master Class</a>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-16 flex justify-between items-center border-t border-slate-100 pt-12">
+        <a href="../day-3/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
+          <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-900 rounded-full group-hover:bg-amber-600 group-hover:text-white transition">←</span>
+          <div class="flex flex-col">
+            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Previous</span>
+            <span class="font-black uppercase tracking-widest text-xs">Market Structure</span>
+          </div>
+        </a>
+        <a href="../../week-2/day-1/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition text-right">
+          <div class="flex flex-col">
+            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Next Week</span>
+            <span class="font-black uppercase tracking-widest text-xs">Technical Analysis</span>
+          </div>
+          <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-100 py-24 px-6">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3">
+              <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
+            </div>
+            <span class="font-black text-2xl tracking-tighter uppercase leading-none">SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span></span>
+          </div>
+          <p class="text-slate-400 text-lg font-medium leading-relaxed max-w-md italic mb-8">
+            "Forging digital legacies since Jan 5, 2026. Join the ecosystem of high-velocity creators."
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://x.com/Skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/skillforge-organization-551310398?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@SkillForgeco.digital" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93$.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/skillforgeco.digital?igsh=MW1kY3RhMmlzNzJ1NA==" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.377.896.419.42.679.819.896 1.377.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.377-.42.419-.819.679-1.377.896-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.412-.558-.217-.957-.477-1.377-.896-.419-.42-.679-.819-.896-1.377-.163-.422-.358-1.057-.412-2.227C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.377.42-.419.819-.679 1.377-.896.422-.163 1.057-.358 2.227-.412 1.266-.058-1.646-.07 4.85-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126s1.337 1.081 2.126 1.384c.766.296 1.636.499 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384s1.081-1.338 1.384-2.126c.296-.765.499-1.636.558-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126s-1.338-1.081-2.126-1.384c-.765-.296-1.636-.499-2.913-.558C15.667.014 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.406 4.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            </a>
+            <a href="https://discord.gg/M8Ng7jh4K" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.419-2.157 2.419z"/></svg>
+            </a>
+            <a href="https://t.me/skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.257.257-.527.257l.188-2.68 4.882-4.416c.213-.188-.046-.293-.33-.105l-6.03 3.8-2.6-.812c-.566-.177-.577-.566.118-.838l10.164-3.917c.47-.177.882.105.735.739z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/skillforgeco.digital" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12.07h3.047V9.479c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.4h-2.796v8.457C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@skillforge.co.ltd?_r=1&_t=ZT-95Cc2tNaKS5" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.9-.39-2.82-.12-.46.13-.9.33-1.27.64-.8.64-1.23 1.65-1.17 2.67.06 1.06.61 2.04 1.48 2.66.71.53 1.58.73 2.46.61.88-.08 1.7-.51 2.27-1.2.51-.62.77-1.43.8-2.24.03-3.99.04-7.98.04-11.98z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Ecosystem</h4>
+          <ul class="space-y-4 text-slate-500 font-semibold text-sm">
+            <li><a href="../../../../" class="hover:text-amber-600 transition">Main Hub</a></li>
+            <li><a href="../../../../about-us/" class="hover:text-amber-600 transition">About Us</a></li>
+            <li><a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a></li>
+            <li><a href="../../../../#tracks" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Legal</h4>
+          <ul class="space-y-4 text-slate-500 font-semibold text-sm">
+            <li><span class="opacity-50">RC: 9284189</span></li>
+            <li><a href="#" class="hover:text-amber-600 transition">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-amber-600 transition">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-amber-600 transition">Verification</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
+          <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
+          <div class="flex gap-2">
+            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
+        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div class="flex gap-8">
+          <span>Lagos, Nigeria</span>
+          <span>Digital First</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.body.classList.toggle('menu-open'); }
+    
+    function initTheme() {
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcons(saved);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcons(next);
+    }
+
+    function updateThemeIcons(theme) {
+      const icon = document.getElementById('theme-icon');
+      if (icon) icon.textContent = theme === 'dark' ? 'â˜€ï¸' : '🌙';
+    }
+
+    function initDailyBackground() {
+      const canvas = document.getElementById('gold-dust');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      const day = new Date().getDay();
+      
+      const particles = [];
+      const config = {
+        0: { name: 'Stellar Vision', count: 300, speed: 0.15, size: 1.2 },
+        1: { name: 'Gold Dust', count: 400, speed: 0.3, size: 1.5 },
+        2: { name: 'Blueprint Grid', count: 50, speed: 0.2, size: 2 },
+        3: { name: 'Aura Waves', count: 15, speed: 0.4, size: 150 },
+        4: { name: 'Tech Nodes', count: 80, speed: 0.5, size: 2 },
+        5: { name: 'Data Streams', count: 120, speed: 1.2, size: 1.5 },
+        6: { name: 'Glass Bokeh', count: 25, speed: 0.3, size: 80 }
+      };
+
+      const current = config[day];
+      
+      function initParticles() {
+        particles.length = 0;
+        const count = Math.min(current.count, Math.floor((w * h) / (day === 3 || day === 6 ? 15000 : 8000)));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * current.speed,
+            vy: (Math.random() - 0.5) * current.speed,
+            r: Math.random() * current.size + (day === 3 || day === 6 ? 40 : 0.5),
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 0.5;
+
+        switch(day) {
+          case 0: // Stellar
+            for (let p of particles) {
+              p.phase += 0.01;
+              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
+              ctx.fill();
+              p.y -= p.vy * 0.2;
+              if (p.y < 0) p.y = h;
+            }
+            break;
+          case 1: // Gold Dust
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+              if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+              p.phase += 0.015;
+              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+          case 2: // Grid
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+            const step = 60;
+            for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+            for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+            for (let p of particles) {
+              p.phase += 0.02;
+              const opacity = 0.1 + 0.4 * Math.abs(Math.sin(p.phase));
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+          case 3: // Aura
+            for (let p of particles) {
+              p.phase += 0.01;
+              const opacity = 0.05 + 0.1 * Math.abs(Math.sin(p.phase));
+              const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+              gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`);
+              gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+              ctx.fillStyle = gradient;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              p.x += Math.cos(p.phase) * 0.5;
+              p.y += Math.sin(p.phase) * 0.5;
+            }
+            break;
+          case 4: // Nodes
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.3)`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              for (let other of particles) {
+                const dx = p.x - other.x;
+                const dy = p.y - other.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 100) {
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.1 * (1 - dist/100)})`;
+                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
+                }
+              }
+            }
+            break;
+          case 5: // Streams
+            for (let p of particles) {
+              p.y += p.vy * 2;
+              if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.2)`;
+              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + 10); ctx.stroke();
+            }
+            break;
+          case 6: // Bokeh
+            for (let p of particles) {
+              p.phase += 0.005;
+              const opacity = 0.05 + 0.05 * Math.sin(p.phase);
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
+              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
+            }
+            break;
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        initParticles();
+      });
+
+      initParticles();
+      draw();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initDailyBackground();
+    });
+  </script>
+</body>
+</html>
+
+
+

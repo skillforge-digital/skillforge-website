@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-9249731498223929">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://skillforgedigital.com.ng/academy/ai-content-creation/" />
+  <title>Track: AI Content Creation | Skillforge Academy</title>
+  
+  <meta name="description" content="Master prompt engineering and generative media workflows. Join our intensive curriculum.">
+  <meta name="keywords" content="AI Content Creation, Prompt Engineering, Skillforge Academy">
+  <meta name="author" content="Skillforge Digital & Co. LTD">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://files.fm/thumb_show.php?i=8hetzgxc8w">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+    .gold-gradient { background: linear-gradient(135deg, #eab308 0%, #b45309 100%); }
+    .gradient-text {
+      background: linear-gradient(135deg, #eab308 0%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); }
+    .menu-open #mobile-menu { transform: translateX(0); }
+    #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+    .logo-frame { background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .live-pulse { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 0 rgba(239, 68, 68, 0.4); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    #gold-dust { position: fixed; inset: 0; z-index: 40; pointer-events: none; mix-blend-mode: normal; }
+    body > * { position: relative; z-index: 2; }
+    html[data-theme="dark"] body { background-color: #0b0b0f; color: #e5e7eb; }
+    html[data-theme="dark"] .glass-nav { background: rgba(12, 12, 18, 0.85); backdrop-filter: blur(12px); }
+    html[data-theme="dark"] .bg-white { background-color: #0f172a; }
+    html[data-theme="dark"] .text-slate-900 { color: #e5e7eb; }
+    html[data-theme="dark"] .text-slate-500 { color: #94a3b8; }
+    html[data-theme="dark"] .border-slate-100 { border-color: #1f2937; }
+    html[data-theme="dark"] .bg-slate-50 { background-color: #0f172a; }
+    #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-slate-900">
+  <canvas id="gold-dust"></canvas>
+  
+  <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between h-24 items-center">
+        <a href="../../" class="flex items-center gap-4 cursor-pointer">
+          <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3 transition-transform hover:rotate-0">
+            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
+          </div>
+          <span class="font-extrabold text-xl md:text-2xl tracking-tighter uppercase leading-none">
+            SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span>
+          </span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest text-slate-500">
+          <a href="../../" class="hover:text-amber-600 transition">Ecosystem</a>
+          <a href="../../about-us/" class="hover:text-amber-600 transition">About Us</a>
+          <a href="../../" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</a>
+          <a href="../../" class="hover:text-amber-600 transition">Tracks</a>
+          <a href="../../agency/" class="hover:text-amber-600 transition">Agency</a>
+          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
+          <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
+            <span id="theme-icon-nav">🌙</span>
+            <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+          </button>
+        </div>
+        <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest text-center px-6">
+    <a href="../../" onclick="toggleMenu()" class="hover:text-amber-600">Ecosystem</a>
+    <a href="../../about-us/" onclick="toggleMenu()" class="hover:text-amber-600">About Us</a>
+    <a href="../../" onclick="toggleMenu()" class="hover:text-amber-600">The Academy</a>
+    <a href="../../" onclick="toggleMenu()" class="hover:text-amber-600">Skill Tracks</a>
+    <a href="../../agency/" onclick="toggleMenu()" class="hover:text-amber-600">The Agency</a>
+    <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
+  </div>
+
+  <button id="theme-toggle" onclick="toggleTheme()" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
+    <span id="theme-icon">🌙</span>
+    <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+  </button>
+
+  <main class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="inline-block px-4 py-1 bg-amber-600 text-white text-[10px] font-black uppercase rounded-full tracking-widest mb-6">Academic Track</div>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase leading-tight">AI Content <br><span class="text-amber-600">Creation.</span></h1>
+        <p class="text-slate-500 text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          Master prompt engineering and generative media workflows.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Week 1 -->
+        <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100">
+          <h3 class="text-2xl font-black mb-8 uppercase tracking-tight">Week 1: AI Foundations</h3>
+          <div class="grid gap-4">
+            <a href="./week-1/day-1/" class="flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 hover:border-amber-600 transition group shadow-sm">
+              <div>
+                <span class="text-[10px] font-black text-amber-600 uppercase tracking-widest block mb-1">Day 1</span>
+                <span class="font-bold text-slate-900 group-hover:text-amber-600 transition">Introduction to Generative AI</span>
+              </div>
+              <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+            </a>
+            <a href="./week-1/day-3/" class="flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 hover:border-amber-600 transition group shadow-sm">
+              <div>
+                <span class="text-[10px] font-black text-amber-600 uppercase tracking-widest block mb-1">Day 3</span>
+                <span class="font-bold text-slate-900 group-hover:text-amber-600 transition">Prompt Engineering Mastery</span>
+              </div>
+              <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+            </a>
+            <a href="./week-1/day-5/" class="flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 hover:border-amber-600 transition group shadow-sm">
+              <div>
+                <span class="text-[10px] font-black text-amber-600 uppercase tracking-widest block mb-1">Day 5</span>
+                <span class="font-bold text-slate-900 group-hover:text-amber-600 transition">AI-Assisted Workflows</span>
+              </div>
+              <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certification -->
+        <div class="p-10 bg-slate-900 text-white rounded-[3rem] relative overflow-hidden border-4 border-amber-600">
+          <div class="absolute inset-0 gold-gradient opacity-10"></div>
+          <div class="relative z-10 text-center">
+            <h3 class="text-3xl font-black uppercase tracking-widest text-amber-500 mb-4">Claim Certification</h3>
+            <p class="text-slate-300 mb-8 leading-relaxed max-w-xl mx-auto">
+              Completed the track? Submit your verification details to receive your verifiable digital badge and certificate.
+            </p>
+            <a href="./certification/" class="inline-block px-12 py-6 bg-amber-600 text-white font-black text-xs uppercase tracking-[0.3em] rounded-2xl hover:bg-amber-700 transition-all shadow-xl shadow-amber-600/30">Get Certified</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-100 py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
+        <div class="flex flex-col items-center md:items-start">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 logo-frame rounded-xl">
+              <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
+            </div>
+            <div class="font-black text-2xl tracking-tighter uppercase leading-none">SKILLFORGE<br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span></div>
+          </div>
+          <p class="text-slate-400 text-sm font-medium text-center md:text-left leading-relaxed italic">"Forging Digital Legacies since Jan 5, 2026."</p>
+        </div>
+        <div class="text-center md:text-right">
+          <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Official Organization Portal</p>
+          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="text-amber-600 font-black uppercase text-xs tracking-widest hover:underline decoration-2 underline-offset-4">Registry & Intake Portal</a>
+          <div class="mt-3">
+            <a href="../../privacy/" class="text-slate-400 hover:text-amber-600 text-[10px] uppercase tracking-[0.3em] font-bold">Privacy Policy</a>
+            <span class="hidden sm:inline mx-2 text-slate-300">|</span>
+            <a href="../../terms/" class="text-slate-400 hover:text-amber-600 text-[10px] uppercase tracking-[0.3em] font-bold">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-10 border-t border-slate-50 text-center">
+        <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em] font-bold">© 2026 Skillforge Digital & Co. LTD. <span class="hidden sm:inline mx-2">|</span> RC: 9284189 <span class="hidden sm:inline mx-2">|</span> All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.body.classList.toggle('menu-open'); }
+    function initTheme() {
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+        if (icon) icon.textContent = saved === 'dark' ? 'â˜€ï¸' : '🌙';
+      });
+    }
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+          if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+      }
+
+    function initDailyBackground() {
+      const canvas = document.getElementById('gold-dust');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      const day = new Date().getDay();
+      
+      const particles = [];
+      const config = {
+        0: { name: 'Stellar Vision', count: 300, speed: 0.15, size: 1.2 },
+        1: { name: 'Gold Dust', count: 400, speed: 0.3, size: 1.5 },
+        2: { name: 'Blueprint Grid', count: 50, speed: 0.2, size: 2 },
+        3: { name: 'Aura Waves', count: 15, speed: 0.4, size: 150 },
+        4: { name: 'Tech Nodes', count: 80, speed: 0.5, size: 2 },
+        5: { name: 'Data Streams', count: 120, speed: 1.2, size: 1.5 },
+        6: { name: 'Glass Bokeh', count: 25, speed: 0.3, size: 80 }
+      };
+
+      const current = config[day];
+      
+      function initParticles() {
+        particles.length = 0;
+        const count = Math.min(current.count, Math.floor((w * h) / (day === 3 || day === 6 ? 15000 : 8000)));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * current.speed,
+            vy: (Math.random() - 0.5) * current.speed,
+            r: Math.random() * current.size + (day === 3 || day === 6 ? 40 : 0.5),
+            a: Math.random() * Math.PI * 2,
+            pulse: Math.random() * 0.02,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 0.5;
+
+        switch(day) {
+          case 0:
+            for (let p of particles) {
+              p.phase += 0.01;
+              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
+              ctx.fill();
+              p.y -= p.vy * 0.2;
+              if (p.y < 0) p.y = h;
+            }
+            break;
+          case 1:
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+              if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+              p.phase += 0.015;
+              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+          case 2:
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+            const step = 60;
+            for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+            for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+            for (let p of particles) {
+              p.phase += 0.02;
+              const opacity = 0.1 + 0.4 * Math.abs(Math.sin(p.phase));
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            break;
+          case 3:
+            for (let p of particles) {
+              p.phase += 0.01;
+              const opacity = 0.05 + 0.1 * Math.abs(Math.sin(p.phase));
+              const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+              gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`);
+              gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+              ctx.fillStyle = gradient;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              p.x += Math.cos(p.phase) * 0.5;
+              p.y += Math.sin(p.phase) * 0.5;
+            }
+            break;
+          case 4:
+            for (let p of particles) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.3)`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              for (let other of particles) {
+                const dx = p.x - other.x;
+                const dy = p.y - other.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 100) {
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.1 * (1 - dist/100)})`;
+                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
+                }
+              }
+            }
+            break;
+          case 5:
+            for (let p of particles) {
+              p.y += p.vy * 2;
+              if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.2)`;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + 10); ctx.stroke();
+            }
+            break;
+          case 6:
+            for (let p of particles) {
+              p.phase += 0.005;
+              const opacity = 0.05 + 0.05 * Math.sin(p.phase);
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+              p.x += Math.vx; p.y += Math.vy;
+              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
+              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
+            }
+            break;
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        initParticles();
+      });
+
+      initParticles();
+      draw();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initDailyBackground();
+    });
+  </script>
+</body>
+</html>
+

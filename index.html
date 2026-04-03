@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929"
@@ -75,15 +75,18 @@
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
     #gold-dust { position: fixed; inset: 0; z-index: 40; pointer-events: none; mix-blend-mode: normal; }
     body > * { position: relative; z-index: 2; }
-    html[data-theme="dark"] body { background-color: #0b0b0f; color: #e5e7eb; }
-    html[data-theme="dark"] .glass-nav { background: rgba(12, 12, 18, 0.85); backdrop-filter: blur(12px); }
+    
+    /* Theme Engine */
+    html[data-theme="dark"] body { background-color: #0f172a; color: #e5e7eb; }
+    html[data-theme="dark"] .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); }
     html[data-theme="dark"] .bg-white { background-color: #0f172a; }
+    html[data-theme="dark"] .bg-slate-50 { background-color: #1e293b; }
     html[data-theme="dark"] .text-slate-900 { color: #e5e7eb; }
+    html[data-theme="dark"] .text-slate-600 { color: #cbd5e1; }
     html[data-theme="dark"] .text-slate-500 { color: #94a3b8; }
     html[data-theme="dark"] .text-slate-400 { color: #94a3b8; }
-    html[data-theme="dark"] .border-slate-100 { border-color: #1f2937; }
+    html[data-theme="dark"] .border-slate-100 { border-color: #1e293b; }
     html[data-theme="dark"] .bg-amber-50 { background-color: rgba(234,179,8,0.08); }
-    html[data-theme="dark"] .bg-slate-50 { background-color: #0f172a; }
     #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
   </style>
 </head>
@@ -94,19 +97,19 @@
   <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between h-24 items-center">
-        <div class="flex items-center gap-4 cursor-pointer" onclick="showSection('home')">
+        <a href="./" class="flex items-center gap-4 cursor-pointer">
           <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3 transition-transform hover:rotate-0">
             <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-amber-500 font-black\'>SF</span>'">
           </div>
           <span class="font-extrabold text-xl md:text-2xl tracking-tighter uppercase leading-none">
             SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span>
           </span>
-        </div>
+        </a>
         <div class="hidden lg:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest text-slate-500">
-          <button onclick="showSection('home')" class="hover:text-amber-600 transition">Ecosystem</button>
-          <button onclick="showSection('about')" class="hover:text-amber-600 transition">About Us</button> <button onclick="showSection('academy')" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</button>
-          <button onclick="showSection('tracks')" class="hover:text-amber-600 transition">Tracks</button>
-          <button onclick="showSection('services')" class="hover:text-amber-600 transition">Agency</button>
+          <a href="./" class="hover:text-amber-600 transition">Ecosystem</a>
+          <a href="./about-us/" class="hover:text-amber-600 transition">About Us</a> <a href="./academy/" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</a>
+          <a href="./academy/" class="hover:text-amber-600 transition">Tracks</a>
+          <a href="./agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button id="theme-toggle-nav" onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
             <span id="theme-icon-nav">🌙</span>
@@ -142,10 +145,10 @@
     <div class="w-24 h-24 logo-frame rounded-3xl mb-8">
       <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
     </div>
-    <button onclick="toggleMenu(); showSection('home')" class="hover:text-amber-600">Ecosystem</button>
-    <button onclick="toggleMenu(); showSection('about')" class="hover:text-amber-600">About Us</button> <button onclick="toggleMenu(); showSection('academy')" class="hover:text-amber-600">The Academy</button>
-    <button onclick="toggleMenu(); showSection('tracks')" class="hover:text-amber-600">Skill Tracks</button>
-    <button onclick="toggleMenu(); showSection('services')" class="hover:text-amber-600">The Agency</button>
+    <a href="./" onclick="toggleMenu()" class="hover:text-amber-600">Ecosystem</a>
+    <a href="./about-us/" onclick="toggleMenu()" class="hover:text-amber-600">About Us</a> <a href="./academy/" onclick="toggleMenu()" class="hover:text-amber-600">The Academy</a>
+    <a href="./academy/" onclick="toggleMenu()" class="hover:text-amber-600">Skill Tracks</a>
+    <a href="./agency/" onclick="toggleMenu()" class="hover:text-amber-600">The Agency</a>
     <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="text-amber-600 border-b-4 border-amber-600 pb-2">Registration Portal</a>
     <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
   </div>
@@ -166,7 +169,7 @@
         <p class="max-w-2xl text-slate-500 text-lg md:text-xl font-light mb-14 leading-relaxed">Skillforge Digital & Co. LTD is a global ecosystem where elite training meets high-tier corporate execution. Our January Cohort is officially in session.</p>
         <div class="flex flex-wrap justify-center gap-6">
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="gold-gradient text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl shadow-amber-600/30 hover:translate-y-[-2px] transition-all">Register for Academy</a>
-          <button onclick="showSection('services')" class="bg-slate-900 text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-slate-800 transition-all">Contact Our Agency</button>
+          <a href="./agency/" class="bg-slate-900 text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-slate-800 transition-all">Contact Our Agency</a>
         </div>
       </div>
     </div>
@@ -321,7 +324,7 @@
             <h3 class="text-2xl font-black mb-2 uppercase">Forex Synthetics Indices</h3>
             <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">JANUARY: WEEKS 1-3</p>
             <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Master the technical landscape of synthetic indices. Zero-cost foundational curriculum in session.</p>
-            <a href="synthetics/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+            <a href="./academy/forex-synthetics/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
           </div>
         </div>
 
@@ -337,7 +340,7 @@
             <h3 class="text-2xl font-black mb-2 uppercase">Graphics Design</h3>
             <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">JANUARY: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
             <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Visual branding and identity architecture. Learn to build world-class brand systems.</p>
-            <a href="graphics/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+            <a href="./academy/graphic-design/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
           </div>
         </div>
 
@@ -353,41 +356,11 @@
             <h3 class="text-2xl font-black mb-2 uppercase">Forex Currency Pairs</h3>
             <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">MARCH: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
             <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Disciplined FX practice and market structure fundamentals.</p>
-            <a href="currency/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+            <a href="./academy/forex-currency/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
           </div>
         </div>
 
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="FEBRUARY" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Stock Market Trading</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">FEBRUARY: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Equity markets, analysis, and trade execution foundations.</p>
-            <a href="stocks/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
 
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="APRIL" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Cybersecurity</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">APRIL: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Threat modeling, hardening, and security operations basics.</p>
-            <a href="cybersecurity/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
 
         <div class="group h-full relative">
           <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
@@ -401,7 +374,7 @@
             <h3 class="text-2xl font-black mb-2 uppercase">Photography & Editing</h3>
             <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">APRIL: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
             <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Capture workflows and professional post-production for campaigns.</p>
-            <a href="photo/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+            <a href="./academy/photography-and-editing/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
           </div>
         </div>
 
@@ -417,7 +390,7 @@
             <h3 class="text-2xl font-black mb-2 uppercase">Discord Design & Development (NEW)</h3>
             <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">MARCH: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
             <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Bots, integrations, governance, and community architecture.</p>
-            <a href="discord/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+            <a href="./academy/discord-development/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
           </div>
         </div>
 
@@ -433,7 +406,7 @@
             <h3 class="text-2xl font-black mb-2 uppercase">Web Design & Development</h3>
             <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">FEBRUARY: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
             <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Next Cohort starts February 2nd. Pre-registration for the Forge Challenge opens soon.</p>
-            <a href="webdev/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+            <a href="./academy/web-development/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
           </div>
         </div>
       </div>
@@ -453,10 +426,9 @@
               <li>• Benefit: Certificate of Participation for all entrants</li>
             </ul>
           </div>
-          <div class="p-8 bg-white border border-slate-100 rounded-3xl">
-            <div class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600 mb-2">Phase 3</div>
-            <h3 class="text-2xl font-black mb-3">Paid Masterclass Intensive (June–August)</h3>
-            <ul class="text-slate-600 text-sm space-y-2">
+          <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+            <h3 class="text-2xl font-black mb-3">Paid Masterclass Intensive (June—August)</h3>
+            <ul class="space-y-4 text-slate-500 font-semibold text-sm">
               <li>• Weekly 1-on-1 mentoring with industry professionals</li>
               <li>• Real client projects for accelerated portfolio building</li>
               <li>• Portfolio, CV, interview training and placement support</li>
@@ -616,32 +588,81 @@
     </div>
   </section>
 
-  <footer class="bg-white border-t border-slate-100 py-20 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
-        <div class="flex flex-col items-center md:items-start">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-12 h-12 logo-frame rounded-xl">
+  <footer class="bg-white border-t border-slate-100 py-24 px-6">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3">
               <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
             </div>
-            <div class="font-black text-2xl tracking-tighter uppercase">SKILLFORGE<span class="text-amber-600">Digital</span></div>
+            <span class="font-black text-2xl tracking-tighter uppercase leading-none">SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span></span>
           </div>
-          <p class="text-slate-400 text-sm font-medium text-center md:text-left leading-relaxed italic">"Forging Digital Legacies since Jan 5, 2026."</p>
+          <p class="text-slate-400 text-lg font-medium leading-relaxed max-w-md italic mb-8">
+            "Forging digital legacies since Jan 5, 2026. Join the ecosystem of high-velocity creators."
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://x.com/Skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/skillforge-organization-551310398" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://youtube.com/@skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93$.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/skillforge.co.ltd" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.377.896.419.42.679.819.896 1.377.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.377-.42.419-.819.679-1.377.896-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.412-.558-.217-.957-.477-1.377-.896-.419-.42-.679-.819-.896-1.377-.163-.422-.358-1.057-.412-2.227C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.377.42-.419.819-.679 1.377-.896.422-.163 1.057-.358 2.227-.412 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126s1.337 1.081 2.126 1.384c.766.296 1.636.499 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384s1.081-1.338 1.384-2.126c.296-.765.499-1.636.558-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126s-1.338-1.081-2.126-1.384c-.765-.296-1.636-.499-2.913-.558C15.667.014 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.406 4.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            </a>
+            <a href="https://discord.gg/M8Ng7jh4K" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.419-2.157 2.419z"/></svg>
+            </a>
+            <a href="https://t.me/skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.257.257-.527.257l.188-2.68 4.882-4.416c.213-.188-.046-.293-.33-.105l-6.03 3.8-2.6-.812c-.566-.177-.577-.566.118-.838l10.164-3.917c.47-.177.882.105.735.739z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/1GQhM9aYTd" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12.07h3.047V9.479c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.4h-2.796v8.457C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@skillforge.co.ltd" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.9-.39-2.82-.12-.46.13-.9.33-1.27.64-.8.64-1.23 1.65-1.17 2.67.06 1.06.61 2.04 1.48 2.66.71.53 1.58.73 2.46.61.88-.08 1.7-.51 2.27-1.2.51-.62.77-1.43.8-2.24.03-3.99.04-7.98.04-11.98z"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="text-center md:text-right">
-          <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Official Organization Portal</p>
-          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="text-amber-600 font-black uppercase text-xs tracking-widest hover:underline decoration-2 underline-offset-4">Registry & Intake Portal</a>
-          <div class="mt-3">
-            <button onclick="openConsent()" class="text-slate-400 hover:text-amber-600 text-[10px] uppercase tracking-[0.3em] font-bold">Manage Cookies</button>
-            <span class="hidden sm:inline mx-2 text-slate-300">|</span>
-            <a href="privacy/" class="text-slate-400 hover:text-amber-600 text-[10px] uppercase tracking-[0.3em] font-bold">Privacy Policy</a>
-            <span class="hidden sm:inline mx-2 text-slate-300">|</span>
-            <a href="terms/" class="text-slate-400 hover:text-amber-600 text-[10px] uppercase tracking-[0.3em] font-bold">Terms</a>
+        <div>
+          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Ecosystem</h4>
+          <ul class="space-y-4 text-slate-500 font-semibold text-sm">
+            <li><a href="./" class="hover:text-amber-600 transition">Main Hub</a></li>
+            <li><a href="./about-us/" class="hover:text-amber-600 transition">About Us</a></li>
+            <li><a href="./agency/" class="hover:text-amber-600 transition">Agency</a></li>
+            <li><a href="./#tracks" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Legal</h4>
+          <ul class="space-y-4 text-slate-500 font-semibold text-sm">
+            <li><span class="opacity-50">RC: 9284189</span></li>
+            <li><a href="./privacy/" class="hover:text-amber-600 transition">Privacy Policy</a></li>
+            <li><a href="./terms/" class="hover:text-amber-600 transition">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-amber-600 transition">Verification</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
+          <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
+          <div class="flex gap-2">
+            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="pt-10 border-t border-slate-50 text-center">
-        <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em] font-bold">© 2026 Skillforge Digital & Co. LTD. <span class="hidden sm:inline mx-2">|</span> <br class="sm:hidden"> RC: 9284189 <span class="hidden sm:inline mx-2">|</span> All rights reserved.</p>
+      <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
+        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div class="flex gap-8">
+          <span>Lagos, Nigeria</span>
+          <span>Digital First</span>
+        </div>
       </div>
     </div>
   </footer>
@@ -685,38 +706,20 @@
     }
 
     const APP_CONFIG = {
-      agencyEndpoint: 'https://api.web3forms.com/submit',
       socialLinks: {
         twitter: 'https://x.com/Skillforgeorg',
         linkedin: 'https://www.linkedin.com/in/skillforge-organization-551310398?utm_source=share_via&utm_content=profile&utm_medium=member_android',
-        youtube: 'https://youtube.com/@skillforgeorg?si=3aJGC-h4qOeNuMOW',
-        instagram: 'https://www.instagram.com/skillforge.co.ltd?igsh=MW1kY3RhMmlzNzJ1NA%3D%3D&utm_source=qr',
+        youtube: 'https://www.youtube.com/@SkillForgeco.digital',
+        instagram: 'https://www.instagram.com/skillforgeco.digital?igsh=MW1kY3RhMmlzNzJ1NA==',
         discord: 'https://discord.gg/M8Ng7jh4K',
         telegram: 'https://t.me/skillforgeorg',
-        facebook: 'https://www.facebook.com/share/1GQhM9aYTd/?mibextid=wwXIfr',
-        tiktok: 'https://www.tiktok.com/@skillforge.co.ltd?_r=1&_d=emad6hfhahkjgf&sec_uid=MS4wLjABAAAAjZaFeWp0p-R2bFlp4atK1knvnIvrMWxE175mOphVNg31QTA0RlrNFUeGpZWs8Hl9&share_author_id=7587431884104533047&sharer_language=en&source=h5_m&u_code=f155086fm345jh&item_author_type=1&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=9F838A09-A6A2-40B2-90C2-7A66A5D30506&user_id=7587431884104533047&sec_user_id=MS4wLjABAAAAjZaFeWp0p-R2bFlp4atK1knvnIvrMWxE175mOphVNg31QTA0RlrNFUeGpZWs8Hl9&social_share_type=4&ug_btm=b8727,b0&utm_campaign=client_share&share_app_id=1233'
-      }
+        facebook: 'https://www.facebook.com/skillforgeco.digital',
+        tiktok: 'https://www.tiktok.com/@skillforge.co.ltd?_r=1&_t=ZT-95Cc2tNaKS5'
+      },
+      agencyEndpoint: 'https://api.web3forms.com/submit'
     };
 
     function toggleMenu() { document.body.classList.toggle('menu-open'); }
-
-    function showSection(sectionId) {
-      const sections = ['home', 'about', 'academy', 'tracks', 'services']; // UPDATED LIST
-      sections.forEach(s => {
-        const el = document.getElementById(s);
-        if (el) {
-          el.classList.add('section-hidden');
-          el.classList.remove('active-section');
-        }
-      });
-      const target = document.getElementById(sectionId);
-      if (target) {
-        target.classList.remove('section-hidden');
-        target.classList.add('active-section');
-      }
-      window.scrollTo(0, 0);
-      if (location.hash.replace('#','') !== sectionId) location.hash = sectionId;
-    }
 
     function highlightSubcategory(slug) {
       document.querySelectorAll('#academy-subcats a').forEach(a => {
@@ -726,112 +729,6 @@
       if (active) active.classList.add('gold-gradient','text-white');
     }
     
-    function loadLesson(track) {
-      const container = document.getElementById('lesson-content');
-      container.classList.remove('hidden');
-      const titles = {
-        synthetics: 'Forex Synthetics Indices',
-        graphics: 'Graphics Design',
-        currency: 'Forex Currency Pairs',
-        stocks: 'Stock Market Trading',
-        cybersecurity: 'Cybersecurity',
-        photo: 'Photography & Editing',
-        webdev: 'Web Design & Development',
-        discord: 'Discord Design & Development'
-      };
-      
-      const title = titles[track] || 'Academy Track';
-      
-      // Default to showing Week 1 content immediately or a dashboard
-      container.innerHTML = `
-        <div class="bg-slate-900 p-8 md:p-12 rounded-[3rem] text-white shadow-2xl max-w-6xl mx-auto relative overflow-hidden min-h-[80vh]">
-          <div class="absolute top-0 right-0 w-96 h-96 gold-gradient opacity-10 blur-[120px]"></div>
-          
-          <div class="flex flex-col md:flex-row gap-8 relative z-10 h-full">
-            <!-- Sidebar / Week Selector -->
-            <div class="md:w-1/4 flex flex-col gap-4 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-6">
-              <div class="flex justify-between items-center mb-4">
-                <div class="w-12 h-12 logo-frame rounded-xl">
-                  <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-                </div>
-                <button onclick="document.getElementById('lesson-content').classList.add('hidden')" class="text-slate-500 hover:text-white transition text-3xl">×</button>
-              </div>
-              
-              <h3 class="text-xl font-black leading-tight mb-2">${title}</h3>
-              <p class="text-[10px] text-amber-500 font-bold uppercase tracking-widest mb-6">Course Modules</p>
-              
-              <div class="space-y-2">
-                <button onclick="loadNote('${track}', 'week-1')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
-                  <span>Week 1</span>
-                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
-                </button>
-                <button onclick="loadNote('${track}', 'week-2')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
-                  <span>Week 2</span>
-                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
-                </button>
-                <button onclick="loadNote('${track}', 'week-3')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
-                  <span>Week 3</span>
-                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
-                </button>
-                <button onclick="loadNote('${track}', 'week-4')" class="w-full text-left px-4 py-3 rounded-xl bg-white/5 hover:bg-amber-600 hover:text-white transition text-xs font-bold uppercase tracking-widest border border-white/5 group flex justify-between items-center">
-                  <span>Week 4</span>
-                  <span class="opacity-0 group-hover:opacity-100 transition">→</span>
-                </button>
-                 <div class="pt-4 mt-4 border-t border-white/10">
-                    <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="block w-full text-center px-4 py-3 rounded-xl bg-amber-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-slate-900 transition">Register for Cert</a>
-                 </div>
-              </div>
-            </div>
-            
-            <!-- Content Area -->
-            <div class="md:w-3/4 flex flex-col h-full" id="note-display-area">
-              <div class="flex-grow flex flex-col justify-center items-center text-center p-12 border border-white/5 rounded-3xl bg-white/5">
-                 <div class="text-6xl mb-6">📚</div>
-                 <h2 class="text-2xl font-bold mb-2">Select a Week</h2>
-                 <p class="text-slate-400 text-sm max-w-md">Choose a week from the sidebar to load the lesson notes. If a week's content is not yet uploaded, check back later.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      
-      highlightSubcategory(track);
-      container.scrollIntoView({ behavior: 'smooth' });
-    }
-    
-    function navigateToTrack(slug) {
-      showSection('academy');
-      loadLesson(slug);
-      location.hash = 'academy/' + slug;
-    }
-    
-    function loadNote(slug, noteId) {
-      const display = document.getElementById('note-display-area');
-      if (!display) {
-        // If loaded directly from hash without full UI, load full UI first then inject note
-        loadLesson(slug);
-        // Small delay to ensure DOM is ready if sync (though innerHTML is sync)
-      }
-      
-      const targetDisplay = document.getElementById('note-display-area');
-      if (!targetDisplay) return;
-
-      const src = slug + '/#' + noteId;
-      
-      targetDisplay.innerHTML = `
-        <div class="w-full h-full flex flex-col">
-            <div class="flex justify-between items-center mb-4">
-                <span class="text-[10px] font-black uppercase tracking-widest text-amber-500">${slug} / ${noteId}</span>
-                <a href="${src}" target="_blank" class="text-[10px] text-slate-400 hover:text-white transition">Open in New Tab ↗</a>
-            </div>
-            <iframe src="${src}" class="w-full flex-grow rounded-2xl bg-white border border-slate-200" onload="this.contentWindow.location.reload();"></iframe>
-        </div>
-      `;
-      
-      highlightSubcategory(slug);
-      location.hash = 'academy/' + slug + '/' + noteId;
-    }
-
     function initSchedule() {
       // Force all cards to LIVE status
       document.querySelectorAll('[data-month]').forEach(card => {
@@ -868,45 +765,6 @@
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
         if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
-      });
-    }
-
-    function initHashRouting() {
-      const raw = location.hash.replace('#', '');
-      const parts = (raw || '').toLowerCase().split('/');
-      const top = parts[0] || '';
-      const sub = parts[1] || '';
-      const note = parts[2] || '';
-      const simple = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
-      if (top === 'academy') {
-        showSection('academy');
-        if (note && sub) {
-          loadNote(sub, note);
-        } else if (sub) {
-          loadLesson(sub);
-        }
-      } else if (simple[top]) {
-        showSection(simple[top]);
-      } else {
-        showSection('home');
-      }
-      window.addEventListener('hashchange', function() {
-        const r = location.hash.replace('#', '');
-        const p = (r || '').toLowerCase().split('/');
-        const t = p[0] || '';
-        const s = p[1] || '';
-        const n = p[2] || '';
-        const m = { 'home': 'home', 'about': 'about', 'academy': 'academy', 'tracks': 'tracks', 'services': 'services', 'agency': 'services' };
-        if (t === 'academy') {
-          showSection('academy');
-          if (n && s) {
-            loadNote(s, n);
-          } else if (s) {
-            loadLesson(s);
-          }
-        } else if (m[t]) {
-          showSection(m[t]);
-        }
       });
     }
 
@@ -1092,25 +950,6 @@
       });
     }
 
-    function fixLegacyTrackLinks() {
-      const slugs = ['synthetics','graphics','currency','stocks','cybersecurity','photo','webdev','discord'];
-      document.querySelectorAll('a[href]').forEach(a => {
-        const href = a.getAttribute('href');
-        if (!href) return;
-        const m = href.match(/^(\.?\/)?(synthetics|graphics|currency|stocks|cybersecurity|photo|webdev|discord)\.html(\#.*)?$/i);
-        if (m) {
-          const slug = m[2].toLowerCase();
-          const hash = m[3] || '';
-          a.setAttribute('href', slug + '/' + (hash || ''));
-        }
-        // ensure folder links have trailing slash for static hosts
-        const n = href.match(/^(\.?\/)?(synthetics|graphics|currency|stocks|cybersecurity|photo|webdev|discord)(\/)?(\#.*)?$/i);
-        if (n && !href.endsWith('/') && !(n[4] && n[4].startsWith('#'))) {
-          a.setAttribute('href', n[2].toLowerCase() + '/');
-        }
-      });
-    }
-
     let pendingSubmission = null;
 
     function submitAgencyForm() {
@@ -1277,11 +1116,9 @@
     document.addEventListener('DOMContentLoaded', function() {
       initSchedule();
       initTheme();
-      initHashRouting();
       initDailyBackground();
       initConsent();
       setSocialLinks(APP_CONFIG.socialLinks);
-      fixLegacyTrackLinks();
       
       const agencyBtn = document.getElementById('agency-submit');
       if (agencyBtn) agencyBtn.addEventListener('click', handleAgencySubmit);
@@ -1295,3 +1132,4 @@
   </script>
 </body>
 </html>
+
