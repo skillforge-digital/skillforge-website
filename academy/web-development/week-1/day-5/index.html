@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -145,7 +145,7 @@
           <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">ðŸŒ™</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
@@ -211,7 +211,7 @@
 
         <section class="space-y-4">
           <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Functional Programming & ES6+ Paradigms</h2>
-          <p>Modern JavaScript development has shifted toward <strong>Declarative Paradigms</strong>. Utilizing high-order functions (`map`, `filter`, `reduce`), destructuring, and the spread operator allows for immutable data structures and predictable application state. this is not just "cleaner code"—it is a technical requirement for scaling complex frontend architectures.
+          <p>Modern JavaScript development has shifted toward <strong>Declarative Paradigms</strong>. Utilizing high-order functions (`map`, `filter`, `reduce`), destructuring, and the spread operator allows for immutable data structures and predictable application state. this is not just "cleaner code"â€”it is a technical requirement for scaling complex frontend architectures.
         </section>
 
         <section class="p-12 bg-slate-900 text-white rounded-[3.5rem] relative overflow-hidden border border-amber-600/30">
@@ -234,14 +234,14 @@
 
       <div class="mt-16 flex justify-between items-center border-t border-slate-100 pt-12">
         <a href="../day-3/" class="group flex items-center gap-4 text-slate-400 hover:text-slate-900 transition">
-          <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">←</span>
+          <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">â†</span>
           <span class="font-black uppercase tracking-widest text-xs">Styling with Tailwind CSS</span>
         </a>
         <div class="text-right">
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Next Week</div>
           <a href="../../week-2/day-1/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
             <span class="font-black uppercase tracking-widest text-xs">Advanced Layouts & Responsive Design</span>
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">â†’</span>
           </a>
         </div>
       </div>
@@ -318,7 +318,7 @@
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>Â© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -333,7 +333,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? 'â˜€ï¸' : 'ðŸŒ™';
       });
     }
     function toggleTheme() {
@@ -342,7 +342,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = next === 'dark' ? 'â˜€ï¸' : 'ðŸŒ™';
       });
     }
 
@@ -387,7 +387,7 @@
       function draw() {
         ctx.clearRect(0, 0, w, h);
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 160, g: 110, b: 10 };
         ctx.lineCap = 'round';
         ctx.lineWidth = 0.5;
 
@@ -395,7 +395,7 @@
           case 0:
             for (let p of particles) {
               p.phase += 0.01;
-              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              const opacity = 0.3 + 0.4 * Math.abs(Math.sin(p.phase));
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
@@ -410,7 +410,7 @@
               if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
               if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
               p.phase += 0.015;
-              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              const opacity = 0.5 + 0.3 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -418,7 +418,7 @@
             }
             break;
           case 2:
-            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.12)' : 'rgba(160, 110, 10, 0.15)';
             const step = 60;
             for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
             for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
@@ -451,7 +451,7 @@
               p.x += p.vx; p.y += p.vy;
               if (p.x < 0 || p.x > w) p.vx *= -1;
               if (p.y < 0 || p.y > h) p.vy *= -1;
-              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.3)`;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.5)`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
               ctx.fill();
@@ -460,7 +460,7 @@
                 const dy = p.y - other.y;
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 if (dist < 100) {
-                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.1 * (1 - dist/100)})`;
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.25 * (1 - dist/120)})`;
                   ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
                 }
               }
@@ -470,7 +470,7 @@
             for (let p of particles) {
               p.y += p.vy * 2;
               if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
-              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.2)`;
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.25)`;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + 10); ctx.stroke();
             }
@@ -478,7 +478,7 @@
           case 6:
             for (let p of particles) {
               p.phase += 0.005;
-              const opacity = 0.05 + 0.05 * Math.sin(p.phase);
+              const opacity = 0.1 + 0.1 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -509,6 +509,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 

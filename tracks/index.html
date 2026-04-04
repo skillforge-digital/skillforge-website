@@ -1,127 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="../privacy/" />
-  <title>Privacy Policy | Skillforge Digital & Co. LTD</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249731498223929"
      crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-9249731498223929">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://skillforgedigital.com.ng/tracks/" />
+  <title>Skill Tracks | Skillforge Academy</title>
+  
+  <meta name="description" content="Explore our 10 professional skill tracks at Skillforge Academy. From Web Development to AI Content Creation, choose your path to digital mastery.">
+  <meta name="keywords" content="Skill Tracks, Web Development, AI Content Creation, Forex Trading, Digital Academy, Cybersecurity, Graphic Design">
+  <meta name="author" content="Skillforge Digital & Co. LTD">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://files.fm/thumb_show.php?i=8hetzgxc8w">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; transition: background-color 0.5s ease; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
     .gold-gradient { background: linear-gradient(135deg, #eab308 0%, #b45309 100%); }
-    
+    .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); }
+    .menu-open #mobile-menu { transform: translateX(0); }
+    #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+    .logo-frame { background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .live-pulse { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 0 rgba(239, 68, 68, 0.4); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
     #gold-dust { position: fixed; inset: 0; z-index: 40; pointer-events: none; mix-blend-mode: normal; }
     body > * { position: relative; z-index: 2; }
     
-    /* Theme Engine */
     html[data-theme="dark"] body { background-color: #0f172a; color: #e5e7eb; }
     html[data-theme="dark"] .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); }
     html[data-theme="dark"] .bg-white { background-color: #0f172a; }
     html[data-theme="dark"] .bg-slate-50 { background-color: #1e293b; }
     html[data-theme="dark"] .text-slate-900 { color: #e5e7eb; }
-    html[data-theme="dark"] .text-slate-600 { color: #cbd5e1; }
     html[data-theme="dark"] .text-slate-500 { color: #94a3b8; }
     html[data-theme="dark"] .border-slate-100 { border-color: #1e293b; }
     #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
-
-    /* Prose styles for educational content */
-    .prose h2 { margin: 3rem 0 1.5rem; font-weight: 800; font-size: 1.875rem; letter-spacing: -0.025em; border-left: 4px solid #eab308; padding-left: 1.5rem; color: inherit; }
-    .prose p { margin-bottom: 1.5rem; line-height: 1.8; opacity: 0.9; }
-    .prose ul { margin-bottom: 2rem; list-style: none; padding-left: 0; }
-    .prose li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; }
-    .prose li::before { content: "→"; color: #eab308; position: absolute; left: 0; font-weight: bold; }
-
-    /* Dark Mode Typography Enhancements */
-    html[data-theme="dark"] .prose h2 { color: #f8fafc; border-left-color: #fbbf24; }
-    html[data-theme="dark"] .prose h3 { color: #f1f5f9; }
-    html[data-theme="dark"] .prose p { color: #cbd5e1; }
-    html[data-theme="dark"] .prose li { color: #cbd5e1; }
-    html[data-theme="dark"] .prose strong { color: #f8fafc; }
-    html[data-theme="dark"] .prose li::before { color: #fbbf24; }
   </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-[#fafafa] text-slate-900">
   <canvas id="gold-dust"></canvas>
-  <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest text-center px-6 hidden">
+  
+  <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between h-24 items-center">
+        <a href="../" class="flex items-center gap-4 cursor-pointer">
+          <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3 transition-transform hover:rotate-0">
+            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
+          </div>
+          <span class="font-extrabold text-xl md:text-2xl tracking-tighter uppercase leading-none">
+            SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span>
+          </span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest text-slate-500">
+          <a href="../" class="hover:text-amber-600 transition">Ecosystem</a>
+          <a href="../about-us/" class="hover:text-amber-600 transition">About Us</a>
+          <a href="../academy/" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</a>
+          <a href="./" class="text-amber-600 transition">Tracks</a>
+          <a href="../agency/" class="hover:text-amber-600 transition">Agency</a>
+          <a href="../contact/" class="hover:text-amber-600 transition">Contact</a>
+          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
+          <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
+            <span id="theme-icon-nav">🌙</span>
+            <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+          </button>
+        </div>
+        <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest text-center px-6">
     <a href="../" onclick="toggleMenu()" class="hover:text-amber-600">Ecosystem</a>
     <a href="../about-us/" onclick="toggleMenu()" class="hover:text-amber-600">About Us</a>
     <a href="../academy/" onclick="toggleMenu()" class="hover:text-amber-600">The Academy</a>
-    <a href="../tracks/" onclick="toggleMenu()" class="hover:text-amber-600">Skill Tracks</a>
+    <a href="./" onclick="toggleMenu()" class="text-amber-600">Skill Tracks</a>
     <a href="../agency/" onclick="toggleMenu()" class="hover:text-amber-600">The Agency</a>
     <a href="../contact/" onclick="toggleMenu()" class="hover:text-amber-600">Contact Us</a>
     <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
   </div>
 
-  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
+  <button id="theme-toggle" onclick="toggleTheme()" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
     <span id="theme-icon">🌙</span>
     <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
   </button>
 
-  <nav class="border-b border-slate-100 glass-nav sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center overflow-hidden border border-amber-600/30">
-          <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
+  <main class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase">Skill <span class="text-amber-600">Tracks.</span></h1>
+        <p class="text-slate-500 text-xl font-light max-w-3xl mx-auto">
+          Choose your path to professional mastery. We offer 10 specialized tracks designed to take you from fundamentals to industry-ready execution.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI Content Creation -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">🤖</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">AI Content Creation</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Master prompt engineering, generative art, and AI-driven automation for modern media production.</p>
+          <a href="../academy/ai-content-creation/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
         </div>
-        <span class="font-black uppercase tracking-tighter text-sm">Skillforge <span class="text-amber-600">Digital</span></span>
-      </a>
-      <div class="flex items-center gap-4">
-        <a href="../academy/" class="text-[10px] font-black uppercase tracking-widest px-4 py-2 border border-slate-200 rounded-xl hover:bg-slate-50 transition">Academy</a>
-        <button onclick="toggleTheme()" class="px-3 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-          <span id="theme-icon-nav">🌙</span>
-        </button>
+
+        <!-- Web Development -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">💻</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Web Development</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Build high-performance web applications using modern frameworks and engineering principles.</p>
+          <a href="../academy/web-development/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Cyber Security -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">🛡️</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Cyber Security</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Learn to defend digital assets, perform audits, and master the art of ethical hacking.</p>
+          <a href="../academy/cyber-security/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Forex & Currency -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">📈</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Forex & Currency</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Master technical analysis and psychological discipline in the global financial markets.</p>
+          <a href="../academy/forex-currency/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Forex Synthetics -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">📊</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Forex Synthetics</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Trade simulated market indices with high volatility and unique risk management profiles.</p>
+          <a href="../academy/forex-synthetics/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Graphic Design -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">🎨</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Graphic Design</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Visual storytelling, brand identity, and professional layout design for the digital age.</p>
+          <a href="../academy/graphic-design/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Mobile Cinematography -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">🎬</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Mobile Cinema</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Capture cinematic quality video and tell powerful stories using only your mobile device.</p>
+          <a href="../academy/mobile-cinematography/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Photography & Editing -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">📸</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Photography</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Professional shooting techniques and advanced post-processing for elite visual content.</p>
+          <a href="../academy/photography-and-editing/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Discord Development -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">💬</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Discord Dev</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Architect community hubs, develop custom bots, and automate engagement for global brands.</p>
+          <a href="../academy/discord-development/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
+
+        <!-- Digital Marketing -->
+        <div class="group bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] hover:border-amber-600/30 transition-all shadow-xl hover:shadow-amber-600/10">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+            <span class="text-3xl">🎯</span>
+          </div>
+          <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">Digital Marketing</h3>
+          <p class="text-slate-500 mb-8 font-medium leading-relaxed">Strategic traffic acquisition, brand scaling, and high-conversion marketing funnels.</p>
+          <a href="../academy/digital-marketing/" class="inline-flex items-center gap-2 text-amber-600 font-black uppercase text-xs tracking-widest group-hover:gap-4 transition-all">Explore Track <span>→</span></a>
+        </div>
       </div>
     </div>
-  </nav>
-  <header class="max-w-5xl mx-auto px-6 py-12">
-    <h1 class="text-3xl md:text-4xl font-black tracking-tight mb-3">Privacy Policy</h1>
-    <p class="text-slate-500">Effective date: 28 February 2026</p>
-  </header>
-  <main class="max-w-5xl mx-auto px-6 pb-20">
-    <div class="prose prose-slate max-w-none">
-      <p>Skillforge Digital & Co. LTD (“Skillforge”, “we”, “our”) respects your privacy. This Policy explains what data we collect, how we use it, and your choices.</p>
-      <h2>Information We Collect</h2>
-      <ul>
-        <li>Contact details you submit (e.g., name, email) via forms.</li>
-        <li>Usage data such as pages viewed, device/browser information.</li>
-        <li>Cookies and similar technologies for essential functionality and optional analytics/marketing with your consent.</li>
-      </ul>
-      <h2>How We Use Information</h2>
-      <ul>
-        <li>To provide and improve the Academy, Portal, and Agency services.</li>
-        <li>To respond to enquiries and manage enrollments and submissions.</li>
-        <li>To send important updates with an option to unsubscribe.</li>
-        <li>To measure performance and improve user experience (with consent where required).</li>
-      </ul>
-      <h2>Cookies & Consent</h2>
-      <p>We use essential cookies for site operation. You may allow analytics and marketing cookies through the on-site cookie banner or preferences panel. You can withdraw consent at any time.</p>
-      <h2>Advertising</h2>
-      <p>We integrate Google AdSense when eligible. AdSense may use cookies or device identifiers to show personalized or contextual ads. You can manage ad personalization via your Google account or device settings.</p>
-      <h2>Third-Party Services</h2>
-      <p>We may link to or integrate third-party services (e.g., forms processing, social platforms). Their practices are governed by their own policies.</p>
-      <h2>Data Retention</h2>
-      <p>We retain personal data only as long as necessary for the purposes outlined or to comply with legal obligations.</p>
-      <h2>Your Rights</h2>
-      <ul>
-        <li>Access, correct, or delete your personal information.</li>
-        <li>Object to or restrict processing in certain circumstances.</li>
-        <li>Withdraw consent where processing is based on consent.</li>
-      </ul>
-      <h2>Security</h2>
-      <p>We apply reasonable technical and organizational measures to protect your data. No method of transmission is 100% secure.</p>
-      <h2>Children's Privacy</h2>
-      <p>Our services are not directed to children under 13. We do not knowingly collect their data.</p>
-      <h2>Updates</h2>
-      <p>We may update this Policy from time to time. The "Effective date" indicates the latest version.</p>
-      <h2>Contact</h2>
-      <p>For any privacy enquiries, email <a class="text-amber-600" href="mailto:info@skillforgedigital.com.ng">info@skillforgedigital.com.ng</a>.</p>
-    </div>
-    <div class="mt-10 p-6 border border-slate-200 rounded-2xl bg-slate-50">
-      <a class="inline-block px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest border border-slate-200 hover:bg-white" href="../">Return to Home</a>
+  </main>
+
     </div>
   </main>
 
@@ -207,7 +289,7 @@
             <li><a href="../" class="hover:text-amber-600 transition">Main Hub</a></li>
             <li><a href="../about-us/" class="hover:text-amber-600 transition">About Us</a></li>
             <li><a href="../academy/" class="hover:text-amber-600 transition">Academy</a></li>
-            <li><a href="../tracks/" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+            <li><a href="./" class="hover:text-amber-600 transition">Skill Tracks</a></li>
           </ul>
         </div>
         <div>
@@ -231,6 +313,14 @@
   </footer>
 
   <script>
+    function toggleMenu() { document.body.classList.toggle('menu-open'); }
+    function initTheme() {
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+      });
+    }
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
@@ -238,13 +328,6 @@
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
         if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
-      });
-    }
-    function initTheme() {
-      const saved = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', saved);
-      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
       });
     }
 
@@ -329,7 +412,7 @@
               const opacity = 0.2 + 0.4 * Math.abs(Math.sin(p.phase));
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
-              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.arc(p.x - (p.x % step), p.y - (p.y % step), 2.5, 0, Math.PI * 2);
               ctx.fill();
             }
             break;
@@ -362,7 +445,7 @@
                 const dy = p.y - other.y;
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 if (dist < 100) {
-                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.25 * (1 - dist/100)})`;
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.25 * (1 - dist/120)})`;
                   ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
                 }
               }
@@ -374,7 +457,9 @@
               if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
               ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.25)`;
               ctx.beginPath();
-              ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + 15); ctx.stroke();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p.x, p.y + 15);
+              ctx.stroke();
             }
             break;
           case 6:
@@ -411,6 +496,4 @@
   </script>
 </body>
 </html>
-
-
 

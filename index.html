@@ -9,7 +9,6 @@
   <link rel="canonical" href="https://skillforgedigital.com.ng/" />
   <title>Skillforge Digital & Co. LTD | Elite Ecosystem</title>
   
-  <!-- SEO and Social Sharing Metadata -->
   <meta name="description" content="Skillforge Digital & Co. LTD is a global ecosystem where elite training meets high-tier corporate execution.">
   <meta name="keywords" content="Skillforge, Digital Academy, Forex Trading, Web Development, Cybersecurity, Graphics Design">
   <meta name="author" content="Skillforge Digital & Co. LTD">
@@ -20,36 +19,10 @@
   <meta property="og:title" content="Skillforge Digital & Co. LTD | Elite Ecosystem">
   <meta property="og:description" content="Forging Digital Legacy Out of Vision. Join our global ecosystem for elite training and corporate execution.">
   <meta property="og:image" content="https://files.fm/thumb_show.php?i=sebxcfvhb7">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="1200">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://skillforgedigital.com.ng/">
-  <meta name="twitter:title" content="Skillforge Digital & Co. LTD | Elite Ecosystem">
-  <meta name="twitter:description" content="Forging Digital Legacy Out of Vision. Join our global ecosystem for elite training and corporate execution.">
-  <meta name="twitter:image" content="https://files.fm/thumb_show.php?i=sebxcfvhb7">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://files.fm/thumb_show.php?i=8hetzgxc8w">
-  <link rel="apple-touch-icon" href="https://files.fm/thumb_show.php?i=8hetzgxc8w">
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "SkillForge Digital & Co. Ltd",
-    "description": "SkillForge is a visual synthesis of traditional craftsmanship and modern digital innovation, conveying authority, precision, and the transformative power of technology.",
-    "brand": {
-      "@type": "Brand",
-      "name": "SkillForge",
-      "slogan": "Forging Digital Legacy Out of Vision",
-      "description": "Our brand identity is built on the Digital Hammer (creation), the Shield & Laurel (security and excellence), and the Lightning Bolt (innovation)."
-    },
-    "knowsAbout": ["Forex Trading", "Cybersecurity", "Web Development", "Graphics Design", "Digital Strategy"]
-  }
-  </script>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
@@ -63,35 +36,25 @@
       color: transparent;
     }
     .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); }
-    .section-hidden { display: none; }
-    .active-section { display: block; animation: fadeIn 0.6s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     .menu-open #mobile-menu { transform: translateX(0); }
     #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
-    .service-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.1); }
-    .service-card:hover { border-color: #eab308; background: rgba(234, 179, 8, 0.05); transform: translateY(-5px); }
     .logo-frame { background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(234, 179, 8, 0.3); }
     .live-pulse { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 0 rgba(239, 68, 68, 0.4); animation: pulse 2s infinite; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
     #gold-dust { position: fixed; inset: 0; z-index: 40; pointer-events: none; mix-blend-mode: normal; }
     body > * { position: relative; z-index: 2; }
     
-    /* Theme Engine */
     html[data-theme="dark"] body { background-color: #0f172a; color: #e5e7eb; }
     html[data-theme="dark"] .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); }
     html[data-theme="dark"] .bg-white { background-color: #0f172a; }
     html[data-theme="dark"] .bg-slate-50 { background-color: #1e293b; }
     html[data-theme="dark"] .text-slate-900 { color: #e5e7eb; }
-    html[data-theme="dark"] .text-slate-600 { color: #cbd5e1; }
     html[data-theme="dark"] .text-slate-500 { color: #94a3b8; }
-    html[data-theme="dark"] .text-slate-400 { color: #94a3b8; }
     html[data-theme="dark"] .border-slate-100 { border-color: #1e293b; }
-    html[data-theme="dark"] .bg-amber-50 { background-color: rgba(234,179,8,0.08); }
     #theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 70; }
   </style>
 </head>
 <body class="bg-[#fafafa] text-slate-900">
-  
   <canvas id="gold-dust"></canvas>
   
   <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100">
@@ -99,25 +62,27 @@
       <div class="flex justify-between h-24 items-center">
         <a href="./" class="flex items-center gap-4 cursor-pointer">
           <div class="w-14 h-14 logo-frame rounded-2xl shadow-xl shadow-amber-900/20 transform -rotate-3 transition-transform hover:rotate-0">
-            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-amber-500 font-black\'>SF</span>'">
+            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
           </div>
           <span class="font-extrabold text-xl md:text-2xl tracking-tighter uppercase leading-none">
             SKILLFORGE <br><span class="text-amber-600 text-sm tracking-widest">DIGITAL & CO. LTD</span>
           </span>
         </a>
         <div class="hidden lg:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest text-slate-500">
-          <a href="./" class="hover:text-amber-600 transition">Ecosystem</a>
-          <a href="./about-us/" class="hover:text-amber-600 transition">About Us</a> <a href="./academy/" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</a>
-          <a href="./academy/" class="hover:text-amber-600 transition">Tracks</a>
-          <a href="./agency/" class="hover:text-amber-600 transition">Agency</a>
+          <a href="./" class="text-amber-600 transition">Ecosystem</a>
+          <a href="about-us/" class="hover:text-amber-600 transition">About Us</a>
+          <a href="academy/" class="hover:text-amber-600 transition flex items-center"><span class="live-pulse"></span>Academy</a>
+          <a href="tracks/" class="hover:text-amber-600 transition">Tracks</a>
+          <a href="agency/" class="hover:text-amber-600 transition">Agency</a>
+          <a href="contact/" class="hover:text-amber-600 transition">Contact</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
-          <button id="theme-toggle-nav" onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
+          <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
             <span id="theme-icon-nav">🌙</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
         <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
-          <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
@@ -125,471 +90,158 @@
     </div>
   </nav>
 
-  <div class="bg-amber-50 border-t border-amber-100">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] font-black uppercase tracking-widest text-amber-700">
-      <div>Email: <a href="mailto:info@skillforgedigital.com.ng" class="hover:underline">info@skillforgedigital.com.ng</a></div>
-      <div class="flex items-center gap-4 flex-wrap justify-end">
-        <a href="#" class="hover:underline">Twitter</a>
-        <a href="#" class="hover:underline">LinkedIn</a>
-        <a href="#" class="hover:underline">YouTube</a>
-        <a href="#" class="hover:underline">Instagram</a>
-        <a href="#" class="hover:underline">Discord</a>
-        <a href="#" class="hover:underline">Telegram</a>
-        <a href="#" class="hover:underline">Facebook</a>
-        <a href="#" class="hover:underline">TikTok</a>
-      </div>
-    </div>
-  </div>
-
   <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest text-center px-6">
-    <div class="w-24 h-24 logo-frame rounded-3xl mb-8">
-      <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-    </div>
-    <a href="./" onclick="toggleMenu()" class="hover:text-amber-600">Ecosystem</a>
-    <a href="./about-us/" onclick="toggleMenu()" class="hover:text-amber-600">About Us</a> <a href="./academy/" onclick="toggleMenu()" class="hover:text-amber-600">The Academy</a>
-    <a href="./academy/" onclick="toggleMenu()" class="hover:text-amber-600">Skill Tracks</a>
-    <a href="./agency/" onclick="toggleMenu()" class="hover:text-amber-600">The Agency</a>
-    <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="text-amber-600 border-b-4 border-amber-600 pb-2">Registration Portal</a>
+    <a href="./" onclick="toggleMenu()" class="text-amber-600">Ecosystem</a>
+    <a href="about-us/" onclick="toggleMenu()" class="hover:text-amber-600">About Us</a>
+    <a href="academy/" onclick="toggleMenu()" class="hover:text-amber-600">The Academy</a>
+    <a href="tracks/" onclick="toggleMenu()" class="hover:text-amber-600">Skill Tracks</a>
+    <a href="agency/" onclick="toggleMenu()" class="hover:text-amber-600">The Agency</a>
+    <a href="contact/" onclick="toggleMenu()" class="hover:text-amber-600">Contact Us</a>
     <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
   </div>
 
-  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
+  <button id="theme-toggle" onclick="toggleTheme()" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
     <span id="theme-icon">🌙</span>
     <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
   </button>
 
-  <section id="home" class="active-section">
-    <div class="relative py-24 px-6 overflow-hidden">
-      <div class="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+  <main>
+    <section class="relative py-24 px-6 overflow-hidden">
+      <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
         <div class="inline-flex items-center gap-3 px-4 py-2 bg-amber-50 rounded-full border border-amber-100 mb-8">
           <span class="live-pulse"></span>
           <span class="text-amber-700 font-black tracking-widest uppercase text-[10px]">Official Launch: Jan 5, 2026</span>
         </div>
-        <h1 class="text-5xl md:text-8xl font-black mb-10 leading-[1.05] text-slate-900 tracking-tighter">Forging <span class="gradient-text px-1">Digital Legacy</span> Out of Vision.</h1>
-        <p class="max-w-2xl text-slate-500 text-lg md:text-xl font-light mb-14 leading-relaxed">Skillforge Digital & Co. LTD is a global ecosystem where elite training meets high-tier corporate execution. Our January Cohort is officially in session.</p>
+        <h1 class="text-5xl md:text-8xl font-black mb-10 leading-[1.05] text-slate-900 tracking-tighter">Forging <span class="gradient-text">Digital Legacy</span> Out of Vision.</h1>
+        <p class="max-w-2xl text-slate-500 text-lg md:text-xl font-light mb-14 leading-relaxed">Skillforge Digital & Co. LTD is a global ecosystem where elite training meets high-tier corporate execution.</p>
         <div class="flex flex-wrap justify-center gap-6">
-          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="gold-gradient text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl shadow-amber-600/30 hover:translate-y-[-2px] transition-all">Register for Academy</a>
-          <a href="./agency/" class="bg-slate-900 text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-slate-800 transition-all">Contact Our Agency</a>
+          <a href="academy/" class="gold-gradient text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl shadow-amber-600/30 hover:translate-y-[-2px] transition-all">Enter Academy</a>
+          <a href="contact/" class="bg-slate-900 text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-slate-800 transition-all">Contact Agency</a>
         </div>
       </div>
-    </div>
-    
-    <div class="max-w-7xl mx-auto px-6 mb-24">
-      <div class="bg-slate-900 rounded-[3rem] p-12 text-center text-white relative overflow-hidden">
-        <div class="absolute inset-0 gold-gradient opacity-5"></div>
-        <h2 class="text-3xl font-black mb-6 uppercase tracking-tight relative z-10">Academy Registration is Open</h2>
-        <p class="text-slate-400 mb-10 max-w-xl mx-auto relative z-10">Secure your spot in the January Accelerated Cohort. Join thousands of students mastering the digital landscape.</p>
-        <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="inline-block px-10 py-5 bg-white text-slate-900 font-black rounded-2xl uppercase text-[10px] tracking-[0.3em] hover:bg-amber-500 hover:text-white transition-all relative z-10">Access Registration Portal</a>
-      </div>
-    </div>
+    </section>
 
-    <div class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-100">
-      <h2 class="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase text-center mb-16">The Core Pillars</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all duration-500 group">
-          <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Education.</h3>
-          <p class="text-slate-500 text-sm font-medium leading-relaxed">The Academy: Transforming beginners into certified experts through zero-cost foundational training.</p>
-        </div>
-        <div class="p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all duration-500 group">
-          <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Brokerage.</h3>
-          <p class="text-slate-500 text-sm font-medium leading-relaxed">Trading Support: Dedicated logistical and transactional support for Forex and Stock Market participants.</p>
-        </div>
-        <div class="p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all duration-500 group">
-          <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Agency.</h3>
-          <p class="text-slate-500 text-sm font-medium leading-relaxed">Project Execution: Acquisition of external creative and technical contracts executed by vetted professionals.</p>
-        </div>
-        <div class="p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all duration-500 group">
-          <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Audience.</h3>
-          <p class="text-slate-500 text-sm font-medium leading-relaxed">Traffic Sourcing: Monetizing our large, engaged community to provide targeted advertising solutions.</p>
-        </div>
-      </div>
-      
-      <div class="mt-24">
-        <div class="bg-white rounded-[3rem] p-12 border border-slate-100">
-          <h2 class="text-3xl font-black mb-6 uppercase tracking-tight">Our <span class="text-amber-600">Vision & Mission</span></h2>
-          <p class="text-slate-600 text-sm md:text-base leading-relaxed mb-4">To build the world&#39;s most powerful, accessible, and free-to-professional skills academy.</p>
-          <p class="text-slate-600 text-sm md:text-base leading-relaxed">We are committed to removing all financial and educational barriers to high-income skills.</p>
-        </div>
-      </div>
-
-      <div class="mt-24">
-        <h2 class="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase text-center mb-10">2026 Roadmap Highlights</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">January Cohort Live</h3>
-            <p class="text-slate-500 text-sm">Accelerated Academy sessions running, zero-cost foundational training ongoing.</p>
+    <section class="py-24 px-6 bg-white border-t border-slate-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase text-center mb-16">The Core Pillars</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all group">
+            <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Education.</h3>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">The Academy: Transforming beginners into certified experts. Free training starts MAY.</p>
+            <a href="academy/" class="mt-6 inline-block text-amber-600 text-xs font-black uppercase tracking-widest">Learn More →</a>
           </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">Feb 2: Web Development & Design</h3>
-            <p class="text-slate-500 text-sm">Upcoming cohort for modern Web Development & Design fundamentals.</p>
+          <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all group">
+            <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Execution.</h3>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">The Agency: High-tier creative and technical contracts managed by vetted professionals.</p>
+            <a href="agency/" class="mt-6 inline-block text-amber-600 text-xs font-black uppercase tracking-widest">View Services →</a>
           </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">May: The Forge Challenge</h3>
-            <p class="text-slate-500 text-sm">Global skill competition. Registration, project submission, judging. Certificate for all participants.</p>
+          <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all group">
+            <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Tracks.</h3>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">Specialized Paths: Choose your field from Web Dev, Cyber Security, AI, and more.</p>
+            <a href="tracks/" class="mt-6 inline-block text-amber-600 text-xs font-black uppercase tracking-widest">Explore Tracks →</a>
           </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">Jun–Aug: Masterclass Intensive</h3>
-            <p class="text-slate-500 text-sm">3-month professional training, mentoring, portfolio, placement support, and certification.</p>
-          </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">Agency Execution</h3>
-            <p class="text-slate-500 text-sm">Elite contract acquisition and delivery by vetted professionals.</p>
-          </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">Trading Support</h3>
-            <p class="text-slate-500 text-sm">Brokerage logistics and discipline support for Forex and Stock markets.</p>
-          </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">Audience Monetization</h3>
-            <p class="text-slate-500 text-sm">Targeted traffic sourcing leveraging large engaged communities.</p>
-          </div>
-          <div class="p-10 bg-white rounded-[2.5rem] border border-amber-100 hover:shadow-2xl transition">
-            <h3 class="font-black text-xl mb-2 uppercase tracking-tight text-amber-600">Certification Registry</h3>
-            <p class="text-slate-500 text-sm">Central registry portal for intake and certification tracking.</p>
+          <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all group">
+            <h3 class="font-black text-2xl mb-4 group-hover:text-amber-600 transition uppercase tracking-tight">Impact.</h3>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">Global Reach: Join thousands of creators forging their legacy in the digital era.</p>
+            <a href="about-us/" class="mt-6 inline-block text-amber-600 text-xs font-black uppercase tracking-widest">Our Vision →</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="section-hidden py-24 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16 text-center">
-        <h2 class="text-5xl font-black tracking-tighter mb-4">About <span class="text-amber-600">SkillForge.</span></h2>
-        <p class="text-slate-500 text-xl font-light italic max-w-3xl mx-auto">
-          "The SkillForge brand is a visual synthesis of traditional craftsmanship and modern digital innovation."
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
-            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">The Digital Hammer</h3>
-            <p class="text-slate-500 leading-relaxed">
-                At the center of our crest sits a hammer, the universal symbol of the "forge." It is reimagined with integrated circuitry and motherboard pathways. We don't just use tools; we build them.
-            </p>
-        </div>
-
-        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
-            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">Heritage & Excellence</h3>
-            <p class="text-slate-500 leading-relaxed">
-                Housed within a classic shield and laurel wreath, we act as a protector of client interests and a builder of robust, fortified systems. The laurel signals industry leadership and high achievement.
-            </p>
-        </div>
-
-        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
-            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">Energy & Speed</h3>
-            <p class="text-slate-500 leading-relaxed">
-                The lightning bolt signifies innovation and rapid execution. It represents the "spark" of an idea and the high-voltage energy required to power digital transformation.
-            </p>
-        </div>
-
-        <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
-            <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">Stability & Sophistication</h3>
-            <p class="text-slate-500 leading-relaxed">
-                Our heavy, high-contrast serif typography provides a foundation of strength. It balances high-tech imagery with a corporate structure that implies scale and accountability.
-            </p>
-        </div>
-      </div>
-
-      <div class="mt-16 p-10 bg-slate-900 text-white rounded-[3rem] text-center overflow-hidden relative">
-        <div class="absolute inset-0 gold-gradient opacity-10"></div>
-        <h3 class="text-xl font-bold uppercase tracking-widest text-amber-500 mb-2">Our Color Palette</h3>
-        <p class="text-slate-300">"Deep Forge" Navy & White ensures clarity, trust, and intelligence across all mediums.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="academy" class="section-hidden py-24 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
-        <div>
-          <h2 class="text-5xl font-black tracking-tighter mb-4">The <span class="text-amber-600">Academy.</span></h2>
-          <p class="text-slate-400 text-xl font-light">Current Status: <span class="text-slate-900 font-bold tracking-tight">January Cohort Live</span></p>
-        </div>
-        <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="bg-amber-600 text-white px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center gap-4 hover:bg-amber-700 transition-all shadow-lg shadow-amber-600/20">Join Accelerated Cohort</a>
-      </div>
-      
-
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="JANUARY" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Forex Synthetics Indices</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">JANUARY: WEEKS 1-3</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Master the technical landscape of synthetic indices. Zero-cost foundational curriculum in session.</p>
-            <a href="./academy/forex-synthetics/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
+    <section class="py-24 px-6 bg-white border-t border-slate-100">
+      <div class="max-w-4xl mx-auto">
+        <div class="p-12 bg-slate-50 rounded-[3.5rem] border border-slate-100 shadow-xl">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl font-black mb-4 uppercase tracking-tighter">Feedback & <span class="text-amber-600">Suggestions</span></h2>
+            <p class="text-slate-500 font-medium">Help us forge a better ecosystem. Share your thoughts with us.</p>
           </div>
-        </div>
-
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="JANUARY" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Graphics Design</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">JANUARY: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Visual branding and identity architecture. Learn to build world-class brand systems.</p>
-            <a href="./academy/graphic-design/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
-
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="MARCH" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Forex Currency Pairs</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">MARCH: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Disciplined FX practice and market structure fundamentals.</p>
-            <a href="./academy/forex-currency/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
-
-
-
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="APRIL" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Photography & Editing</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">APRIL: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Capture workflows and professional post-production for campaigns.</p>
-            <a href="./academy/photography-and-editing/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
-
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="MARCH" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Discord Design & Development (NEW)</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">MARCH: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Bots, integrations, governance, and community architecture.</p>
-            <a href="./academy/discord-development/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
-
-        <div class="group h-full relative">
-          <div class="absolute -inset-1 gold-gradient opacity-20 blur transition duration-500 rounded-3xl"></div>
-          <div data-month="FEBRUARY" class="relative bg-white p-10 rounded-3xl border border-amber-200 h-full flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <span class="px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge">LIVE TRACK</span>
-              <div class="w-10 h-10 logo-frame rounded-lg scale-75">
-                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-              </div>
-            </div>
-            <h3 class="text-2xl font-black mb-2 uppercase">Web Design & Development</h3>
-            <p class="text-amber-600 text-[10px] font-black mb-4 tracking-[0.2em]">FEBRUARY: WEEKS 1-3 | WEEK 4: 1-WEEK BREAK</p>
-            <p class="text-slate-500 text-sm mb-8 flex-grow leading-relaxed">Next Cohort starts February 2nd. Pre-registration for the Forge Challenge opens soon.</p>
-            <a href="./academy/web-development/" class="block w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all text-center">Join Live Class</a>
-          </div>
-        </div>
-      </div>
-      
-      <div id="lesson-content" class="mt-20 hidden"></div>
-
-      <div class="mt-24">
-        <div class="grid lg:grid-cols-2 gap-8">
-          <div class="p-8 bg-white border border-slate-100 rounded-3xl">
-            <div class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600 mb-2">Phase 2</div>
-            <h3 class="text-2xl font-black mb-3">The Forge Challenge (May)</h3>
-            <p class="text-slate-500 text-sm mb-4">Global skill competition. May is dedicated to registration, project submission, and judging.</p>
-            <ul class="text-slate-600 text-sm space-y-2">
-              <li>• Registration Fee: $15 (or ₦15,000)</li>
-              <li>• Grand Prize: 1 laptop per skill, worldwide shipping</li>
-              <li>• Visibility: Top 30 projects featured permanently</li>
-              <li>• Benefit: Certificate of Participation for all entrants</li>
-            </ul>
-          </div>
-          <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
-            <h3 class="text-2xl font-black mb-3">Paid Masterclass Intensive (June—August)</h3>
-            <ul class="space-y-4 text-slate-500 font-semibold text-sm">
-              <li>• Weekly 1-on-1 mentoring with industry professionals</li>
-              <li>• Real client projects for accelerated portfolio building</li>
-              <li>• Portfolio, CV, interview training and placement support</li>
-              <li>• Professional certificate and verifiable digital badge</li>
-              <li>• Proactive job/freelance offer sourcing for graduates</li>
-              <li>• Discount with Forge Challenge certificate</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-12">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 bg-slate-50 border border-slate-100 rounded-3xl p-8">
-          <h3 class="font-black text-xl tracking-widest uppercase text-slate-500">Follow Our Organization</h3>
-          <div class="flex flex-wrap items-center gap-4 text-xs font-black uppercase tracking-widest">
-            <a href="#" class="text-amber-600 hover:underline">Twitter</a>
-            <a href="#" class="text-amber-600 hover:underline">LinkedIn</a>
-            <a href="#" class="text-amber-600 hover:underline">YouTube</a>
-            <a href="#" class="text-amber-600 hover:underline">Instagram</a>
-            <a href="#" class="text-amber-600 hover:underline">Discord</a>
-            <a href="#" class="text-amber-600 hover:underline">Telegram</a>
-            <a href="#" class="text-amber-600 hover:underline">Facebook</a>
-            <a href="#" class="text-amber-600 hover:underline">TikTok</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="tracks" class="section-hidden py-24 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16">
-        <h2 class="text-5xl font-black tracking-tighter mb-4">Skill <span class="text-amber-600">Tracks.</span></h2>
-        <p class="text-slate-500 text-lg">Eight guided paths to master in-demand skills.</p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Forex Currency Pairs</h3>
-          <p class="text-slate-500 text-sm">Foundations and disciplined practice in FX markets.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Stock Market</h3>
-          <p class="text-slate-500 text-sm">Core concepts for equities and market analysis.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Forex Synthetics Indices</h3>
-          <p class="text-slate-500 text-sm">Technical landscape of synthetic indices.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Cybersecurity</h3>
-          <p class="text-slate-500 text-sm">Security fundamentals and practical hardening.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Graphics Design</h3>
-          <p class="text-slate-500 text-sm">Branding, visual systems, and production assets.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Photography & Editing</h3>
-          <p class="text-slate-500 text-sm">Capture workflows and professional post-production.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Web Design & Development</h3>
-          <p class="text-slate-500 text-sm">Frontend and backend fundamentals to ship products.</p>
-        </div>
-        <div class="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-2xl transition">
-          <h3 class="font-black text-xl mb-2 uppercase">Discord Design & Development</h3>
-          <p class="text-slate-500 text-sm">Server architecture, bots, integrations, governance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="section-hidden py-24 px-6 bg-slate-900 text-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-24 items-center">
-        <div>
-          <h2 class="text-5xl font-black mb-10 leading-tight">The <span class="text-amber-500">Agency.</span></h2>
-          <p class="text-slate-400 text-lg mb-12 leading-relaxed">The Skillforge Agency is a dedicated portal for acquiring top-tier creative and technical execution. We source and manage high-value contracts for clients who demand excellence.</p>
-          <div class="space-y-6">
-            <div class="flex gap-6 items-start p-6 bg-white/5 rounded-3xl border border-white/5 transition hover:border-amber-500/30">
-              <div class="w-12 h-12 rounded-xl gold-gradient flex-shrink-0 flex items-center justify-center font-black">1</div>
-              <div>
-                <h4 class="font-bold text-xl mb-1">Contract Acquisition</h4>
-                <p class="text-slate-400 text-sm">We take on external creative and technical projects, providing a single point of professional accountability.</p>
-              </div>
-            </div>
-            <div class="flex gap-6 items-start p-6 bg-white/5 rounded-3xl border border-white/5 transition hover:border-amber-500/30">
-              <div class="w-12 h-12 rounded-xl gold-gradient flex-shrink-0 flex items-center justify-center font-black">2</div>
-              <div>
-                <h4 class="font-bold text-xl mb-1">Elite Execution</h4>
-                <p class="text-slate-400 text-sm">Projects are managed by the Skillforge Organization and executed by our most vetted and certified talent.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white text-slate-900 p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-8 gold-gradient text-white font-black text-[10px] uppercase tracking-widest rounded-bl-[2.5rem]">Submit Contract</div>
-          <div class="w-16 h-16 logo-frame rounded-2xl mb-8">
-            <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-          </div>
-          <h3 class="text-3xl font-black mb-8 tracking-tighter">Acquire Professional Services</h3>
-          <form id="agency-form" class="space-y-4">
-            <div class="grid grid-cols-2 gap-4">
-              <input name="contact_name" required type="text" placeholder="Contact Name" class="p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all" aria-label="Contact Name">
-              <input name="business_email" required type="email" placeholder="Business Email" class="p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all" aria-label="Business Email">
-            </div>
-            <select name="category" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all" aria-label="Project Category">
-              <option>Select Project Category</option>
-              <option>Graphics Design / Visual Identity</option>
-              <option>Web Development / Engineering</option>
-              <option>Discord Community Architecture</option>
-              <option>Social Media Traffic Sourcing</option>
-            </select>
-            <textarea name="scope_description" required placeholder="Briefly describe the project scope..." class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all h-32 resize-none" aria-label="Project Scope"></textarea>
-            <input type="text" name="website" class="hidden" tabindex="-1" aria-hidden="true">
-            
-            <div class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-3">
-              <input type="checkbox" id="human-check" class="w-5 h-5 text-amber-600 border-slate-300 rounded focus:ring-amber-500 cursor-pointer">
-              <label for="human-check" class="text-sm font-bold text-slate-600 cursor-pointer select-none">I am not a robot</label>
-              <div class="ml-auto">
-                <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-              </div>
-            </div>
-            <button id="agency-submit" type="button" class="w-full py-6 gold-gradient text-white font-black uppercase text-xs tracking-[0.3em] rounded-2xl shadow-xl shadow-amber-600/30 hover:scale-[1.02] transition-all">Submit Brief for Execution</button>
-            <div id="agency-status" class="mt-2 text-xs font-black uppercase tracking-widest text-slate-500"></div>
+          <form id="feedback-form" class="space-y-4">
+            <textarea name="message" required placeholder="Share your thoughts or suggestions..." class="w-full p-6 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all h-32 resize-none text-slate-900 shadow-sm"></textarea>
+            <button type="submit" class="w-full py-6 gold-gradient text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-xl shadow-amber-600/20 hover:scale-[1.01] transition-all">Send Feedback</button>
+            <div id="feedback-status" class="mt-4 text-xs font-black uppercase tracking-widest text-center"></div>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-12 px-6 bg-slate-50 border-t border-slate-100">
-    <div class="max-w-7xl mx-auto text-center">
-      <h3 class="text-xl font-black uppercase tracking-tight mb-4 text-slate-900">Feedback & Suggestions</h3>
-      <p class="text-slate-500 text-sm mb-6 max-w-2xl mx-auto">Help us improve the Skillforge ecosystem. Your insights are valuable to us.</p>
-      <form id="feedback-form" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
-        <input name="message" required type="text" placeholder="Share your thoughts..." class="flex-grow p-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-sm">
-        <input type="text" name="website_feedback" class="hidden" tabindex="-1" aria-hidden="true">
-        <button type="submit" class="px-8 py-4 bg-white border border-amber-200 text-amber-600 font-black uppercase text-[10px] tracking-[0.2em] rounded-xl hover:bg-amber-50 transition-all shadow-lg shadow-amber-600/5 flex-shrink-0">
-          Send
-        </button>
-      </form>
-      <div id="feedback-status" class="mt-4 text-xs font-black uppercase tracking-widest text-slate-500 h-4"></div>
-    </div>
-  </section>
+    <section class="py-24 px-6 bg-slate-900 text-white rounded-[4rem] mx-6 mb-24 relative overflow-hidden">
+      <div class="absolute inset-0 gold-gradient opacity-5"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <h2 class="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter">Ready to <span class="text-amber-500">Forge Your Path?</span></h2>
+        <p class="text-slate-400 text-xl mb-12 font-light">Whether you're looking to learn or build, our ecosystem provides the tools for elite digital execution.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-12 py-6 bg-white text-slate-900 font-black rounded-2xl uppercase text-xs tracking-widest hover:bg-amber-500 hover:text-white transition-all">Registration Portal</a>
+          <a href="contact/" class="px-12 py-6 border-2 border-white/20 text-white font-black rounded-2xl uppercase text-xs tracking-widest hover:bg-white/10 transition-all">Get in Touch</a>
+        </div>
+      </div>
+    </section>
 
-  <section class="py-12 px-6 bg-white border-t border-slate-100">
-    <div class="max-w-7xl mx-auto text-center">
-      <h3 class="text-xl font-black uppercase tracking-tight mb-4 text-slate-900">Newsletter</h3>
-      <p class="text-slate-500 text-sm mb-6 max-w-2xl mx-auto">Subscribe for cohort updates, events, and new releases.</p>
-      <form id="newsletter-form" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
-        <input name="email" required type="email" placeholder="Your email address" class="flex-grow p-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-sm" aria-label="Email Address">
-        <input type="text" name="website_newsletter" class="hidden" tabindex="-1" aria-hidden="true">
-        <button type="submit" class="px-8 py-4 bg-amber-600 text-white font-black uppercase text-[10px] tracking-[0.2em] rounded-xl hover:bg-amber-700 transition-all shadow-lg shadow-amber-600/10 flex-shrink-0">Subscribe</button>
-      </form>
-      <div id="newsletter-status" class="mt-4 text-xs font-black uppercase tracking-widest text-slate-500 h-4"></div>
-    </div>
-  </section>
+    <!-- Newsletter & Socials Section -->
+    <section class="py-24 px-6 bg-white border-t border-slate-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-slate-50 rounded-[3.5rem] p-12 md:p-20 border border-slate-100 shadow-xl relative overflow-hidden">
+          <div class="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+              <h2 class="text-4xl font-black mb-6 uppercase tracking-tighter">Stay <span class="text-amber-600">Connected.</span></h2>
+              <p class="text-slate-500 text-lg mb-10 leading-relaxed font-medium">Join 10,000+ creators and stay connected with our global handles for high-velocity updates and elite insights.</p>
+              
+              <div class="flex flex-wrap gap-4 mb-10">
+                <a href="https://x.com/Skillforgeorg" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/skillforge-organization-551310398?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@SkillForgeco.digital" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93$.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/skillforgeco.digital?igsh=MW1kY3RhMmlzNzJ1NA==" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.377.896.419.42.679.819.896 1.377.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.377-.42.419-.819.679-1.377.896-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.412-.558-.217-.957-.477-1.377-.896-.419-.42-.679-.819-.896-1.377-.163-.422-.358-1.057-.412-2.227C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.377.42-.419.819-.679 1.377-.896.422-.163 1.057-.358 2.227-.412 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126s1.337 1.081 2.126 1.384c.766.296 1.636.499 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384s1.081-1.338 1.384-2.126c.296-.765.499-1.636.558-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126s-1.338-1.081-2.126-1.384c-.765-.296-1.636-.499-2.913-.558C15.667.014 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.406 4.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+                </a>
+                <a href="https://discord.gg/M8Ng7jh4K" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.419-2.157 2.419z"/></svg>
+                </a>
+                <a href="https://t.me/skillforgeorg" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.257.257-.527.257l.188-2.68 4.882-4.416c.213-.188-.046-.293-.33-.105l-6.03 3.8-2.6-.812c-.566-.177-.577-.566.118-.838l10.164-3.917c.47-.177.882.105.735.739z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/skillforgeco.digital" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12.07h3.047V9.479c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.4h-2.796v8.457C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@skillforge.co.ltd?_r=1&_t=ZT-95Cc2tNaKS5" target="_blank" class="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all shadow-sm group">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.9-.39-2.82-.12-.46.13-.9.33-1.27.64-.8.64-1.23 1.65-1.17 2.67.06 1.06.61 2.04 1.48 2.66.71.53 1.58.73 2.46.61.88-.08 1.7-.51 2.27-1.2.51-.62.77-1.43.8-2.24.03-3.99.04-7.98.04-11.98z"/></svg>
+                </a>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="flex -space-x-3">
+                  <div class="w-10 h-10 rounded-full border-2 border-white bg-amber-500 flex items-center justify-center text-[10px] font-bold">JD</div>
+                  <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-800 flex items-center justify-center text-[10px] font-bold text-white">AK</div>
+                  <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">+10k</div>
+                </div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Active Creators Worldwide</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
+              <h3 class="text-2xl font-black mb-4 uppercase tracking-tight">The <span class="text-amber-600">Forge Newsletter</span></h3>
+              <p class="text-slate-500 mb-8 font-medium">Get weekly high-tier digital insights, project leaks, and elite training updates directly in your inbox.</p>
+              <form class="space-y-4">
+                <div class="relative">
+                  <input type="email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium">
+                  <button class="absolute right-2 top-2 bottom-2 px-8 gold-gradient text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:scale-[1.02] transition-all shadow-lg shadow-amber-600/20">Join Now</button>
+                </div>
+                <p class="text-[10px] text-slate-400 text-center font-bold uppercase tracking-widest">Zero spam. Pure value. RC: 9284189</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="bg-white border-t border-slate-100 py-24 px-6">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
         <div class="col-span-1 md:col-span-2">
           <div class="flex items-center gap-4 mb-8">
@@ -601,60 +253,24 @@
           <p class="text-slate-400 text-lg font-medium leading-relaxed max-w-md italic mb-8">
             "Forging digital legacies since Jan 5, 2026. Join the ecosystem of high-velocity creators."
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="https://x.com/Skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/skillforge-organization-551310398" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://youtube.com/@skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93$.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/skillforge.co.ltd" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.377.896.419.42.679.819.896 1.377.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.377-.42.419-.819.679-1.377.896-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.412-.558-.217-.957-.477-1.377-.896-.419-.42-.679-.819-.896-1.377-.163-.422-.358-1.057-.412-2.227C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.377.42-.419.819-.679 1.377-.896.422-.163 1.057-.358 2.227-.412 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126s1.337 1.081 2.126 1.384c.766.296 1.636.499 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384s1.081-1.338 1.384-2.126c.296-.765.499-1.636.558-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126s-1.338-1.081-2.126-1.384c-.765-.296-1.636-.499-2.913-.558C15.667.014 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.406 4.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-            </a>
-            <a href="https://discord.gg/M8Ng7jh4K" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.419-2.157 2.419z"/></svg>
-            </a>
-            <a href="https://t.me/skillforgeorg" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.257.257-.527.257l.188-2.68 4.882-4.416c.213-.188-.046-.293-.33-.105l-6.03 3.8-2.6-.812c-.566-.177-.577-.566.118-.838l10.164-3.917c.47-.177.882.105.735.739z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/share/1GQhM9aYTd" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12.07h3.047V9.479c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.4h-2.796v8.457C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@skillforge.co.ltd" target="_blank" class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all group">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.9-.39-2.82-.12-.46.13-.9.33-1.27.64-.8.64-1.23 1.65-1.17 2.67.06 1.06.61 2.04 1.48 2.66.71.53 1.58.73 2.46.61.88-.08 1.7-.51 2.27-1.2.51-.62.77-1.43.8-2.24.03-3.99.04-7.98.04-11.98z"/></svg>
-            </a>
-          </div>
         </div>
         <div>
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Ecosystem</h4>
           <ul class="space-y-4 text-slate-500 font-semibold text-sm">
-            <li><a href="./" class="hover:text-amber-600 transition">Main Hub</a></li>
-            <li><a href="./about-us/" class="hover:text-amber-600 transition">About Us</a></li>
-            <li><a href="./agency/" class="hover:text-amber-600 transition">Agency</a></li>
-            <li><a href="./#tracks" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+            <li><a href="about-us/" class="hover:text-amber-600 transition">About Us</a></li>
+            <li><a href="academy/" class="hover:text-amber-600 transition">Academy</a></li>
+            <li><a href="tracks/" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+            <li><a href="agency/" class="hover:text-amber-600 transition">Agency</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Legal</h4>
           <ul class="space-y-4 text-slate-500 font-semibold text-sm">
             <li><span class="opacity-50">RC: 9284189</span></li>
-            <li><a href="./privacy/" class="hover:text-amber-600 transition">Privacy Policy</a></li>
-            <li><a href="./terms/" class="hover:text-amber-600 transition">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-amber-600 transition">Verification</a></li>
+            <li><a href="privacy/" class="hover:text-amber-600 transition">Privacy Policy</a></li>
+            <li><a href="terms/" class="hover:text-amber-600 transition">Terms of Service</a></li>
+            <li><a href="contact/" class="hover:text-amber-600 transition">Contact Us</a></li>
           </ul>
-        </div>
-        <div>
-          <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
-          <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
-          <div class="flex gap-2">
-            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
-            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </button>
-          </div>
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
@@ -667,97 +283,15 @@
     </div>
   </footer>
 
-  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[28rem] bg-white border border-slate-100 rounded-2xl shadow-2xl p-6 z-[80] hidden">
-    <div class="flex items-start gap-4">
-      <div class="w-10 h-10 logo-frame rounded-xl flex-shrink-0">
-        <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-full h-full object-cover">
-      </div>
-      <div class="flex-1">
-        <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Cookies</div>
-        <div class="text-slate-600 text-sm mt-1">We use essential cookies to operate this site. You can allow analytics and marketing for improvements.</div>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <button onclick="acceptAllCookies()" class="px-5 py-3 gold-gradient text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Accept All</button>
-          <button onclick="rejectNonEssentialCookies()" class="px-5 py-3 bg-slate-900 text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Essential Only</button>
-          <button onclick="openCookieModal()" class="px-5 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Customize</button>
-        </div>
-      </div>
-      <button onclick="closeCookieBanner()" class="text-slate-400 hover:text-slate-900 text-2xl leading-none">×</button>
-    </div>
-  </div>
-
-  <div id="cookie-modal" class="fixed inset-0 bg-black/40 z-[90] hidden">
-    <div class="absolute right-4 top-4 md:right-1/2 md:translate-x-1/2 bg-white rounded-2xl border border-slate-100 shadow-2xl w-[28rem] p-6">
-      <div class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Customize Cookies</div>
-      <div class="space-y-3 text-sm text-slate-600">
-        <label class="flex items-center gap-3"><input id="consent-analytics" type="checkbox" class="w-4 h-4"> <span>Analytics</span></label>
-        <label class="flex items-center gap-3"><input id="consent-marketing" type="checkbox" class="w-4 h-4"> <span>Marketing</span></label>
-      </div>
-      <div class="mt-4 flex gap-3">
-        <button onclick="saveCookiePreferences()" class="px-5 py-3 gold-gradient text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Save</button>
-        <button onclick="closeCookieModal()" class="px-5 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase text-[10px] tracking-[0.3em] rounded-xl">Cancel</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Clean URL: Remove /index.html from the browser's address bar
-    if (window.location.pathname.endsWith('/index.html')) {
-        window.history.replaceState(null, '', window.location.pathname.replace('/index.html', '/') + window.location.hash);
-    }
-
-    const APP_CONFIG = {
-      socialLinks: {
-        twitter: 'https://x.com/Skillforgeorg',
-        linkedin: 'https://www.linkedin.com/in/skillforge-organization-551310398?utm_source=share_via&utm_content=profile&utm_medium=member_android',
-        youtube: 'https://www.youtube.com/@SkillForgeco.digital',
-        instagram: 'https://www.instagram.com/skillforgeco.digital?igsh=MW1kY3RhMmlzNzJ1NA==',
-        discord: 'https://discord.gg/M8Ng7jh4K',
-        telegram: 'https://t.me/skillforgeorg',
-        facebook: 'https://www.facebook.com/skillforgeco.digital',
-        tiktok: 'https://www.tiktok.com/@skillforge.co.ltd?_r=1&_t=ZT-95Cc2tNaKS5'
-      },
-      agencyEndpoint: 'https://api.web3forms.com/submit'
-    };
-
     function toggleMenu() { document.body.classList.toggle('menu-open'); }
-
-    function highlightSubcategory(slug) {
-      document.querySelectorAll('#academy-subcats a').forEach(a => {
-        a.classList.remove('gold-gradient','text-white');
-      });
-      const active = document.getElementById('subcat-' + slug);
-      if (active) active.classList.add('gold-gradient','text-white');
-    }
-    
-    function initSchedule() {
-      // Force all cards to LIVE status
-      document.querySelectorAll('[data-month]').forEach(card => {
-        const badge = card.querySelector('.track-badge');
-        const btn = card.querySelector('.track-cta');
-        
-        if (badge) {
-          badge.className = 'px-3 py-1 bg-amber-600 text-white text-[9px] font-black uppercase rounded-full tracking-widest track-badge';
-          badge.textContent = 'LIVE TRACK';
-        }
-        
-        if (btn) {
-          btn.className = 'w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-all track-cta';
-          btn.removeAttribute('aria-disabled');
-          btn.disabled = false;
-          btn.textContent = 'Join Live Class';
-        }
-      });
-    }
-
     function initTheme() {
-      const saved = localStorage.getItem('theme');
-      const next = saved ? saved : 'light';
-      document.documentElement.setAttribute('data-theme', next);
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
       });
     }
-
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
@@ -774,17 +308,17 @@
       const ctx = canvas.getContext('2d');
       let w = canvas.width = window.innerWidth;
       let h = canvas.height = window.innerHeight;
-      const day = new Date().getDay(); // 0 (Sun) to 6 (Sat)
+      const day = new Date().getDay();
       
       const particles = [];
       const config = {
-        0: { name: 'Stellar Vision', count: 300, speed: 0.15, size: 1.2 }, // Sun
-        1: { name: 'Gold Dust', count: 400, speed: 0.3, size: 1.5 },     // Mon
-        2: { name: 'Blueprint Grid', count: 50, speed: 0.2, size: 2 },   // Tue
-        3: { name: 'Aura Waves', count: 15, speed: 0.4, size: 150 },     // Wed
-        4: { name: 'Tech Nodes', count: 80, speed: 0.5, size: 2 },       // Thu
-        5: { name: 'Data Streams', count: 120, speed: 1.2, size: 1.5 },  // Fri
-        6: { name: 'Glass Bokeh', count: 25, speed: 0.3, size: 80 }      // Sat
+        0: { name: 'Stellar Vision', count: 300, speed: 0.15, size: 1.2 },
+        1: { name: 'Gold Dust', count: 400, speed: 0.3, size: 1.5 },
+        2: { name: 'Blueprint Grid', count: 50, speed: 0.2, size: 2 },
+        3: { name: 'Aura Waves', count: 15, speed: 0.4, size: 150 },
+        4: { name: 'Tech Nodes', count: 80, speed: 0.5, size: 2 },
+        5: { name: 'Data Streams', count: 120, speed: 1.2, size: 1.5 },
+        6: { name: 'Glass Bokeh', count: 25, speed: 0.3, size: 80 }
       };
 
       const current = config[day];
@@ -792,7 +326,6 @@
       function initParticles() {
         particles.length = 0;
         const count = Math.min(current.count, Math.floor((w * h) / (day === 3 || day === 6 ? 15000 : 8000)));
-        
         for (let i = 0; i < count; i++) {
           particles.push({
             x: Math.random() * w,
@@ -810,16 +343,15 @@
       function draw() {
         ctx.clearRect(0, 0, w, h);
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
-        
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 160, g: 110, b: 10 };
         ctx.lineCap = 'round';
         ctx.lineWidth = 0.5;
 
         switch(day) {
-          case 0: // Sunday: Stellar Vision
+          case 0:
             for (let p of particles) {
               p.phase += 0.01;
-              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              const opacity = 0.3 + 0.4 * Math.abs(Math.sin(p.phase));
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
@@ -828,96 +360,91 @@
               if (p.y < 0) p.y = h;
             }
             break;
-
-          case 1: // Monday: Gold Dust (Current)
+          case 1:
             for (let p of particles) {
               p.x += p.vx; p.y += p.vy;
               if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
               if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
               p.phase += 0.015;
-              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              const opacity = 0.5 + 0.3 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
               ctx.fill();
             }
             break;
-
-          case 2: // Tuesday: Blueprint Grid
-            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+          case 2:
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.12)' : 'rgba(160, 110, 10, 0.15)';
             const step = 60;
             for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
             for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
             for (let p of particles) {
               p.phase += 0.02;
-              const opacity = 0.1 + 0.4 * Math.abs(Math.sin(p.phase));
+              const opacity = 0.2 + 0.4 * Math.abs(Math.sin(p.phase));
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
-              ctx.arc(p.x - (p.x % step), p.y - (p.y % step), 2, 0, Math.PI * 2);
+              ctx.arc(p.x - (p.x % step), p.y - (p.y % step), 2.5, 0, Math.PI * 2);
               ctx.fill();
             }
             break;
-
-          case 3: // Wednesday: Aura Waves
+          case 3:
             for (let p of particles) {
-              p.x += p.vx; p.y += p.vy;
-              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
-              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
-              const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-              grad.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, 0.08)`);
-              grad.addColorStop(1, 'rgba(234, 179, 8, 0)');
-              ctx.fillStyle = grad;
+              p.phase += 0.01;
+              const opacity = 0.15 + 0.1 * Math.abs(Math.sin(p.phase));
+              const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+              gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`);
+              gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+              ctx.fillStyle = gradient;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
               ctx.fill();
+              p.x += Math.cos(p.phase) * 0.5;
+              p.y += Math.sin(p.phase) * 0.5;
             }
             break;
-
-          case 4: // Thursday: Tech Nodes
-            for (let i = 0; i < particles.length; i++) {
-              let p = particles[i];
+          case 4:
+            for (let p of particles) {
               p.x += p.vx; p.y += p.vy;
               if (p.x < 0 || p.x > w) p.vx *= -1;
               if (p.y < 0 || p.y > h) p.vy *= -1;
-              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.4)`;
-              ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2); ctx.fill();
-              for (let j = i + 1; j < particles.length; j++) {
-                let p2 = particles[j];
-                let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                if (dist < 120) {
-                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.15 * (1 - dist / 120)})`;
-                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.5)`;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+              ctx.fill();
+              for (let other of particles) {
+                const dx = p.x - other.x;
+                const dy = p.y - other.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 100) {
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.25 * (1 - dist/100)})`;
+                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
                 }
               }
             }
             break;
-
-          case 5: // Friday: Data Streams
-            ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.15)`;
+          case 5:
             for (let p of particles) {
-              p.y += p.vy;
-              if (p.y > h) { p.y = -20; p.x = Math.random() * w; }
+              p.y += p.vy * 2;
+              if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.25)`;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
               ctx.lineTo(p.x, p.y + 15);
               ctx.stroke();
             }
             break;
-
-          case 6: // Saturday: Glass Bokeh
-            ctx.globalCompositeOperation = isDark ? 'screen' : 'multiply';
+          case 6:
             for (let p of particles) {
-              p.x += p.vx; p.y += p.vy;
-              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
-              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
-              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.04)`;
+              p.phase += 0.005;
+              const opacity = 0.1 + 0.1 * Math.sin(p.phase);
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
               ctx.fill();
-              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.08)`;
-              ctx.stroke();
+              p.x += Math.vx; p.y += Math.vy;
+              if (p.x < -p.r) p.x = w + p.r; if (p.x > w + p.r) p.x = -p.r;
+              if (p.y < -p.r) p.y = h + p.r; if (p.y > h + p.r) p.y = -p.r;
             }
-            ctx.globalCompositeOperation = 'source-over';
             break;
         }
         requestAnimationFrame(draw);
@@ -933,203 +460,45 @@
       draw();
     }
 
-    function setSocialLinks(cfg) {
-      const map = {
-        'Twitter': cfg.twitter,
-        'LinkedIn': cfg.linkedin,
-        'YouTube': cfg.youtube,
-        'Instagram': cfg.instagram,
-        'Discord': cfg.discord,
-        'Telegram': cfg.telegram,
-        'Facebook': cfg.facebook,
-        'TikTok': cfg.tiktok
-      };
-      document.querySelectorAll('a').forEach(a => {
-        const label = a.textContent && a.textContent.trim();
-        if (label && map[label]) a.setAttribute('href', map[label]);
-      });
-    }
-
-    let pendingSubmission = null;
-
-    function submitAgencyForm() {
-      if (!pendingSubmission) return;
-      const form = document.getElementById('agency-form');
-      const status = document.getElementById('agency-status');
-      const fd = new FormData();
-      fd.append('access_key', '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97');
-      fd.append('name', pendingSubmission.contact_name);
-      fd.append('email', pendingSubmission.business_email);
-      fd.append('message', pendingSubmission.scope_description);
-      fd.append('category', pendingSubmission.category);
-      fd.append('subject', 'Agency Submission');
-      
-      if (APP_CONFIG.agencyEndpoint) {
-        fetch(APP_CONFIG.agencyEndpoint, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: fd
-        }).then(async r => {
-          const data = await r.json().catch(() => ({}));
-          if (r.ok && data.success !== false) { 
-            status.textContent = 'Submission Successful! We will contact you shortly.';
-            status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-green-600';
-            form.reset(); 
-            
-            // Reset custom captcha
-            const humanCheck = document.getElementById('human-check');
-            if (humanCheck) humanCheck.checked = false;
-
-            const successBanner = document.createElement('div');
-            successBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 animate-bounce';
-            successBanner.innerHTML = '<span>✓</span> <span class="font-bold uppercase tracking-widest text-xs">Submission Received Successfully</span>';
-            document.body.appendChild(successBanner);
-            setTimeout(() => successBanner.remove(), 5000);
-
-          } else { 
-            status.textContent = 'Submission failed. Please try again.'; 
-            status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
-          }
-        }).catch(() => { 
-          status.textContent = 'Network error. Please try again.'; 
-          status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
-        });
-      }
-      pendingSubmission = null;
-    }
-
-    function handleAgencySubmit() {
-      const form = document.getElementById('agency-form');
-      if (!form) return;
-      const status = document.getElementById('agency-status');
-      const humanCheck = document.getElementById('human-check');
-      
-      const data = {
-        contact_name: form.contact_name?.value?.trim() || '',
-        business_email: form.business_email?.value?.trim() || '',
-        category: form.category?.value || '',
-        scope_description: form.scope_description?.value?.trim() || '',
-        website: form.website?.value || ''
-      };
-      
-      if (data.website) { status.textContent = 'Blocked by security filter.'; return; }
-      
-      if (!data.contact_name || !data.business_email || !data.category || !data.scope_description || data.category === 'Select Project Category') {
-        status.textContent = 'Please complete all required fields.'; 
-        status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
-        return;
-      }
-
-      if (!humanCheck || !humanCheck.checked) {
-        status.textContent = 'Please verify you are human by checking the box.';
-        status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-red-500';
-        return;
-      }
-
-      status.textContent = 'Sending...';
-      status.className = 'mt-2 text-xs font-black uppercase tracking-widest text-amber-600';
-      pendingSubmission = data;
-      submitAgencyForm();
-    }
-
-    function submitNewsletterForm(email) {
-      const status = document.getElementById('newsletter-status');
-      const fd = new FormData();
-      fd.append('access_key', '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97');
-      fd.append('name', 'Newsletter Subscriber');
-      fd.append('email', email);
-      fd.append('subject', 'Newsletter Subscription');
-      fd.append('message', 'Please add me to your mailing list.');
-      fetch(APP_CONFIG.agencyEndpoint, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd
-      }).then(async r => {
-        const data = await r.json().catch(() => ({}));
-        if (r.ok && data.success !== false) {
-          status.textContent = 'Subscription successful.';
-          status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-green-600 h-4';
-          const form = document.getElementById('newsletter-form');
-          if (form) form.reset();
-          const successBanner = document.createElement('div');
-          successBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 animate-bounce';
-          successBanner.innerHTML = '<span>✓</span> <span class="font-bold uppercase tracking-widest text-xs">Subscribed Successfully</span>';
-          document.body.appendChild(successBanner);
-          setTimeout(() => successBanner.remove(), 5000);
-        } else {
-          status.textContent = 'Subscription failed. Try again.';
-          status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-red-500 h-4';
-        }
-      }).catch(() => {
-        status.textContent = 'Network error. Try again.';
-        status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-red-500 h-4';
-      });
-    }
-
-    function handleNewsletterSubmit(e) {
-      e.preventDefault();
-      const form = document.getElementById('newsletter-form');
-      if (!form) return;
-      const status = document.getElementById('newsletter-status');
-      const honeypot = form.website_newsletter?.value || '';
-      const email = form.email?.value?.trim() || '';
-      if (honeypot) { status.textContent = 'Blocked by security filter.'; return; }
-      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!ok) {
-        status.textContent = 'Enter a valid email address.';
-        status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-red-500 h-4';
-        return;
-      }
-      status.textContent = 'Subscribing...';
-      status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-amber-600 h-4';
-      submitNewsletterForm(email);
-    }
-
-    const CONSENT_KEY = 'consent_v1';
-    function getConsent() {
-      try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || '{}'); } catch { return {}; }
-    }
-    function setConsent(c) { localStorage.setItem(CONSENT_KEY, JSON.stringify(c)); }
-    function hasConsent(cat) { const c = getConsent(); return !!c[cat]; }
-    function openConsent() { document.getElementById('cookie-modal').classList.remove('hidden'); }
-    function openCookieModal() {
-      const c = getConsent();
-      document.getElementById('consent-analytics').checked = !!c.analytics;
-      document.getElementById('consent-marketing').checked = !!c.marketing;
-      document.getElementById('cookie-modal').classList.remove('hidden');
-    }
-    function closeCookieModal() { document.getElementById('cookie-modal').classList.add('hidden'); }
-    function closeCookieBanner() { document.getElementById('cookie-banner').classList.add('hidden'); }
-    function acceptAllCookies() { setConsent({ essential: true, analytics: true, marketing: true }); closeCookieBanner(); }
-    function rejectNonEssentialCookies() { setConsent({ essential: true, analytics: false, marketing: false }); closeCookieBanner(); }
-    function saveCookiePreferences() {
-      const analytics = document.getElementById('consent-analytics').checked;
-      const marketing = document.getElementById('consent-marketing').checked;
-      setConsent({ essential: true, analytics, marketing });
-      closeCookieModal(); closeCookieBanner();
-    }
-    function initConsent() {
-      const c = getConsent();
-      if (!('essential' in c)) { document.getElementById('cookie-banner').classList.remove('hidden'); }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      initSchedule();
+    document.addEventListener('DOMContentLoaded', () => {
       initTheme();
       initDailyBackground();
-      initConsent();
-      setSocialLinks(APP_CONFIG.socialLinks);
-      
-      const agencyBtn = document.getElementById('agency-submit');
-      if (agencyBtn) agencyBtn.addEventListener('click', handleAgencySubmit);
 
+      // Handle Feedback Form
       const feedbackForm = document.getElementById('feedback-form');
-      if (feedbackForm) feedbackForm.addEventListener('submit', handleFeedbackSubmit);
+      if (feedbackForm) {
+        feedbackForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const status = document.getElementById('feedback-status');
+          status.textContent = 'Sending...';
+          status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-center text-amber-600';
+          
+          const fd = new FormData(feedbackForm);
+          fd.append('access_key', '6e5a77e1-b5e9-43e3-9a0b-2c2707362c97');
+          fd.append('subject', 'Feedback from Landing Page');
 
-      const newsletterForm = document.getElementById('newsletter-form');
-      if (newsletterForm) newsletterForm.addEventListener('submit', handleNewsletterSubmit);
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: fd
+          }).then(async r => {
+            const data = await r.json();
+            if (data.success) {
+              status.textContent = 'Feedback Sent!';
+              status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-center text-green-600';
+              feedbackForm.reset();
+            } else {
+              status.textContent = 'Failed to send.';
+              status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-center text-red-500';
+            }
+          }).catch(() => {
+            status.textContent = 'Network error.';
+            status.className = 'mt-4 text-xs font-black uppercase tracking-widest text-center text-red-500';
+          });
+        });
+      }
     });
   </script>
 </body>
 </html>
+
 

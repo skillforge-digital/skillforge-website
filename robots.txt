@@ -1,1 +1,3 @@
+User-agent: *
+Allow: /
 Sitemap: https://skillforgedigital.com.ng/sitemap.xml

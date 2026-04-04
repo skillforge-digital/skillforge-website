@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -62,7 +62,7 @@
           <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">ðŸŒ™</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
@@ -101,7 +101,7 @@
         <section>
           <h2 class="uppercase tracking-tight">Psychological Manipulation: The Core of Social Engineering</h2>
           <p><strong>Social Engineering</strong> is the art of manipulating people so they give up confidential information. Attackers exploit universal human traits: <em>Authority</em>, <em>Urgency</em>, <em>Fear</em>, and <em>Greed</em>.</p>
-          <p>By masquerading as a trusted entity—like a bank, a coworker, or a government official—attackers can trick even the most cautious individuals into clicking malicious links or revealing sensitive data.</p>
+          <p>By masquerading as a trusted entityâ€”like a bank, a coworker, or a government officialâ€”attackers can trick even the most cautious individuals into clicking malicious links or revealing sensitive data.</p>
         </section>
 
         <!-- Ad Placement -->
@@ -139,7 +139,7 @@
               Elite Mastery Hook: Psychological Warfare
             </h3>
             <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-              Understanding a phishing email is basic. In the <strong>Skillforge Master Class</strong>, we teach you <strong>Offensive Social Engineering</strong>—how to conduct advanced physical security assessments, use psychological triggers to bypass gates, and perform social engineering audits for multi-billion dollar enterprises.
+              Understanding a phishing email is basic. In the <strong>Skillforge Master Class</strong>, we teach you <strong>Offensive Social Engineering</strong>â€”how to conduct advanced physical security assessments, use psychological triggers to bypass gates, and perform social engineering audits for multi-billion dollar enterprises.
             </p>
             <p class="text-amber-600 font-black mb-8 italic">Advanced Psychological Exploitation is reserved for the Skillforge Master Class.</p>
             <div class="flex flex-wrap gap-4">
@@ -154,7 +154,7 @@
         <div class="text-left">
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Previous Lesson</div>
           <a href="../day-3/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">←</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">â†</span>
             <span class="font-black uppercase tracking-widest text-xs">Web Application Security</span>
           </a>
         </div>
@@ -162,7 +162,7 @@
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Next Week</div>
           <a href="../../week-3/day-1/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
             <span class="font-black uppercase tracking-widest text-xs">Advanced Defense & Career</span>
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">â†’</span>
           </a>
         </div>
       </div>
@@ -239,7 +239,7 @@
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>Â© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -254,7 +254,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? 'â˜€ï¸' : 'ðŸŒ™';
       });
     }
     function toggleTheme() {
@@ -263,7 +263,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = next === 'dark' ? 'â˜€ï¸' : 'ðŸŒ™';
       });
     }
 
@@ -308,7 +308,7 @@
       function draw() {
         ctx.clearRect(0, 0, w, h);
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 160, g: 110, b: 10 };
         ctx.lineCap = 'round';
         ctx.lineWidth = 0.5;
 
@@ -316,7 +316,7 @@
           case 0:
             for (let p of particles) {
               p.phase += 0.01;
-              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              const opacity = 0.3 + 0.4 * Math.abs(Math.sin(p.phase));
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
@@ -331,7 +331,7 @@
               if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
               if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
               p.phase += 0.015;
-              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              const opacity = 0.5 + 0.3 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -339,7 +339,7 @@
             }
             break;
           case 2:
-            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.12)' : 'rgba(160, 110, 10, 0.15)';
             const step = 60;
             for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
             for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
@@ -372,7 +372,7 @@
               p.x += p.vx; p.y += p.vy;
               if (p.x < 0 || p.x > w) p.vx *= -1;
               if (p.y < 0 || p.y > h) p.vy *= -1;
-              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.3)`;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.5)`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
               ctx.fill();
@@ -381,7 +381,7 @@
                 const dy = p.y - other.y;
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 if (dist < 100) {
-                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.1 * (1 - dist/100)})`;
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.25 * (1 - dist/120)})`;
                   ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
                 }
               }
@@ -391,14 +391,14 @@
             for (let p of particles) {
               p.y += p.vy * 2;
               if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
-              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.2)`;
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.25)`;
               ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + 10); ctx.stroke();
             }
             break;
           case 6:
             for (let p of particles) {
               p.phase += 0.005;
-              const opacity = 0.05 + 0.05 * Math.sin(p.phase);
+              const opacity = 0.1 + 0.1 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -429,3 +429,5 @@
   </script>
 </body>
 </html>
+
+

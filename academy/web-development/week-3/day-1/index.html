@@ -387,7 +387,7 @@
       function draw() {
         ctx.clearRect(0, 0, w, h);
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 180, g: 130, b: 20 };
+        const color = isDark ? { r: 234, g: 179, b: 8 } : { r: 160, g: 110, b: 10 };
         ctx.lineCap = 'round';
         ctx.lineWidth = 0.5;
 
@@ -395,7 +395,7 @@
           case 0:
             for (let p of particles) {
               p.phase += 0.01;
-              const opacity = 0.2 + 0.5 * Math.abs(Math.sin(p.phase));
+              const opacity = 0.3 + 0.4 * Math.abs(Math.sin(p.phase));
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r * (0.8 + 0.4 * Math.sin(p.phase)), 0, Math.PI * 2);
@@ -410,7 +410,7 @@
               if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
               if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
               p.phase += 0.015;
-              const opacity = 0.4 + 0.3 * Math.sin(p.phase);
+              const opacity = 0.5 + 0.3 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -418,7 +418,7 @@
             }
             break;
           case 2:
-            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.05)' : 'rgba(180, 130, 20, 0.08)';
+            ctx.strokeStyle = isDark ? 'rgba(234, 179, 8, 0.12)' : 'rgba(160, 110, 10, 0.15)';
             const step = 60;
             for(let x=0; x<w; x+=step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
             for(let y=0; y<h; y+=step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
@@ -451,7 +451,7 @@
               p.x += p.vx; p.y += p.vy;
               if (p.x < 0 || p.x > w) p.vx *= -1;
               if (p.y < 0 || p.y > h) p.vy *= -1;
-              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.3)`;
+              ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.5)`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
               ctx.fill();
@@ -460,7 +460,7 @@
                 const dy = p.y - other.y;
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 if (dist < 100) {
-                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.1 * (1 - dist/100)})`;
+                  ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.25 * (1 - dist/120)})`;
                   ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
                 }
               }
@@ -470,7 +470,7 @@
             for (let p of particles) {
               p.y += p.vy * 2;
               if (p.y > h) { p.y = 0; p.x = Math.random() * w; }
-              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.2)`;
+              ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, 0.25)`;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + 10); ctx.stroke();
             }
@@ -478,7 +478,7 @@
           case 6:
             for (let p of particles) {
               p.phase += 0.005;
-              const opacity = 0.05 + 0.05 * Math.sin(p.phase);
+              const opacity = 0.1 + 0.1 * Math.sin(p.phase);
               ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -509,6 +509,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 
