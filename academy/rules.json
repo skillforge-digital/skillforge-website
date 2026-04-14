@@ -1,0 +1,19 @@
+{
+  "auth": {
+    "require_verified_email": true,
+    "require_fingerprint_lock": true,
+    "passcode_ttl_days": 30,
+    "max_login_attempts": 5,
+    "reset_token_ttl_minutes": 15,
+    "ban_durations": [300, 600, 1800, 3600, 86400]
+  },
+  "tracks": {
+    "access_policy": "STRICT_SINGLE_ENROLLMENT",
+    "verification_method": "CRYPTOGRAPHIC_PASSCODE",
+    "fingerprint_binding": "REQUIRED"
+  },
+  "audit": {
+    "log_level": "VERBOSE",
+    "retention_days": 90
+  }
+}

@@ -183,7 +183,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? 'â˜€ï¸' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
       });
     }
     function toggleTheme() {

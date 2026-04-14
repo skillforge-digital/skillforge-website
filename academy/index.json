@@ -1,0 +1,24 @@
+{
+  "academy": {
+    "name": "SkillForge Digital Academy",
+    "version": "2.0.0",
+    "current_season": {
+      "id": "S26-A",
+      "name": "2026 Virtual Mastery Season A",
+      "enrollment_open": "2026-04-13",
+      "enrollment_close": "2026-05-01"
+    },
+    "tracks": [
+      { "id": "ai-content-creation", "name": "AI Content Creation", "code": "AIC" },
+      { "id": "cyber-security", "name": "Cyber Security", "code": "CYB" },
+      { "id": "digital-marketing", "name": "Digital Marketing", "code": "MKT" },
+      { "id": "discord-development", "name": "Discord Development", "code": "DIS" },
+      { "id": "forex-currency", "name": "Forex Currency Pairs", "code": "CUR" },
+      { "id": "forex-synthetics", "name": "Forex Synthetic Indices", "code": "SYN" },
+      { "id": "graphic-design", "name": "Graphic Design", "code": "GRD" },
+      { "id": "mobile-cinematography", "name": "Mobile Cinematography", "code": "CIN" },
+      { "id": "photography-and-editing", "name": "Photography & Editing", "code": "PHO" },
+      { "id": "web-development", "name": "Web Development", "code": "WEB" }
+    ]
+  }
+}

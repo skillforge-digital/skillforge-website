@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillforge Academy Curriculum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fafafa; color: #0f172a; margin: 0; padding: 0; }
+        .gold-gradient { background: linear-gradient(135deg, #eab308 0%, #b45309 100%); }
+        .gradient-text {
+            background: linear-gradient(135deg, #eab308 0%, #b45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .page-break { page-break-after: always; }
+        .card { background: white; border: 1px solid #e2e8f0; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .day-item { border-left: 4px solid #eab308; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        @media print {
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+            body { 
+                background: white; 
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .max-w-5xl {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            .no-print { display: none; }
+            .page-break { display: none; }
+            .card { 
+                box-shadow: none !important; 
+                border: 1px solid #e2e8f0 !important; 
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            section {
+                page-break-before: always;
+                break-before: page;
+                padding-top: 1rem;
+            }
+            .track-header {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            header {
+                height: 90vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                page-break-after: always;
+                break-after: page;
+                margin-bottom: 0 !important;
+            }
+            .day-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+    <header class="text-center mb-20">
+        <div class="flex justify-center mb-8">
+            <div class="w-20 h-20 bg-black rounded-3xl flex items-center justify-center border-2 border-amber-500 transform rotate-3 shadow-xl">
+                <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-16 h-16 object-cover rounded-2xl">
+            </div>
+        </div>
+        <h1 class="text-6xl font-black tracking-tighter uppercase mb-4">Skillforge <br><span class="gradient-text">Academy Curriculum</span></h1>
+        <p class="text-slate-500 text-xl font-medium tracking-widest uppercase italic">"Forging Digital Legacies"</p>
+        <div class="mt-8 h-1 w-32 bg-amber-500 mx-auto rounded-full"></div>
+    </header>
+
+    <div class="max-w-5xl mx-auto">
+        <div class="card bg-slate-900 text-white border-none relative overflow-hidden mb-16">
+            <div class="absolute inset-0 gold-gradient opacity-10"></div>
+            <div class="relative z-10">
+                <h2 class="text-3xl font-black uppercase tracking-widest mb-6">Introduction</h2>
+                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                    Welcome to the Skillforge Academy Curriculum. This document outlines our comprehensive tracks designed for high-velocity creators and digital professionals. Each track is meticulously crafted to take students from foundational concepts to advanced mastery over a 3-week intensive period.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="text-4xl font-black text-amber-500 mb-2">10+</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400">Specialized Tracks</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-black text-amber-500 mb-2">3 Weeks</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400">Intensive Learning</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-black text-amber-500 mb-2">Project</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400">Based Mastery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            1
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">AI Content Creation</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Master prompt engineering and generative media workflows. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: AI Foundations
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Introduction to Generative AI</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the technical foundations of Large Language Models and the physics of prompt engineering for elite AI content creation.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Prompt Engineering Mastery</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the technical science of AI image generation, latent space manipulation, and professional visual asset engineering.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">AI-Assisted Workflows</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Navigate the complex landscape of AI ethics, intellectual property law, and building a high-authority synthetic identity.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            2
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Cyber Security</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Master the art of digital defense and ethical hacking. Join our 3-week intensive Cybersecurity curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Defense Fundamentals
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Threat Landscape & Security Mindset</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the fundamental mindset of a cybersecurity professional. Explore the global threat landscape, the CIA triad, and the psychology of defense.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Network Security & Protocols</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the protocols that power the internet and learn how to secure them. Explore TCP/IP, SSL/TLS, and network-layer defense.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Cryptography & Data Protection</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Unlock the power of encryption. Learn how cryptography protects global data and why it's the ultimate shield against cyber threats.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 2: Vulnerabilities & Analysis
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Identifying Security Flaws</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Learn the art of vulnerability assessment. Discover how to identify security flaws before they are exploited by malicious actors.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Web Application Security</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Secure the gateway to the digital world. Master the OWASP Top 10 and learn how to defend web applications against injection, XSS, and more.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Social Engineering & Human Risk</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            The human element is often the weakest link. Learn how to identify and defend against social engineering, phishing, and psychological manipulation.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 3: Advanced Defense & Career
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Incident Response & Recovery</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Prepare for the inevitable. Learn the step-by-step process of responding to cyber incidents, containing threats, and recovering systems efficiently.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Compliance, Ethics & Global Standards</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Security isn't just about technology; it's about laws and ethics. Learn the global standards and ethical principles that guide the cybersecurity profession.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Building a High-Velocity Career</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Launch your career in cybersecurity. Learn how to build a powerful portfolio, earn the right certifications, and land high-paying roles in the industry.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            3
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Digital Marketing</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Strategies for growth, conversion, and brand dominance. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Marketing Strategy
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Foundations of Digital Growth</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the axioms of digital persuasion. Deconstruct the customer journey through the lens of Marketing Architecture and Funnel Physics.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Content Strategy & Funnels</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the art of Content Architecture. Learn the HSO framework, psychological seeding, and neuro-copywriting techniques to drive high-velocity conversions.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Analytics & KPI Tracking</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the deterministic logic of social algorithms. Learn to engineer dwell time, viral loops, and cross-platform attention arbitrage.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            4
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Discord Development</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Bots, integrations, governance, and community architecture. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Discord Architecture
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Server Structure & Permissions</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the axioms of professional Discord community design. Deconstruct the architecture of permission physics and onboarding arbitrage.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Bot Integration Fundamentals</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the foundations of Discord Bot architecture. Learn to navigate the Developer Portal and engineer secure API orchestration.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Automated Governance Systems</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the setup of professional Discord development environments. Engineer robust runtime architectures with Node.js and Discord.js.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            5
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Forex Currency Pairs</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Disciplined FX practice and market structure fundamentals. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: FX Basics
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Introduction to Currency Markets</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the axioms of the global foreign exchange market. Engineer your understanding of liquidity physics, institutional arbitrage, and macroeconomic orchestration.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Understanding Pairs & Spreads</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the architecture of currency pairs and market structure physics. Engineer your understanding of base-quote arbitrage, liquidity hierarchies, and institutional break-of-structure logic.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Order Types & Execution</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the mechanical axioms of forex execution. Explore Pip physics, Lot stratification, and the orchestration of institutional order types for high-velocity capital management.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            6
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Forex Synthetics</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Technical landscape of synthetic indices and algorithmic trading. Join our 3-week intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Fundamentals
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Introduction to Synthetics</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the algorithmic foundations of synthetic indices. Explore RNG mechanisms, deterministic volatility, and 24/7 market liquidity in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Market Structure Analysis</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Explore the unique personalities of synthetic indices. From constant volatility models to asymmetrical spike engines like Boom and Crash. Instructor-level analysis.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Risk Management Protocols</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the mathematical side of synthetic index trading. From lot size optimization to margin call avoidance and the 1% risk protocol. Instructor-level execution.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            7
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Graphic Design</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Visual branding and identity architecture. Learn to build world-class brand systems. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Design Fundamentals
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Principles of Visual Communication</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 1 of the Skillforge Graphic Design Track. Master the fundamental principles of design: balance, contrast, hierarchy, and alignment.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Typography & Color Theory</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 3 of the Skillforge Graphic Design Track. Master the science of color, color wheels, harmonies, and the psychological impact of colors on branding.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Layout Composition Mastery</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 5 of the Skillforge Graphic Design Track. Master the art of typography, serif vs sans-serif, kerning, leading, and professional font pairing strategies.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            8
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Mobile Cinematography</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Professional video production and storytelling using mobile devices. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Mobile Basics
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Introduction to Mobile Filming</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 1 of the Skillforge Mobile Cinematography Track. Master the technical foundations of your smartphone camera, including ISO, Shutter Speed, and Manual Focus.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Lighting & Composition</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 3 of the Skillforge Mobile Cinematography Track. Master the art of lighting with mobile devices, from 3-point lighting to using natural light.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Audio Capture Techniques</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 5 of the Skillforge Mobile Cinematography Track. Learn the essentials of high-quality mobile audio and how to achieve rock-solid stability in your shots.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            9
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Photography & Editing</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Capture workflows and professional post-production for campaigns. Join our intensive curriculum."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Photography Basics
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Introduction to Visual Storytelling</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 1 of the Skillforge Photography and Editing Track. Understand your camera's core functions, including Aperture, Shutter Speed, and ISO.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Camera Mastery & Optics</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 3 of the Skillforge Photography track. Master the geometry of impact using Fibonacci spirals, Gestalt principles, and dynamic framing.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Lighting & Composition Theory</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 5 of the Skillforge Photography track. Understand the physics of focal length, lens compression, and optical aberrations to choose the perfect glass for any scenario.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+            <section class="mb-20">
+                <div class="track-header">
+                    <div class="flex items-center gap-6 mb-10">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
+                            10
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight">Web Development</h2>
+                            <p class="text-amber-600 font-bold uppercase tracking-widest text-sm">Professional Track</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 text-xl mb-12 italic border-l-4 border-slate-200 pl-6 leading-relaxed">
+                        "Master the fundamentals of Web Development. Join our 3-week intensive curriculum covering architecture, styling, and interactivity."
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 1: Foundations & Styling
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">The Architecture of the Web</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the architectural foundations of web development. Explore the Client-Server model, DNS resolution, and high-performance semantic structures in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Utility-First CSS & Tailwind</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the science of utility-first CSS. Explore design tokenization, atomic styling, and high-performance CSS orchestration in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Modern Layout Strategies</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the science of asynchronous JavaScript. Explore the Event Loop, Microtask Queue, and high-performance DOM orchestration in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 2: Interactivity & State
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">JavaScript Fundamentals</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the art of multi-dimensional web layouts. Explore Flexbox alignment, CSS Grid structures, and mobile-first architectural strategies in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">DOM Manipulation</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the art of asynchronous data fetching. Explore RESTful constraints, JSON serialization, and high-performance API orchestration in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Asynchronous Programming</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the science of declarative user interfaces. Explore the Reconciliation Engine, Virtual DOM diffing, and high-performance component orchestration in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="card">
+                            <h3 class="text-2xl font-black mb-8 uppercase tracking-widest text-slate-900 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                                Week 3: Systems & Deployment
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 1</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Version Control with Git</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Master the science of server-side execution. Explore the Node.js Event Loop, Express.js middleware orchestration, and high-performance backend architectures in this instructor-level guide.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 3</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Deployment Workflows</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 3 of Week 3: Web Development Track. Master the art of storing and retrieving data using SQL and NoSQL databases like PostgreSQL and MongoDB.
+                                        </p>
+                                    </div>
+                                
+                                    <div class="day-item">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Day 5</span>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-900 mb-3">Performance Optimization</h4>
+                                        <p class="text-slate-500 leading-relaxed text-base">
+                                            Day 5 of Week 3: Web Development Track. Learn how to deploy your applications to the cloud, manage environments, and implement CI/CD pipelines.
+                                        </p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+        
+        <footer class="text-center mt-24 pt-12 border-t border-slate-200">
+            <div class="flex justify-center mb-8">
+                <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center border border-amber-500">
+                    <img src="https://files.fm/thumb_show.php?i=sebxcfvhb7" alt="SF" class="w-10 h-10 object-cover rounded-lg">
+                </div>
+            </div>
+            <p class="text-slate-400 text-xs font-black uppercase tracking-[0.4em]">&copy; 2026 Skillforge Digital & Co. LTD</p>
+            <p class="text-slate-400 text-[10px] mt-2 tracking-widest uppercase">Lagos, Nigeria | Digital First</p>
+        </footer>
+    </div>
+</body>
+</html>

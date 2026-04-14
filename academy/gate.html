@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy Access Gate • SkillForge Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        :root { --bg-color: #040810; --gold: #C9A84C; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-color); color: white; min-height: 100dvh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
+        input { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white !important; font-family: 'JetBrains Mono', monospace; text-align: center; letter-spacing: 0.5em; text-transform: uppercase; }
+        input:focus { border-color: var(--gold) !important; outline: none !important; }
+        .ban-timer { font-family: 'JetBrains Mono', monospace; color: #ef4444; }
+    </style>
+</head>
+<body class="p-6">
+    <div class="w-full max-w-md space-y-8 relative z-10">
+        <div class="text-center space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 rounded-full border border-gold/20">
+                <span class="w-1.5 h-1.5 bg-gold rounded-full animate-pulse"></span>
+                <span class="text-[9px] font-black text-gold uppercase tracking-widest">Mastery Access Gate</span>
+            </div>
+            <h1 class="text-3xl font-black uppercase tracking-tighter" id="track-name">Track Access</h1>
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em]">Cryptographic Verification Required</p>
+        </div>
+
+        <main class="glass p-10 rounded-[40px] border-white/10 space-y-8">
+            <div id="gate-form-container">
+                <form id="gate-form" class="space-y-6">
+                    <div class="space-y-3 text-center">
+                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Enter Track Pass-code</label>
+                        <input required maxlength="8" id="passcode" type="text" placeholder="XXXXXXXX" class="w-full p-5 rounded-2xl text-xl font-bold focus:border-gold outline-none transition-all">
+                        <p class="text-[8px] text-slate-600 uppercase tracking-widest">Unique 8-character cryptographic key</p>
+                    </div>
+                    <button type="submit" id="verify-btn" class="w-full bg-gold text-navy-950 py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-white transition-all flex items-center justify-center gap-2">
+                        Verify Access <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div id="ban-container" class="hidden text-center space-y-6">
+                <div class="w-20 h-20 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mx-auto animate-pulse">
+                    <i data-lucide="shield-alert" class="w-10 h-10"></i>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-sm font-black text-white uppercase">Security Lockout Active</p>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest leading-relaxed">Multiple invalid attempts detected. Access denied for:</p>
+                    <p id="timer" class="ban-timer text-2xl font-bold">00:00</p>
+                </div>
+                <p class="text-[8px] text-slate-600 uppercase tracking-[0.3em]">Persistent violations will result in registry termination.</p>
+            </div>
+        </main>
+
+        <div class="text-center">
+            <a href="/trainee-dashboard/" class="text-[9px] font-black text-slate-500 uppercase tracking-widest hover:text-white transition-all">Return to Hub</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { PassCodeEngine } from '../../../assets/pass-code-engine.js';
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js';
+        import { getFirestore, doc, getDoc, updateDoc, increment, addDoc, collection, serverTimestamp } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
+        import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js';
+
+        const firebaseConfig = { 
+          apiKey: "AIzaSyAODtfZDqeR8DH7YRaiDlRwPOBlxxMfFnY", 
+          authDomain: "skillfoge-ecosystem.firebaseapp.com", 
+          projectId: "skillfoge-ecosystem", 
+          storageBucket: "skillfoge-ecosystem.firebasestorage.app", 
+          messagingSenderId: "279055501952", 
+          appId: "1:279055501952:web:45e741d2e8b23af698f465", 
+          measurementId: "G-YZNF8273RC" 
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const trackId = urlParams.get('track');
+        const returnUrl = urlParams.get('return') || 'https://portal.skillforgedigital.com.ng/trainee-dashboard/';
+        
+        // Secure Cross-Subdomain UID Detection
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        let uid = localStorage.getItem('skillforge_mock_uid');
+        if (!uid) {
+            const cookieUid = getCookie('sf_uid');
+            if (cookieUid) {
+                uid = cookieUid;
+                localStorage.setItem('skillforge_mock_uid', uid);
+            }
+        }
+
+        if (trackId) {
+            document.getElementById('track-name').innerText = trackId.replace(/-/g, ' ');
+        }
+
+        async function getFingerprint() {
+            const ua = navigator.userAgent;
+            const screen = `${window.screen.width}x${window.screen.height}`;
+            const lang = navigator.language;
+            const vendor = navigator.vendor;
+            const str = `${ua}|${screen}|${lang}|${vendor}`;
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function checkBan() {
+            const banExpiry = localStorage.getItem('sf_gate_ban_expiry');
+            if (banExpiry && Date.now() < parseInt(banExpiry)) {
+                showBan(parseInt(banExpiry));
+                return true;
+            }
+            return false;
+        }
+
+        function showBan(expiry) {
+            document.getElementById('gate-form-container').classList.add('hidden');
+            document.getElementById('ban-container').classList.remove('hidden');
+            
+            const timer = document.getElementById('timer');
+            const interval = setInterval(() => {
+                const remaining = expiry - Date.now();
+                if (remaining <= 0) {
+                    clearInterval(interval);
+                    location.reload();
+                    return;
+                }
+                const m = Math.floor(remaining / 60000);
+                const s = Math.floor((remaining % 60000) / 1000);
+                timer.innerText = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        document.getElementById('gate-form').onsubmit = async (e) => {
+            e.preventDefault();
+            if (checkBan()) return;
+
+            const code = document.getElementById('passcode').value.toUpperCase();
+            const btn = document.getElementById('verify-btn');
+            btn.disabled = true;
+            btn.innerHTML = 'Decrypting Key... <i class="fa-solid fa-spinner animate-spin ml-2"></i>';
+
+            try {
+                if (!auth.currentUser) await signInAnonymously(auth);
+
+                // 1. Verify Pass-code Checksum Locally
+                if (!PassCodeEngine.verify(code)) {
+                    throw new Error("Invalid cryptographic checksum.");
+                }
+
+                // 2. Hash and Verify against Database
+                const hashedCode = await PassCodeEngine.hash(code);
+                const traineeRef = doc(db, 'trainees', uid);
+                const traineeSnap = await getDoc(traineeRef);
+
+                if (!traineeSnap.exists()) throw new Error("Registry record missing.");
+                const traineeData = traineeSnap.data();
+
+                // STRICT: Trainee can only access the track they registered for
+                // The 'track' field in trainee record is the source of truth
+                const registeredTrack = traineeData.track || "";
+                
+                // Convert registeredTrack (Human Readable) to Track ID (Kebab Case)
+                const TRACK_MAP = {
+                    "Forex Synthetic Indices": "forex-synthetics",
+                    "Forex Currency Pairs": "forex-currency",
+                    "AI Content Creation": "ai-content-creation",
+                    "Photography & Editing": "photography-and-editing",
+                    "Graphic Design": "graphic-design",
+                    "Digital Marketing": "digital-marketing",
+                    "Mobile Cinematography": "mobile-cinematography",
+                    "Discord Development": "discord-development",
+                    "Web Development": "web-development",
+                    "Cyber Security": "cyber-security"
+                };
+                
+                const registeredTrackId = TRACK_MAP[registeredTrack] || registeredTrack.toLowerCase().replace(/\s+/g, '-');
+                
+                if (registeredTrackId !== trackId) {
+                    throw new Error("UNAUTHORIZED_TRACK_ACCESS");
+                }
+
+                // Check if user is already locked to another track (Failsafe)
+                if (traineeData.fingerprint_locked && traineeData.locked_track !== trackId) {
+                    throw new Error("MULTI_TRACK_VIOLATION");
+                }
+
+                // In this implementation, the pass-code is stored in the trainee's record
+                // (e.g., during registration or assigned by director)
+                // If it's a global track code, we'd check a different collection.
+                // Assuming it's in trainee.activePasscodes[trackId]
+                const storedHash = traineeData.activePasscodes?.[trackId]?.hash;
+                const expiry = traineeData.activePasscodes?.[trackId]?.expiry?.toDate();
+
+                if (!storedHash || storedHash !== hashedCode || (expiry && Date.now() > expiry)) {
+                    throw new Error("Code mismatch or expired.");
+                }
+
+                // 3. Success - Bind Fingerprint
+                const fingerprint = await getFingerprint();
+                await updateDoc(traineeRef, {
+                    fingerprint_locked: true,
+                    locked_track: trackId,
+                    [`activePasscodes.${trackId}.lastVerified`]: serverTimestamp(),
+                    [`activePasscodes.${trackId}.fingerprint`]: fingerprint
+                });
+
+                // 4. Set Encrypted Session Cookie (Simulated with Base64)
+                const sessionValue = btoa(`${fingerprint}|${Date.now()}`);
+                const cookieDomain = window.location.hostname.includes('skillforgedigital.com.ng') ? '.skillforgedigital.com.ng' : window.location.hostname;
+                document.cookie = `sf_gate_session_${trackId}=${sessionValue}; path=/; domain=${cookieDomain}; max-age=86400; SameSite=Strict; Secure`;
+
+                // Audit Log
+                await addDoc(collection(db, "gate_audit_logs"), {
+                    uid, trackId, fingerprint, timestamp: serverTimestamp(), status: 'SUCCESS'
+                });
+
+                window.location.href = returnUrl;
+
+            } catch (err) {
+                console.error(err);
+                let msg = "Verification Failed: Access Key Mismatch.";
+                if (err.message === "MULTI_TRACK_VIOLATION") {
+                    msg = "ACCESS DENIED: Record already locked to another track.";
+                } else if (err.message === "UNAUTHORIZED_TRACK_ACCESS") {
+                    msg = "ACCESS DENIED: You are not registered for this specific mastery track.";
+                }
+
+                // Increment Ban Counter
+                let attempts = parseInt(localStorage.getItem('sf_gate_attempts') || "0") + 1;
+                localStorage.setItem('sf_gate_attempts', attempts);
+                
+                if (attempts >= 3) {
+                    const banDuration = (attempts - 2) * 5 * 60 * 1000; // 5 mins, 10 mins, etc.
+                    const expiry = Date.now() + banDuration;
+                    localStorage.setItem('sf_gate_ban_expiry', expiry);
+                    showBan(expiry);
+                } else {
+                    alert(msg);
+                }
+
+                // Audit Log Failure
+                await addDoc(collection(db, "gate_audit_logs"), {
+                    uid, trackId, timestamp: serverTimestamp(), status: 'FAILURE', reason: err.message
+                });
+
+                btn.disabled = false;
+                btn.innerHTML = 'Verify Access <i data-lucide="shield-check" class="w-4 h-4"></i>';
+            }
+        };
+
+        if (window.lucide) window.lucide.createIcons();
+        checkBan();
+    </script>
+    <script type="module">
+        import SkillForgeCore from '../assets/sf-core.js';
+        window.sf_core = new SkillForgeCore();
+    </script>
+</body>
+</html>
