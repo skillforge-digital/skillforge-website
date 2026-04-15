@@ -77,9 +77,8 @@
 </div>
 
 <script type="module">
-import { db, auth } from '../assets/firebase-config.js';
-import { collection, query, where, getDocs, doc, getDoc } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
-import { signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js';
+import { db } from '../assets/firebase-config.js';
+import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
 
 const urlParams = new URLSearchParams(window.location.search);
 const trackId = urlParams.get('track');
@@ -142,34 +141,30 @@ window.submitGate = async () => {
   btn.innerText = 'Verifying...';
 
   try {
-    if (!auth.currentUser) await signInAnonymously(auth);
-    const uid = auth.currentUser ? auth.currentUser.uid : null;
+    const accessSnap = await getDoc(doc(db, 'track_access', pin));
 
-    const q = query(collection(db, 'trainees'), where('pin', '==', pin));
-    const snap = await getDocs(q);
-
-    let trainee = null;
-    let traineeId = null;
-    snap.forEach(doc => {
-      const data = doc.data();
-      if (data.track === trackName) {
-        trainee = data;
-        traineeId = doc.id;
-      }
-    });
-
-    if (!trainee) {
-      errorEl.innerText = 'Invalid Access Code for this track. Check your 6-digit code and try again.';
+    if (!accessSnap.exists()) {
+      errorEl.innerText = 'Invalid Access Code. Check your 6-digit code and try again.';
       errorEl.classList.remove('hidden');
       btn.disabled = false;
       btn.innerText = 'Access Track';
       return;
     }
 
-    const cookieDomain = window.location.hostname.includes('skillforgedigital.com.ng') ? '.skillforgedigital.com.ng' : window.location.hostname;
-    const sessionToken = btoa(`${uid || 'anonymous'}|${Date.now()}|${trackId}`);
+    const accessData = accessSnap.data();
+
+    if (accessData.track !== trackName) {
+      errorEl.innerText = `This code is for "${accessData.track}". You selected a different track.`;
+      errorEl.classList.remove('hidden');
+      btn.disabled = false;
+      btn.innerText = 'Access Track';
+      return;
+    }
+
+    const uid = accessData.uid;
+    const sessionToken = btoa(`${uid}|${Date.now()}|${trackId}`);
     document.cookie = `sf_gate_session_${trackId}=${sessionToken}; path=/; max-age=86400; SameSite=Lax`;
-    document.cookie = `sf_gate_uid=${traineeId}; path=/; max-age=86400; SameSite=Lax`;
+    document.cookie = `sf_gate_uid=${uid}; path=/; max-age=86400; SameSite=Lax`;
 
     const trackUrl = `./${trackId}/`;
     window.location.href = trackUrl;
