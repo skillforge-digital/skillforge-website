@@ -1,127 +1,97 @@
-/**
- * SkillForge Academy Access Gate
- * Intercepts track requests and verifies cryptographic pass-codes.
- */
+import { db, auth } from '../../assets/firebase-config.js';
+import { doc, getDoc, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
 
-import { PassCodeEngine } from '../../../assets/pass-code-engine.js';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js';
-import { getFirestore, doc, getDoc, updateDoc, increment, addDoc, collection, serverTimestamp } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
-import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js';
+const SESSION_COOKIE_PREFIX = 'sf_gate_session_';
+const SESSION_DURATION_MS = 24 * 60 * 60 * 1000;
 
-const firebaseConfig = { 
-  apiKey: "AIzaSyAODtfZDqeR8DH7YRaiDlRwPOBlxxMfFnY", 
-  authDomain: "skillfoge-ecosystem.firebaseapp.com", 
-  projectId: "skillfoge-ecosystem", 
-  storageBucket: "skillfoge-ecosystem.firebasestorage.app", 
-  messagingSenderId: "279055501952", 
-  appId: "1:279055501952:web:45e741d2e8b23af698f465", 
-  measurementId: "G-YZNF8273RC" 
-};
-
-class AccessGate {
-    constructor() {
-        this.app = initializeApp(firebaseConfig);
-        this.db = getFirestore(this.app);
-        this.auth = getAuth(this.app);
-        this.init();
-    }
-
-    async init() {
-        if (!this.auth.currentUser) {
-            await signInAnonymously(this.auth);
-        }
-        this.checkAccess();
-    }
-
-    async getFingerprint() {
-        const ua = navigator.userAgent;
-        const screen = `${window.screen.width}x${window.screen.height}`;
-        const lang = navigator.language;
-        const vendor = navigator.vendor;
-        const str = `${ua}|${screen}|${lang}|${vendor}`;
-        const encoder = new TextEncoder();
-        const data = encoder.encode(str);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    }
-
-    async checkAccess() {
-        let uid = localStorage.getItem('skillforge_mock_uid');
-        
-        // Fallback: Check cross-subdomain cookie if localStorage is empty (e.g. on marketing domain)
-        if (!uid) {
-            const cookieUid = this.getCookie('sf_uid');
-            if (cookieUid) {
-                uid = cookieUid;
-                localStorage.setItem('skillforge_mock_uid', uid);
-            }
-        }
-
-        const currentPath = window.location.pathname;
-        
-        // Don't gate the gate page or the academy index
-        if (currentPath.includes('gate.html') || currentPath.endsWith('/academy/') || currentPath.endsWith('/academy/index.html')) {
-            return;
-        }
-
-        if (!uid) {
-            window.location.href = 'https://portal.skillforgedigital.com.ng/trainee-login/';
-            return;
-        }
-
-        const currentTrack = this.getCurrentTrack();
-        if (!currentTrack) return;
-
-        const fingerprint = await this.getFingerprint();
-        const sessionKey = `sf_gate_session_${currentTrack}`;
-        const sessionToken = this.getCookie(sessionKey);
-
-        if (sessionToken) {
-            // Verify session token (in a real app, this would be a JWT or similar)
-            // Here we just check if it matches the fingerprint
-            const [storedFingerprint, timestamp] = atob(sessionToken).split('|');
-            const sessionAge = Date.now() - parseInt(timestamp);
-            
-            if (storedFingerprint === fingerprint && sessionAge < 24 * 60 * 60 * 1000) {
-                console.log("[AccessGate] Secure fingerprint match confirmed.");
-                return;
-            }
-        }
-
-        // Check if user is already locked to another track
-        const traineeRef = doc(this.db, 'trainees', uid);
-        const traineeSnap = await getDoc(traineeRef);
-        
-        if (traineeSnap.exists()) {
-            const data = traineeSnap.data();
-            if (data.fingerprint_locked && data.locked_track !== currentTrack) {
-                alert("ACCESS VIOLATION: This mastery record is already locked to another track. Multiple track registration is strictly prohibited.");
-                window.location.href = 'https://portal.skillforgedigital.com.ng/trainee-dashboard/';
-                return;
-            }
-        }
-
-        // No valid session, redirect to pass-code entry
-        const base = currentPath.split('/academy/')[0] || '';
-        window.location.href = `${base}/academy/gate.html?track=${currentTrack}&return=${encodeURIComponent(currentPath)}`;
-    }
-
-    getCurrentTrack() {
-        const path = window.location.pathname;
-        const parts = path.split('/').filter(p => p);
-        const academyIdx = parts.indexOf('academy');
-        if (academyIdx !== -1 && parts.length > academyIdx + 1) {
-            return parts[academyIdx + 1];
-        }
-        return null;
-    }
-
-    getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
 }
 
-new AccessGate();
+function getTrackIdFromPath() {
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const academyIndex = pathParts.indexOf('academy');
+  if (academyIndex !== -1 && pathParts.length > academyIndex + 1) {
+    return pathParts[academyIndex + 1];
+  }
+  return null;
+}
+
+function parseSession(sessionValue) {
+  try {
+    const decoded = atob(sessionValue);
+    const [uid, timestamp, trackId] = decoded.split('|');
+    return { uid, timestamp: parseInt(timestamp), trackId };
+  } catch {
+    return null;
+  }
+}
+
+async function verifySession(trackId) {
+  const sessionCookie = getCookie(`${SESSION_COOKIE_PREFIX}${trackId}`);
+  if (!sessionCookie) return false;
+
+  const session = parseSession(sessionCookie);
+  if (!session) return false;
+
+  if (Date.now() - session.timestamp > SESSION_DURATION_MS) {
+    return false;
+  }
+
+  try {
+    if (!auth.currentUser) return false;
+    const traineeRef = doc(db, 'trainees', auth.currentUser.uid);
+    const traineeSnap = await getDoc(traineeRef);
+    
+    if (!traineeSnap.exists()) return false;
+    const traineeData = traineeSnap.data();
+    
+    if (traineeData.locked_track && traineeData.locked_track !== trackId) {
+      return false;
+    }
+    
+    return true;
+  } catch (err) {
+    console.error('[Gate] Session verification error:', err);
+    return false;
+  }
+}
+
+export async function initAccessGate() {
+  const trackId = getTrackIdFromPath();
+  if (!trackId) {
+    console.log('[Gate] No track ID found in path');
+    return;
+  }
+
+  const hasSession = await verifySession(trackId);
+  if (hasSession) {
+    console.log(`[Gate] Valid session for track: ${trackId}`);
+    return true;
+  }
+
+  console.log(`[Gate] No valid session for track: ${trackId}, redirecting to gate`);
+  window.location.href = `./gate.html?track=${trackId}`;
+  return false;
+}
+
+export function isAccessGated(trackId) {
+  const sessionCookie = getCookie(`${SESSION_COOKIE_PREFIX}${trackId}`);
+  if (!sessionCookie) return false;
+
+  const session = parseSession(sessionCookie);
+  if (!session) return false;
+
+  return Date.now() - session.timestamp <= SESSION_DURATION_MS;
+}
+
+export function clearGateSession(trackId) {
+  document.cookie = `${SESSION_COOKIE_PREFIX}${trackId}=; path=/; max-age=0; SameSite=Lax`;
+}
+
+export function getGateUid() {
+  return getCookie('sf_gate_uid');
+}

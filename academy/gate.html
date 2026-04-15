@@ -1,274 +1,196 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academy Access Gate • SkillForge Digital</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        :root { --bg-color: #040810; --gold: #C9A84C; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-color); color: white; min-height: 100dvh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
-        input { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white !important; font-family: 'JetBrains Mono', monospace; text-align: center; letter-spacing: 0.5em; text-transform: uppercase; }
-        input:focus { border-color: var(--gold) !important; outline: none !important; }
-        .ban-timer { font-family: 'JetBrains Mono', monospace; color: #ef4444; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academy Access Gate • SkillForge Digital</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root { --font-main: 'Space Grotesk', sans-serif; --accent-color: #f59e0b; --accent-color-rgb: 245, 158, 11; }
+  * { font-family: var(--font-main); transition: all 0.3s ease; }
+  body { background: #040810; color: white; min-height: 100dvh; display: flex; align-items: center; justify-content: center; }
+  .glass { background: rgba(12, 24, 50, 0.55); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-strong { background: rgba(12, 24, 50, 0.75); backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.1); }
+  input { background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white !important; font-size: 16px !important; }
+  input:focus { border-color: #f59e0b !important; outline: none !important; }
+  .pin-digit { font-family: 'JetBrains Mono', monospace; text-align: center; letter-spacing: 0; font-size: 24px; font-weight: 700; }
+  .ban-timer { font-family: 'JetBrains Mono', monospace; color: #ef4444; }
+</style>
 </head>
 <body class="p-6">
-    <div class="w-full max-w-md space-y-8 relative z-10">
-        <div class="text-center space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 rounded-full border border-gold/20">
-                <span class="w-1.5 h-1.5 bg-gold rounded-full animate-pulse"></span>
-                <span class="text-[9px] font-black text-gold uppercase tracking-widest">Mastery Access Gate</span>
-            </div>
-            <h1 class="text-3xl font-black uppercase tracking-tighter" id="track-name">Track Access</h1>
-            <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em]">Cryptographic Verification Required</p>
+
+<div class="w-full max-w-md space-y-8 relative z-10">
+  <div class="text-center space-y-4">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold-500/10 rounded-full border border-gold-500/20">
+      <span class="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></span>
+      <span class="text-[9px] font-black text-gold-400 uppercase tracking-widest">Mastery Access Gate</span>
+    </div>
+    <h1 class="text-3xl font-black uppercase tracking-tighter" id="track-name">Track Access</h1>
+    <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em]">Enter your 6-digit Access Code</p>
+  </div>
+
+  <main class="glass-strong p-10 rounded-[32px] space-y-8">
+    <div id="gate-form-container" class="space-y-6">
+      <div class="space-y-4">
+        <div class="flex gap-3 justify-center" id="pin-inputs">
+          <input type="text" maxlength="1" class="pin-digit w-12 h-14 text-center text-2xl font-black rounded-xl bg-white/5 border border-white/10 focus:border-amber-400 focus:scale-105 transition-all" data-index="0">
+          <input type="text" maxlength="1" class="pin-digit w-12 h-14 text-center text-2xl font-black rounded-xl bg-white/5 border border-white/10 focus:border-amber-400 focus:scale-105 transition-all" data-index="1">
+          <input type="text" maxlength="1" class="pin-digit w-12 h-14 text-center text-2xl font-black rounded-xl bg-white/5 border border-white/10 focus:border-amber-400 focus:scale-105 transition-all" data-index="2">
+          <input type="text" maxlength="1" class="pin-digit w-12 h-14 text-center text-2xl font-black rounded-xl bg-white/5 border border-white/10 focus:border-amber-400 focus:scale-105 transition-all" data-index="3">
+          <input type="text" maxlength="1" class="pin-digit w-12 h-14 text-center text-2xl font-black rounded-xl bg-white/5 border border-white/10 focus:border-amber-400 focus:scale-105 transition-all" data-index="4">
+          <input type="text" maxlength="1" class="pin-digit w-12 h-14 text-center text-2xl font-black rounded-xl bg-white/5 border border-white/10 focus:border-amber-400 focus:scale-105 transition-all" data-index="5">
         </div>
+        <p id="gate-error" class="hidden text-red-400 text-xs text-center font-bold uppercase tracking-widest">Invalid Access Code — Try Again</p>
+      </div>
 
-        <main class="glass p-10 rounded-[40px] border-white/10 space-y-8">
-            <div id="gate-form-container">
-                <form id="gate-form" class="space-y-6">
-                    <div class="space-y-3 text-center">
-                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Enter Track Pass-code</label>
-                        <input required maxlength="8" id="passcode" type="text" placeholder="XXXXXXXX" class="w-full p-5 rounded-2xl text-xl font-bold focus:border-gold outline-none transition-all">
-                        <p class="text-[8px] text-slate-600 uppercase tracking-widest">Unique 8-character cryptographic key</p>
-                    </div>
-                    <button type="submit" id="verify-btn" class="w-full bg-gold text-navy-950 py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-white transition-all flex items-center justify-center gap-2">
-                        Verify Access <i data-lucide="shield-check" class="w-4 h-4"></i>
-                    </button>
-                </form>
-            </div>
-
-            <div id="ban-container" class="hidden text-center space-y-6">
-                <div class="w-20 h-20 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mx-auto animate-pulse">
-                    <i data-lucide="shield-alert" class="w-10 h-10"></i>
-                </div>
-                <div class="space-y-2">
-                    <p class="text-sm font-black text-white uppercase">Security Lockout Active</p>
-                    <p class="text-[10px] text-slate-500 uppercase tracking-widest leading-relaxed">Multiple invalid attempts detected. Access denied for:</p>
-                    <p id="timer" class="ban-timer text-2xl font-bold">00:00</p>
-                </div>
-                <p class="text-[8px] text-slate-600 uppercase tracking-[0.3em]">Persistent violations will result in registry termination.</p>
-            </div>
-        </main>
-
-        <div class="text-center">
-            <a href="/trainee-dashboard/" class="text-[9px] font-black text-slate-500 uppercase tracking-widest hover:text-white transition-all">Return to Hub</a>
-        </div>
+      <button onclick="submitGate()" id="gate-submit-btn" class="w-full bg-amber-500 text-navy-950 py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:bg-white transition-all flex items-center justify-center gap-2">
+        Access Track <i data-lucide="shield-check" class="w-4 h-4"></i>
+      </button>
     </div>
 
-    <script type="module">
-        import { PassCodeEngine } from '../../../assets/pass-code-engine.js';
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js';
-        import { getFirestore, doc, getDoc, updateDoc, increment, addDoc, collection, serverTimestamp } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
-        import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js';
+    <div id="ban-container" class="hidden text-center space-y-6">
+      <div class="w-20 h-20 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mx-auto animate-pulse">
+        <i data-lucide="shield-alert" class="w-10 h-10"></i>
+      </div>
+      <div class="space-y-2">
+        <p class="text-sm font-black text-white uppercase">Security Lockout Active</p>
+        <p class="text-[10px] text-slate-500 uppercase tracking-widest leading-relaxed">Multiple invalid attempts detected. Access denied for:</p>
+        <p id="timer" class="ban-timer text-2xl font-bold">00:00</p>
+      </div>
+      <p class="text-[8px] text-slate-600 uppercase tracking-[0.3em]">Persistent violations will result in registry termination.</p>
+    </div>
 
-        const firebaseConfig = { 
-          apiKey: "AIzaSyAODtfZDqeR8DH7YRaiDlRwPOBlxxMfFnY", 
-          authDomain: "skillfoge-ecosystem.firebaseapp.com", 
-          projectId: "skillfoge-ecosystem", 
-          storageBucket: "skillfoge-ecosystem.firebasestorage.app", 
-          messagingSenderId: "279055501952", 
-          appId: "1:279055501952:web:45e741d2e8b23af698f465", 
-          measurementId: "G-YZNF8273RC" 
-        };
+    <div class="text-center space-y-3 pt-4 border-t border-white/5">
+      <p class="text-[9px] text-white/30 uppercase tracking-widest">Already Registered?</p>
+      <a href="../trainee-login/" class="block w-full py-4 rounded-2xl border border-white/10 text-white/50 text-[9px] font-bold uppercase tracking-widest text-center hover:border-amber-500/30 hover:text-amber-400 transition-all">
+        Login to Trainee Portal
+      </a>
+    </div>
+  </main>
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
+  <div class="text-center">
+    <a href="./" class="text-[9px] font-black text-slate-500 uppercase tracking-widest hover:text-white transition-all">Return to Academy Hub</a>
+  </div>
+</div>
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const trackId = urlParams.get('track');
-        const returnUrl = urlParams.get('return') || 'https://portal.skillforgedigital.com.ng/trainee-dashboard/';
-        
-        // Secure Cross-Subdomain UID Detection
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
+<script type="module">
+import { db, auth } from '../../assets/firebase-config.js';
+import { collection, query, where, getDocs, doc, getDoc } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
+import { signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js';
 
-        let uid = localStorage.getItem('skillforge_mock_uid');
-        if (!uid) {
-            const cookieUid = getCookie('sf_uid');
-            if (cookieUid) {
-                uid = cookieUid;
-                localStorage.setItem('skillforge_mock_uid', uid);
-            }
-        }
+const urlParams = new URLSearchParams(window.location.search);
+const trackId = urlParams.get('track');
 
-        if (trackId) {
-            document.getElementById('track-name').innerText = trackId.replace(/-/g, ' ');
-        }
+const TRACK_MAP = {
+  'web-development': 'Web Development',
+  'cyber-security': 'Cyber Security',
+  'forex-synthetics': 'Forex Synthetic Indices',
+  'forex-synthetic-indices': 'Forex Synthetic Indices',
+  'forex-currency': 'Forex Currency Pairs',
+  'forex-currency-pairs': 'Forex Currency Pairs',
+  'ai-content-creation': 'AI Content Creation',
+  'graphic-design': 'Graphic Design',
+  'mobile-cinematography': 'Mobile Cinematography',
+  'photography-and-editing': 'Photography & Editing',
+  'discord-development': 'Discord Development',
+  'digital-marketing': 'Digital Marketing'
+};
 
-        async function getFingerprint() {
-            const ua = navigator.userAgent;
-            const screen = `${window.screen.width}x${window.screen.height}`;
-            const lang = navigator.language;
-            const vendor = navigator.vendor;
-            const str = `${ua}|${screen}|${lang}|${vendor}`;
-            const encoder = new TextEncoder();
-            const data = encoder.encode(str);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
+const trackName = TRACK_MAP[trackId] || trackId || 'this Track';
+document.getElementById('track-name').innerText = trackName;
 
-        function checkBan() {
-            const banExpiry = localStorage.getItem('sf_gate_ban_expiry');
-            if (banExpiry && Date.now() < parseInt(banExpiry)) {
-                showBan(parseInt(banExpiry));
-                return true;
-            }
-            return false;
-        }
+function setupPinInputs() {
+  const digits = document.querySelectorAll('.pin-digit');
+  digits.forEach((input, i) => {
+    input.addEventListener('input', (e) => {
+      if (e.target.value.length === 1 && i < digits.length - 1) {
+        digits[i + 1].focus();
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !e.target.value && i > 0) {
+        digits[i - 1].focus();
+      }
+    });
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const paste = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').substring(0, 6);
+      paste.split('').forEach((char, idx) => {
+        if (digits[idx]) digits[idx].value = char;
+      });
+      if (paste.length >= 6) digits[5].focus();
+    });
+  });
+}
 
-        function showBan(expiry) {
-            document.getElementById('gate-form-container').classList.add('hidden');
-            document.getElementById('ban-container').classList.remove('hidden');
-            
-            const timer = document.getElementById('timer');
-            const interval = setInterval(() => {
-                const remaining = expiry - Date.now();
-                if (remaining <= 0) {
-                    clearInterval(interval);
-                    location.reload();
-                    return;
-                }
-                const m = Math.floor(remaining / 60000);
-                const s = Math.floor((remaining % 60000) / 1000);
-                timer.innerText = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-            }, 1000);
-        }
+window.submitGate = async () => {
+  const digits = document.querySelectorAll('.pin-digit');
+  const pin = Array.from(digits).map(d => d.value).join('');
+  const errorEl = document.getElementById('gate-error');
+  const btn = document.getElementById('gate-submit-btn');
 
-        document.getElementById('gate-form').onsubmit = async (e) => {
-            e.preventDefault();
-            if (checkBan()) return;
+  if (pin.length !== 6) {
+    errorEl.innerText = 'Please enter all 6 digits';
+    errorEl.classList.remove('hidden');
+    return;
+  }
 
-            const code = document.getElementById('passcode').value.toUpperCase();
-            const btn = document.getElementById('verify-btn');
-            btn.disabled = true;
-            btn.innerHTML = 'Decrypting Key... <i class="fa-solid fa-spinner animate-spin ml-2"></i>';
+  btn.disabled = true;
+  btn.innerText = 'Verifying...';
 
-            try {
-                if (!auth.currentUser) await signInAnonymously(auth);
+  try {
+    if (!auth.currentUser) await signInAnonymously(auth);
+    const uid = auth.currentUser ? auth.currentUser.uid : null;
 
-                // 1. Verify Pass-code Checksum Locally
-                if (!PassCodeEngine.verify(code)) {
-                    throw new Error("Invalid cryptographic checksum.");
-                }
+    const q = query(collection(db, 'trainees'), where('pin', '==', pin));
+    const snap = await getDocs(q);
 
-                // 2. Hash and Verify against Database
-                const hashedCode = await PassCodeEngine.hash(code);
-                const traineeRef = doc(db, 'trainees', uid);
-                const traineeSnap = await getDoc(traineeRef);
+    let trainee = null;
+    let traineeId = null;
+    snap.forEach(doc => {
+      const data = doc.data();
+      if (data.track === trackName) {
+        trainee = data;
+        traineeId = doc.id;
+      }
+    });
 
-                if (!traineeSnap.exists()) throw new Error("Registry record missing.");
-                const traineeData = traineeSnap.data();
+    if (!trainee) {
+      errorEl.innerText = 'Invalid Access Code for this track. Check your 6-digit code and try again.';
+      errorEl.classList.remove('hidden');
+      btn.disabled = false;
+      btn.innerText = 'Access Track';
+      return;
+    }
 
-                // STRICT: Trainee can only access the track they registered for
-                // The 'track' field in trainee record is the source of truth
-                const registeredTrack = traineeData.track || "";
-                
-                // Convert registeredTrack (Human Readable) to Track ID (Kebab Case)
-                const TRACK_MAP = {
-                    "Forex Synthetic Indices": "forex-synthetics",
-                    "Forex Currency Pairs": "forex-currency",
-                    "AI Content Creation": "ai-content-creation",
-                    "Photography & Editing": "photography-and-editing",
-                    "Graphic Design": "graphic-design",
-                    "Digital Marketing": "digital-marketing",
-                    "Mobile Cinematography": "mobile-cinematography",
-                    "Discord Development": "discord-development",
-                    "Web Development": "web-development",
-                    "Cyber Security": "cyber-security"
-                };
-                
-                const registeredTrackId = TRACK_MAP[registeredTrack] || registeredTrack.toLowerCase().replace(/\s+/g, '-');
-                
-                if (registeredTrackId !== trackId) {
-                    throw new Error("UNAUTHORIZED_TRACK_ACCESS");
-                }
+    const cookieDomain = window.location.hostname.includes('skillforgedigital.com.ng') ? '.skillforgedigital.com.ng' : window.location.hostname;
+    const sessionToken = btoa(`${uid || 'anonymous'}|${Date.now()}|${trackId}`);
+    document.cookie = `sf_gate_session_${trackId}=${sessionToken}; path=/; max-age=86400; SameSite=Lax`;
+    document.cookie = `sf_gate_uid=${traineeId}; path=/; max-age=86400; SameSite=Lax`;
 
-                // Check if user is already locked to another track (Failsafe)
-                if (traineeData.fingerprint_locked && traineeData.locked_track !== trackId) {
-                    throw new Error("MULTI_TRACK_VIOLATION");
-                }
+    const trackUrl = `./${trackId}/`;
+    window.location.href = trackUrl;
 
-                // In this implementation, the pass-code is stored in the trainee's record
-                // (e.g., during registration or assigned by director)
-                // If it's a global track code, we'd check a different collection.
-                // Assuming it's in trainee.activePasscodes[trackId]
-                const storedHash = traineeData.activePasscodes?.[trackId]?.hash;
-                const expiry = traineeData.activePasscodes?.[trackId]?.expiry?.toDate();
+  } catch (err) {
+    console.error('[Gate] Error:', err);
+    errorEl.innerText = 'Verification error — try again';
+    errorEl.classList.remove('hidden');
+    btn.disabled = false;
+    btn.innerText = 'Access Track';
+  }
+};
 
-                if (!storedHash || storedHash !== hashedCode || (expiry && Date.now() > expiry)) {
-                    throw new Error("Code mismatch or expired.");
-                }
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    window.submitGate();
+  }
+});
 
-                // 3. Success - Bind Fingerprint
-                const fingerprint = await getFingerprint();
-                await updateDoc(traineeRef, {
-                    fingerprint_locked: true,
-                    locked_track: trackId,
-                    [`activePasscodes.${trackId}.lastVerified`]: serverTimestamp(),
-                    [`activePasscodes.${trackId}.fingerprint`]: fingerprint
-                });
-
-                // 4. Set Encrypted Session Cookie (Simulated with Base64)
-                const sessionValue = btoa(`${fingerprint}|${Date.now()}`);
-                const cookieDomain = window.location.hostname.includes('skillforgedigital.com.ng') ? '.skillforgedigital.com.ng' : window.location.hostname;
-                document.cookie = `sf_gate_session_${trackId}=${sessionValue}; path=/; domain=${cookieDomain}; max-age=86400; SameSite=Strict; Secure`;
-
-                // Audit Log
-                await addDoc(collection(db, "gate_audit_logs"), {
-                    uid, trackId, fingerprint, timestamp: serverTimestamp(), status: 'SUCCESS'
-                });
-
-                window.location.href = returnUrl;
-
-            } catch (err) {
-                console.error(err);
-                let msg = "Verification Failed: Access Key Mismatch.";
-                if (err.message === "MULTI_TRACK_VIOLATION") {
-                    msg = "ACCESS DENIED: Record already locked to another track.";
-                } else if (err.message === "UNAUTHORIZED_TRACK_ACCESS") {
-                    msg = "ACCESS DENIED: You are not registered for this specific mastery track.";
-                }
-
-                // Increment Ban Counter
-                let attempts = parseInt(localStorage.getItem('sf_gate_attempts') || "0") + 1;
-                localStorage.setItem('sf_gate_attempts', attempts);
-                
-                if (attempts >= 3) {
-                    const banDuration = (attempts - 2) * 5 * 60 * 1000; // 5 mins, 10 mins, etc.
-                    const expiry = Date.now() + banDuration;
-                    localStorage.setItem('sf_gate_ban_expiry', expiry);
-                    showBan(expiry);
-                } else {
-                    alert(msg);
-                }
-
-                // Audit Log Failure
-                await addDoc(collection(db, "gate_audit_logs"), {
-                    uid, trackId, timestamp: serverTimestamp(), status: 'FAILURE', reason: err.message
-                });
-
-                btn.disabled = false;
-                btn.innerHTML = 'Verify Access <i data-lucide="shield-check" class="w-4 h-4"></i>';
-            }
-        };
-
-        if (window.lucide) window.lucide.createIcons();
-        checkBan();
-    </script>
-    <script type="module">
-        import SkillForgeCore from '../assets/sf-core.js';
-        window.sf_core = new SkillForgeCore();
-    </script>
-
-<script type="module" src="gate.js"></script>
+setupPinInputs();
+if (window.lucide) window.lucide.createIcons();
+</script>
 </body>
 </html>
