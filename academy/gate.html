@@ -82,6 +82,19 @@ import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase
 
 const urlParams = new URLSearchParams(window.location.search);
 const trackId = urlParams.get('track');
+const ssoPasskey = urlParams.get('passkey');
+
+// SSO Auto-Auth Logic
+if (ssoPasskey && trackId) {
+    console.log("[Gate] SSO Passkey detected. Verifying...");
+    // We'll call the submit logic directly with the passkey
+    setTimeout(() => {
+        const digits = ssoPasskey.split('');
+        const inputs = document.querySelectorAll('.pin-digit');
+        digits.forEach((d, i) => { if(inputs[i]) inputs[i].value = d; });
+        window.submitGate();
+    }, 500);
+}
 
 const TRACK_MAP = {
   'web-development': 'Web Development',
@@ -153,7 +166,7 @@ window.submitGate = async () => {
 
     const accessData = accessSnap.data();
 
-    if (accessData.track !== trackName) {
+    if (accessData.track !== trackName && accessData.track !== 'Staff Access') {
       errorEl.innerText = `This code is for "${accessData.track}". You selected a different track.`;
       errorEl.classList.remove('hidden');
       btn.disabled = false;
