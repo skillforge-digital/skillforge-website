@@ -145,12 +145,12 @@
           <a href="../agency/" class="text-amber-600 transition">Agency</a>
           <a href="../contact/" class="hover:text-amber-600 transition">Contact</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
-          <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+          <button id="theme-toggle-nav" onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span id="theme-icon-nav">🌙</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
-        <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
+        <button id="menu-toggle" onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
@@ -237,22 +237,34 @@
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div class="grid grid-cols-2 gap-4">
-              <input name="name" required type="text" placeholder="Contact Name" class="p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white">
-              <input name="email" required type="email" placeholder="Business Email" class="p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white">
+              <div class="space-y-2">
+                <label for="agency-name" class="sr-only">Contact Name</label>
+                <input id="agency-name" name="name" required type="text" placeholder="Contact Name" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white">
+              </div>
+              <div class="space-y-2">
+                <label for="agency-email" class="sr-only">Business Email</label>
+                <input id="agency-email" name="email" required type="email" placeholder="Business Email" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white">
+              </div>
             </div>
             
-            <select name="service_type" required class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white appearance-none">
-              <option value="" disabled selected class="text-slate-900">Select Project Category</option>
-              <option value="web-app" class="text-slate-900">Request a Web App (Web-Dev)</option>
-              <option value="cinematography" class="text-slate-900">Book Cinematography (Mobile-Cinema)</option>
-              <option value="ai-content" class="text-slate-900">Hire AI Content Creators (AI-Content)</option>
-              <option value="forex-support" class="text-slate-900">Forex Trading Support (FX Tracks)</option>
-              <option value="graphic-design" class="text-slate-900">Graphic Design Services (Graphics)</option>
-              <option value="discord-dev" class="text-slate-900">Discord Development (Discord-Dev)</option>
-              <option value="digital-marketing" class="text-slate-900">Digital Marketing & Traffic Sourcing</option>
-            </select>
+            <div class="space-y-2">
+              <label for="service-type" class="sr-only">Select Project Category</label>
+              <select id="service-type" name="service_type" required class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white appearance-none">
+                <option value="" disabled selected class="text-slate-900">Select Project Category</option>
+                <option value="web-app" class="text-slate-900">Request a Web App (Web-Dev)</option>
+                <option value="cinematography" class="text-slate-900">Book Cinematography (Mobile-Cinema)</option>
+                <option value="ai-content" class="text-slate-900">Hire AI Content Creators (AI-Content)</option>
+                <option value="forex-support" class="text-slate-900">Forex Trading Support (FX Tracks)</option>
+                <option value="graphic-design" class="text-slate-900">Graphic Design Services (Graphics)</option>
+                <option value="discord-dev" class="text-slate-900">Discord Development (Discord-Dev)</option>
+                <option value="digital-marketing" class="text-slate-900">Digital Marketing & Traffic Sourcing</option>
+              </select>
+            </div>
             
-            <textarea name="message" required placeholder="Describe your project scope..." class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all h-32 resize-none text-white"></textarea>
+            <div class="space-y-2">
+              <label for="agency-message" class="sr-only">Project Scope Description</label>
+              <textarea id="agency-message" name="message" required placeholder="Describe your project scope..." class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all h-32 resize-none text-white"></textarea>
+            </div>
             
             <div class="mb-8 p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-3">
               <input type="checkbox" required id="human-check" class="w-5 h-5 text-amber-600 border-white/20 rounded focus:ring-amber-500 cursor-pointer">
@@ -317,7 +329,8 @@
               <p class="text-slate-500 mb-8 font-medium">Get weekly high-tier digital insights, project leaks, and elite training updates directly in your inbox.</p>
               <form class="space-y-4">
                 <div class="relative">
-                  <input type="email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium">
+                  <label for="newsletter-email" class="sr-only">Professional Email Address</label>
+                  <input id="newsletter-email" type="email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium">
                   <button class="absolute right-2 top-2 bottom-2 px-8 gold-gradient text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:scale-[1.02] transition-all shadow-lg shadow-amber-600/20">Join Now</button>
                 </div>
                 <p class="text-[10px] text-slate-400 text-center font-bold uppercase tracking-widest">Zero spam. Pure value. RC: 9284189</p>
@@ -372,19 +385,38 @@
     </div>
   </footer>
 
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
+    <span id="theme-icon">🌙</span>
+    <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
+  </button>
+
   <script>
-    function toggleMenu() { document.body.classList.toggle('menu-open'); }
+    function toggleMenu() { 
+      const isOpen = document.body.classList.toggle('menu-open');
+      const btn = document.getElementById('menu-toggle');
+      if (btn) btn.setAttribute('aria-expanded', isOpen);
+    }
     function initTheme() {
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
-      document.getElementById('theme-icon').textContent = saved === 'dark' ? '☀️' : '🌙';
+      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+      });
+      document.querySelectorAll('#theme-toggle, #theme-toggle-nav').forEach(btn => {
+        if (btn) btn.setAttribute('aria-pressed', saved === 'dark');
+      });
     }
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
+        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+      });
+      document.querySelectorAll('#theme-toggle, #theme-toggle-nav').forEach(btn => {
+        if (btn) btn.setAttribute('aria-pressed', next === 'dark');
+      });
     }
 
     function initDailyBackground() {

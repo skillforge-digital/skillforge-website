@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -146,7 +146,7 @@
           <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">??</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
@@ -184,7 +184,7 @@
       <div class="prose prose-slate max-w-none text-slate-600 space-y-8 text-lg leading-relaxed">
         <section class="space-y-4">
           <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">The Inverse Square Law & Light Fall-off</h2>
-          <p>Lighting intensity is not linear; it is exponential. The <strong>Inverse Square Law</strong> states that the intensity of light is inversely proportional to the square of the distance from the source. Doubling the distance doesn't halve the lightâ€”it reduces it to 1/4th. Mastering this mathematical fall-off allows you to control the "Dramatic Gradient" in your background without moving your lights.</p>
+          <p>Lighting intensity is not linear; it is exponential. The <strong>Inverse Square Law</strong> states that the intensity of light is inversely proportional to the square of the distance from the source. Doubling the distance doesn't halve the light—it reduces it to 1/4th. Mastering this mathematical fall-off allows you to control the "Dramatic Gradient" in your background without moving your lights.</p>
           <ul class="list-disc pl-6 space-y-4">
             <li><strong>Luminous Flux & LUX</strong>: Understanding the raw output of your source vs. the actual incident light hitting your subject.</li>
             <li><strong>The Feathering Technique</strong>: Utilizing the edge of a light source's beam to create a softer, more sophisticated transition from highlight to shadow.</li>
@@ -216,14 +216,14 @@
         <section class="p-10 bg-slate-900 text-white rounded-[3rem] relative overflow-hidden">
           <div class="absolute inset-0 gold-gradient opacity-10"></div>
           <h3 class="text-xl font-bold uppercase tracking-widest text-amber-500 mb-4">Skillforge Master Class Secret: Advanced Mastery</h3>
-          <p class="text-slate-300 mb-6">Natural light is just the baseline. In our Master Class, we dive into <strong>Complex Strobe Orchestration</strong> and <strong>High-Speed Sync (HSS) Physics</strong>â€”how to overpower the sun at 1/8000s to create "Impossible" lighting scenarios. <strong>Advanced Mastery is reserved exclusively for the Skillforge Master Class.</strong></p>
+          <p class="text-slate-300 mb-6">Natural light is just the baseline. In our Master Class, we dive into <strong>Complex Strobe Orchestration</strong> and <strong>High-Speed Sync (HSS) Physics</strong>—how to overpower the sun at 1/8000s to create "Impossible" lighting scenarios. <strong>Advanced Mastery is reserved exclusively for the Skillforge Master Class.</strong></p>
           <a href="../../../../agency/" class="inline-block px-8 py-4 bg-amber-600 text-white font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-amber-700 transition-all">Unlock Premium Secrets</a>
         </section>
       </div>
 
       <div class="mt-24 pt-12 border-t border-slate-100 flex justify-between items-center">
-        <a href="../../week-1/day-5/" class="text-slate-400 hover:text-amber-600 font-bold uppercase text-xs tracking-widest transition">← Back to Week 1</a>
-        <a href="../day-3/" class="px-8 py-4 bg-slate-900 text-white font-black uppercase text-xs tracking-widest rounded-xl hover:bg-amber-600 transition shadow-xl">Next Lesson: Intro to Editing →</a>
+        <a href="../../week-1/day-5/" class="text-slate-400 hover:text-amber-600 font-bold uppercase text-xs tracking-widest transition">? Back to Week 1</a>
+        <a href="../day-3/" class="px-8 py-4 bg-slate-900 text-white font-black uppercase text-xs tracking-widest rounded-xl hover:bg-amber-600 transition shadow-xl">Next Lesson: Intro to Editing ?</a>
       </div>
     </div>
   </main>
@@ -290,15 +290,15 @@
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
           <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
           <div class="flex gap-2">
-            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
-            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+            <input type="email" aria-label="Newsletter Email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button aria-label="Subscribe" class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </div>
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>� 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -313,7 +313,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? '??�' : '??';
       });
     }
     function toggleTheme() {
@@ -322,7 +322,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = next === 'dark' ? '??�' : '??';
       });
     }
 

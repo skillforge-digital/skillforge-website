@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -145,7 +145,7 @@
           <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">??</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
@@ -211,7 +211,7 @@
 
         <section>
           <h2 class="uppercase tracking-tight">Semantic Integrity & Accessibility (A11y)</h2>
-          <p>Semantic HTML is not a suggestionâ€”it is a technical requirement for <strong>Assistive Technologies</strong> and <strong>Search Engine Crawlers</strong>. Utilizing elements like <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;nav&gt;</code> provides the structural metadata necessary for the browser to build an <em>Accessibility Tree</em>. Professional architecture ensures that your application is navigable by everyone, regardless of their hardware or physical capabilities.</p>
+          <p>Semantic HTML is not a suggestion—it is a technical requirement for <strong>Assistive Technologies</strong> and <strong>Search Engine Crawlers</strong>. Utilizing elements like <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;nav&gt;</code> provides the structural metadata necessary for the browser to build an <em>Accessibility Tree</em>. Professional architecture ensures that your application is navigable by everyone, regardless of their hardware or physical capabilities.</p>
         </section>
 
         <section class="p-12 bg-slate-900 text-white rounded-[3.5rem] relative overflow-hidden border border-amber-600/30">
@@ -221,7 +221,7 @@
               Elite Mastery Hook: Micro-Frontend Architectures
             </h3>
             <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-              Standard page building is for students. In the <strong>Skillforge Master Class</strong>, we dive into <strong>Micro-Frontend Architectures</strong>â€”the science of breaking down monolithic web apps into independently deployable units.
+              Standard page building is for students. In the <strong>Skillforge Master Class</strong>, we dive into <strong>Micro-Frontend Architectures</strong>—the science of breaking down monolithic web apps into independently deployable units.
             </p>
             <p class="text-amber-600 font-black mb-8 italic">Advanced Mastery is reserved for the Skillforge Master Class.</p>
             <div class="flex flex-wrap gap-4">
@@ -236,7 +236,7 @@
         <div class="text-left">
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Academic Track</div>
           <a href="../../../../academy/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">â†</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">←</span>
             <span class="font-black uppercase tracking-widest text-xs">Back to Academy</span>
           </a>
         </div>
@@ -244,7 +244,7 @@
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Next Lesson</div>
           <a href="../day-3/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
             <span class="font-black uppercase tracking-widest text-xs">Styling with Tailwind CSS</span>
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">â†’</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
           </a>
         </div>
       </div>
@@ -313,15 +313,15 @@
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
           <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
           <div class="flex gap-2">
-            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
-            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+            <input type="email" aria-label="Newsletter Email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button aria-label="Subscribe" class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </div>
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>Â© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -335,14 +335,14 @@
     function initTheme() {
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
-      document.getElementById('theme-icon').textContent = saved === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').textContent = saved === 'dark' ? '??�' : '??';
     }
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '??�' : '??';
     }
 
     function initDailyBackground() {

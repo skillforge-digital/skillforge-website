@@ -68,12 +68,12 @@
           <a href="../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="../contact/" class="hover:text-amber-600 transition">Contact</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Join Academy</a>
-          <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
             <span id="theme-icon-nav">🌙</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
-        <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 focus:outline-none">
+        <button onclick="toggleMenu()" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2 text-slate-900 focus:outline-none">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
@@ -92,7 +92,7 @@
     <button onclick="toggleMenu()" class="mt-12 text-slate-400 text-sm font-bold border-2 border-slate-100 px-8 py-3 rounded-full uppercase">Close</button>
   </div>
 
-  <button id="theme-toggle" onclick="toggleTheme()" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme" class="px-4 py-2 rounded-xl border border-amber-500 bg-white text-amber-700 shadow-lg flex items-center gap-2">
     <span id="theme-icon">🌙</span>
     <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
   </button>
@@ -332,8 +332,8 @@
               <p class="text-slate-500 mb-8 font-medium">Get weekly high-tier digital insights, project leaks, and elite training updates directly in your inbox.</p>
               <form class="space-y-4">
                 <div class="relative">
-                  <input type="email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium">
-                  <button class="absolute right-2 top-2 bottom-2 px-8 gold-gradient text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:scale-[1.02] transition-all shadow-lg shadow-amber-600/20">Join Now</button>
+                  <input type="email" aria-label="Newsletter Email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium">
+                  <button aria-label="Subscribe" class="absolute right-2 top-2 bottom-2 px-8 gold-gradient text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:scale-[1.02] transition-all shadow-lg shadow-amber-600/20">Join Now</button>
                 </div>
                 <p class="text-[10px] text-slate-400 text-center font-bold uppercase tracking-widest">Zero spam. Pure value. RC: 9284189</p>
               </form>
@@ -388,7 +388,11 @@
   </footer>
 
   <script>
-    function toggleMenu() { document.body.classList.toggle('menu-open'); }
+    function toggleMenu() { 
+      const isOpen = document.body.classList.toggle('menu-open'); 
+      const btn = document.querySelector('[onclick="toggleMenu()"]');
+      if (btn) btn.setAttribute('aria-expanded', isOpen);
+    }
     function initTheme() {
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);

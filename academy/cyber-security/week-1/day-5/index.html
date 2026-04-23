@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -62,7 +62,7 @@
           <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">??</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
@@ -120,7 +120,7 @@
           <p>Understanding the difference between these two methods is fundamental to security architecture:</p>
           <ul class="space-y-4">
             <li><strong>Symmetric Encryption</strong>: Uses the same key for both encryption and decryption (e.g., AES). It's fast but requires a secure way to share the key.</li>
-            <li><strong>Asymmetric Encryption</strong>: Uses a pair of keysâ€”a <strong>Public Key</strong> to encrypt and a <strong>Private Key</strong> to decrypt (e.g., RSA). This is the backbone of the modern internet (HTTPS/SSL).</li>
+            <li><strong>Asymmetric Encryption</strong>: Uses a pair of keys—a <strong>Public Key</strong> to encrypt and a <strong>Private Key</strong> to decrypt (e.g., RSA). This is the backbone of the modern internet (HTTPS/SSL).</li>
             <li><strong>Hashing</strong>: A one-way function that creates a fixed-length "fingerprint" of data (e.g., SHA-256). Used for verifying integrity and storing passwords safely.</li>
           </ul>
         </section>
@@ -137,7 +137,7 @@
               Elite Mastery Hook: Breaking the Unbreakable
             </h3>
             <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-              Cryptography is a shield, but every shield has a weakness. In the <strong>Skillforge Master Class</strong>, we dive into <strong>Cryptanalysis</strong>â€”learning how to identify weak algorithms, exploit improper key management, and understand the future of security with Quantum-Resistant Cryptography.
+              Cryptography is a shield, but every shield has a weakness. In the <strong>Skillforge Master Class</strong>, we dive into <strong>Cryptanalysis</strong>—learning how to identify weak algorithms, exploit improper key management, and understand the future of security with Quantum-Resistant Cryptography.
             </p>
             <p class="text-amber-600 font-black mb-8 italic">Advanced Cryptographic Exploitation is reserved for the Skillforge Master Class.</p>
             <div class="flex flex-wrap gap-4">
@@ -152,7 +152,7 @@
         <div class="text-left">
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Previous Lesson</div>
           <a href="../day-3/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">â†</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">←</span>
             <span class="font-black uppercase tracking-widest text-xs">Network Security & Protocols</span>
           </a>
         </div>
@@ -160,7 +160,7 @@
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Next Week</div>
           <a href="../../week-2/day-1/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
             <span class="font-black uppercase tracking-widest text-xs">Vulnerabilities & Analysis</span>
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">â†’</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
           </a>
         </div>
       </div>
@@ -229,15 +229,15 @@
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
           <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
           <div class="flex gap-2">
-            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
-            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+            <input type="email" aria-label="Newsletter Email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button aria-label="Subscribe" class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </div>
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>Â© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -252,7 +252,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? '??�' : '??';
       });
     }
     function toggleTheme() {
@@ -261,7 +261,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = next === 'dark' ? '??�' : '??';
       });
     }
 

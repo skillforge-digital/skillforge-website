@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -225,23 +225,23 @@
             
             <div class="grid md:grid-cols-2 gap-8">
               <div class="space-y-3">
-                <label class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Legal Full Name</label>
-                <input type="text" name="name" required class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="Johnathan Doe">
+                <label for="name" class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Legal Full Name</label>
+                <input id="name" type="text" name="name" required class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="Johnathan Doe">
               </div>
               <div class="space-y-3">
-                <label class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Primary Email</label>
-                <input type="email" name="email" required class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="john@skillforge.com">
+                <label for="email" class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Primary Email</label>
+                <input id="email" type="email" name="email" required class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="john@skillforge.com">
               </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
               <div class="space-y-3">
-                <label class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Membership Key</label>
-                <input type="text" name="membership_id" required class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="SF-ARC-XXXXX">
+                <label for="membership_id" class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Membership Key</label>
+                <input id="membership_id" type="text" name="membership_id" required class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="SF-ARC-XXXXX">
               </div>
               <div class="space-y-3">
-                <label class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Portfolio URL</label>
-                <input type="url" name="portfolio_link" class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="https://portfolio.com">
+                <label for="portfolio_link" class="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600">Portfolio URL</label>
+                <input id="portfolio_link" type="url" name="portfolio_link" class="w-full bg-slate-800/40 border border-slate-700/50 rounded-2xl px-6 py-5 focus:outline-none focus:border-amber-600 transition placeholder:text-slate-600" placeholder="https://portfolio.com">
               </div>
             </div>
 
@@ -342,8 +342,8 @@
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
           <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
           <div class="flex gap-2">
-            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
-            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+            <input type="email" aria-label="Newsletter Email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button aria-label="Subscribe" class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </div>

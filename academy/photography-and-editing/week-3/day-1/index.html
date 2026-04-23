@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -146,7 +146,7 @@
           <a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a>
           <a href="https://portal.skillforgedigital.com.ng/" target="_blank" class="px-6 py-3 border-2 border-amber-600 text-amber-600 rounded-xl hover:bg-amber-600 hover:text-white transition-all shadow-lg shadow-amber-600/10">Register Now</a>
           <button onclick="toggleTheme()" class="ml-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-900 bg-white hover:bg-slate-100 transition inline-flex items-center gap-2">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">??</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Theme</span>
           </button>
         </div>
@@ -213,7 +213,7 @@
             </div>
             <div class="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
               <h3 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">The "Blue Hour" City</h3>
-              <p class="text-slate-500 leading-relaxed">Capture the perfect balance between the fading natural light and the glowing lights of the city. Timing is everythingâ€”you often only have a 15-minute window for the perfect shot.</p>
+              <p class="text-slate-500 leading-relaxed">Capture the perfect balance between the fading natural light and the glowing lights of the city. Timing is everything—you often only have a 15-minute window for the perfect shot.</p>
             </div>
           </div>
         </section>
@@ -221,7 +221,7 @@
         <section class="p-10 bg-slate-900 text-white rounded-[3rem] relative overflow-hidden">
           <div class="absolute inset-0 gold-gradient opacity-10"></div>
           <h3 class="text-xl font-bold uppercase tracking-widest text-amber-500 mb-4">Pro Tip: Look for a Foreground</h3>
-          <p class="text-slate-300 mb-6">A vast landscape can often feel flat and empty. Include an interesting element in the foregroundâ€”a rock, a flower, or a leading lineâ€”to provide a sense of scale and draw the viewer's eye into the scene. This "near-to-far" composition is a classic landscape technique.</p>
+          <p class="text-slate-300 mb-6">A vast landscape can often feel flat and empty. Include an interesting element in the foreground—a rock, a flower, or a leading line—to provide a sense of scale and draw the viewer's eye into the scene. This "near-to-far" composition is a classic landscape technique.</p>
         </section>
 
         <section class="space-y-6">
@@ -235,14 +235,14 @@
 
       <div class="mt-24 pt-12 border-t border-slate-100 flex justify-between items-center">
         <a href="../../../../#academy" class="group flex items-center gap-4 text-slate-400 hover:text-slate-900 transition">
-          <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">←</span>
+          <span class="w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-400 rounded-full group-hover:bg-slate-900 group-hover:text-white transition">?</span>
           <span class="font-black uppercase tracking-widest text-xs">Back to Academy</span>
         </a>
         <div class="text-right">
           <div class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">Next Lesson</div>
           <a href="../day-3/" class="group flex items-center gap-4 text-slate-900 hover:text-amber-600 transition">
             <span class="font-black uppercase tracking-widest text-xs">Storytelling & Series</span>
-            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">→</span>
+            <span class="w-10 h-10 flex items-center justify-center bg-slate-900 text-white rounded-full group-hover:bg-amber-600 transition">?</span>
           </a>
         </div>
       </div>
@@ -311,15 +311,15 @@
           <h4 class="font-black text-slate-900 uppercase tracking-widest text-sm mb-8">Newsletter</h4>
           <p class="text-slate-500 text-sm mb-6 leading-relaxed">Join 10,000+ creators for weekly insights.</p>
           <div class="flex gap-2">
-            <input type="email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
-            <button class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
+            <input type="email" aria-label="Newsletter Email" placeholder="Email" class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm w-full focus:outline-none focus:border-amber-600 transition">
+            <button aria-label="Subscribe" class="bg-slate-900 text-white p-3 rounded-xl hover:bg-amber-600 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </div>
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>© 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>� 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -334,7 +334,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = saved === 'dark' ? '??�' : '??';
       });
     }
     function toggleTheme() {
@@ -343,7 +343,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+        if (icon) icon.textContent = next === 'dark' ? '??�' : '??';
       });
     }
 
