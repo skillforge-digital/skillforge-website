@@ -1,4 +1,4 @@
-import { db, auth } from '../../assets/firebase-config.js';
+import { db, auth } from '../assets/firebase-config.js';
 import { doc, getDoc, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js';
 
 const SESSION_COOKIE_PREFIX = 'sf_gate_session_';
@@ -15,7 +15,10 @@ function getTrackIdFromPath() {
   const pathParts = window.location.pathname.split('/').filter(Boolean);
   const academyIndex = pathParts.indexOf('academy');
   if (academyIndex !== -1 && pathParts.length > academyIndex + 1) {
-    return pathParts[academyIndex + 1];
+    const trackId = pathParts[academyIndex + 1];
+    if (trackId && trackId !== 'index.html' && trackId !== 'gate.html') {
+      return trackId;
+    }
   }
   return null;
 }
@@ -74,7 +77,10 @@ export async function initAccessGate() {
   }
 
   console.log(`[Gate] No valid session for track: ${trackId}, redirecting to gate`);
-  window.location.href = `./gate.html?track=${trackId}`;
+  const pathParts = window.location.pathname.split('/');
+  const academyIndex = pathParts.indexOf('academy');
+  const basePath = academyIndex !== -1 ? pathParts.slice(0, academyIndex + 1).join('/') : '/academy';
+  window.location.href = `${basePath}/gate.html?track=${trackId}`;
   return false;
 }
 
@@ -95,3 +101,6 @@ export function clearGateSession(trackId) {
 export function getGateUid() {
   return getCookie('sf_gate_uid');
 }
+
+// Automatically invoke access gate on load
+initAccessGate();

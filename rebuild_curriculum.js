@@ -66,7 +66,7 @@ function extractTrackInfo(trackPath) {
     };
 }
 
-const academyPath = path.join('c:', 'Users', 'USER', 'Documents', 'trae_projects - Copy', 'skill forge site', 'academy');
+const academyPath = path.join(__dirname, 'academy');
 const tracks = [];
 
 fs.readdirSync(academyPath).forEach(item => {
