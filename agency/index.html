@@ -273,16 +273,16 @@
           <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
             <input type="hidden" name="access_key" value="6e5a77e1-b5e9-43e3-9a0b-2c2707362c97">
             <input type="hidden" name="subject" value="New Agency Service Request">
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" aria-label="botcheck">
 
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-2">
                 <label for="agency-name" class="sr-only">Contact Name</label>
-                <input id="agency-name" name="name" required type="text" placeholder="Contact Name" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white">
+                <input id="agency-name" name="name" required type="text" placeholder="Contact Name" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white" aria-label="Contact Name">
               </div>
               <div class="space-y-2">
                 <label for="agency-email" class="sr-only">Business Email</label>
-                <input id="agency-email" name="email" required type="email" placeholder="Business Email" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white">
+                <input id="agency-email" name="email" required type="email" placeholder="Business Email" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-white" aria-label="Business Email">
               </div>
             </div>
             
@@ -306,7 +306,7 @@
             </div>
             
             <div class="mb-8 p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-3">
-              <input type="checkbox" required id="human-check" class="w-5 h-5 text-amber-600 border-white/20 rounded focus:ring-amber-500 cursor-pointer">
+              <input type="checkbox" required id="human-check" class="w-5 h-5 text-amber-600 border-white/20 rounded focus:ring-amber-500 cursor-pointer" aria-label="Input Field">
               <label for="human-check" class="text-sm font-bold text-slate-400 cursor-pointer select-none">I am not a robot (Honeypot protection enabled)</label>
             </div>
 
@@ -353,7 +353,7 @@
               <form class="space-y-4">
                 <div class="relative">
                   <label for="newsletter-email" class="sr-only">Professional Email Address</label>
-                  <input id="newsletter-email" type="email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium">
+                  <input id="newsletter-email" type="email" placeholder="Enter your elite email" class="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-amber-600 outline-none transition-all text-slate-900 font-medium" aria-label="Enter your elite email">
                   <button class="absolute right-2 top-2 bottom-2 px-8 gold-gradient text-white rounded-xl font-black uppercase text-[10px] tracking-widest hover:scale-[1.02] transition-all shadow-lg shadow-amber-600/20">Join Now</button>
                 </div>
                 <p class="text-[10px] text-slate-400 text-center font-bold uppercase tracking-widest">Zero spam. Pure value. RC: 9284189</p>
