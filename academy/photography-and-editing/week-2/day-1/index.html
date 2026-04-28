@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://skillforgedigital.com.ng/academic/photography-and-editing/week-2/day-1/" />
+  <link rel="canonical" href="https://skillforgedigital.com.ng/academy/photography-and-editing/week-2/day-1/" />
   <title>Week 2 - Day 1: Understanding Light | Skillforge Academy</title>
 
   <!-- Advanced SEO Search Magnets -->
@@ -305,7 +305,7 @@
             <li><a href="../../../../" class="hover:text-amber-600 transition">Main Hub</a></li>
             <li><a href="../../../../about-us/" class="hover:text-amber-600 transition">About Us</a></li>
             <li><a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a></li>
-            <li><a href="../../../../#tracks" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+            <li><a href="/tracks/" class="hover:text-amber-600 transition">Skill Tracks</a></li>
           </ul>
         </div>
         <div>
@@ -329,7 +329,7 @@
         </div>
       </div>
       <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">
-        <div>� 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
+        <div>&copy; 2026 Skillforge Digital & Co. LTD. All rights reserved.</div>
         <div class="flex gap-8">
           <span>Lagos, Nigeria</span>
           <span>Digital First</span>
@@ -344,7 +344,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '??�' : '??';
+        if (icon) icon.textContent = saved === 'dark' ? '??&copy;' : '??';
       });
     }
     function toggleTheme() {
@@ -353,7 +353,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '??�' : '??';
+        if (icon) icon.textContent = next === 'dark' ? '??&copy;' : '??';
       });
     }
 

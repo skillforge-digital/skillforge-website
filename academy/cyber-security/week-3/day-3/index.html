@@ -246,7 +246,7 @@
             <li><a href="../../../../" class="hover:text-amber-600 transition">Main Hub</a></li>
             <li><a href="../../../../about-us/" class="hover:text-amber-600 transition">About Us</a></li>
             <li><a href="../../../../agency/" class="hover:text-amber-600 transition">Agency</a></li>
-            <li><a href="../../../../#tracks" class="hover:text-amber-600 transition">Skill Tracks</a></li>
+            <li><a href="/tracks/" class="hover:text-amber-600 transition">Skill Tracks</a></li>
           </ul>
         </div>
         <div>
@@ -285,7 +285,7 @@
       const saved = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = saved === 'dark' ? '??�' : '??';
+        if (icon) icon.textContent = saved === 'dark' ? '??&copy;' : '??';
       });
     }
     function toggleTheme() {
@@ -294,7 +294,7 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.querySelectorAll('#theme-icon, #theme-icon-nav').forEach(icon => {
-        if (icon) icon.textContent = next === 'dark' ? '??�' : '??';
+        if (icon) icon.textContent = next === 'dark' ? '??&copy;' : '??';
       });
     }
 
