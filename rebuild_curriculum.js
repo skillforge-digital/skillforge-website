@@ -155,7 +155,7 @@ let html = '<!DOCTYPE html>\n' +
 '    <header class="text-center mb-20">\n' +
 '        <div class="flex justify-center mb-8">\n' +
 '            <div class="w-20 h-20 bg-black rounded-3xl flex items-center justify-center border-2 border-amber-500 transform rotate-3 shadow-xl">\n' +
-'                <img src="/assets/brand-logo.svg" alt="SkillForge Digital logo" class="w-16 h-16 object-cover rounded-2xl">\n' +
+'                <img src="/assets/brand-logo.jpg" alt="SkillForge Digital logo" class="w-16 h-16 object-cover rounded-2xl">\n' +
 '            </div>\n' +
 '        </div>\n' +
 '        <h1 class="text-6xl font-black tracking-tighter uppercase mb-4">Skillforge <br><span class="gradient-text">Academy Curriculum</span></h1>\n' +
@@ -235,7 +235,7 @@ let html = '<!DOCTYPE html>\n' +
 '        <footer class="text-center mt-24 pt-12 border-t border-slate-200">\n' +
 '            <div class="flex justify-center mb-8">\n' +
 '                <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center border border-amber-500">\n' +
-'                    <img src="/assets/brand-logo.svg" alt="SkillForge Digital logo" class="w-10 h-10 object-cover rounded-lg">\n' +
+'                    <img src="/assets/brand-logo.jpg" alt="SkillForge Digital logo" class="w-10 h-10 object-cover rounded-lg">\n' +
 '                </div>\n' +
 '            </div>\n' +
 '            <p class="text-slate-400 text-xs font-black uppercase tracking-[0.4em]">&copy; 2026 Skillforge Digital & Co. LTD</p>\n' +
