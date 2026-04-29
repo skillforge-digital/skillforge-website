@@ -39,13 +39,15 @@ async function verifySession(trackId) {
 
   const session = parseSession(sessionCookie);
   if (!session) return false;
+  if (session.trackId && session.trackId !== trackId) return false;
 
   if (Date.now() - session.timestamp > SESSION_DURATION_MS) {
     return false;
   }
 
   try {
-    if (!auth.currentUser) return false;
+    if (!auth.currentUser) return true;
+    if (session.uid && auth.currentUser.uid !== session.uid) return false;
     const traineeRef = doc(db, 'trainees', auth.currentUser.uid);
     const traineeSnap = await getDoc(traineeRef);
     
@@ -77,10 +79,13 @@ export async function initAccessGate() {
   }
 
   console.log(`[Gate] No valid session for track: ${trackId}, redirecting to gate`);
+  const urlParams = new URLSearchParams(window.location.search);
+  const passkey = urlParams.get('passkey');
   const pathParts = window.location.pathname.split('/');
   const academyIndex = pathParts.indexOf('academy');
   const basePath = academyIndex !== -1 ? pathParts.slice(0, academyIndex + 1).join('/') : '/academy';
-  window.location.href = `${basePath}/gate.html?track=${trackId}`;
+  const passkeyPart = passkey ? `&passkey=${encodeURIComponent(passkey)}` : '';
+  window.location.href = `${basePath}/gate.html?track=${encodeURIComponent(trackId)}${passkeyPart}`;
   return false;
 }
 
