@@ -231,6 +231,10 @@ window.submitGate = async () => {
     const sessionToken = btoa(`${uid}|${Date.now()}|${trackId}`);
     document.cookie = `sf_gate_session_${trackId}=${sessionToken}; path=/; max-age=86400; SameSite=Lax`;
     document.cookie = `sf_gate_uid=${uid}; path=/; max-age=86400; SameSite=Lax`;
+    if (accessData.track === 'Staff Access') {
+      const staffSession = btoa(`${uid}|${Date.now()}`);
+      document.cookie = `sf_gate_staff_session=${staffSession}; path=/; max-age=86400; SameSite=Lax`;
+    }
 
     const trackUrl = `./${trackId}/`;
     window.location.href = trackUrl;
